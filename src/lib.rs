@@ -2957,6 +2957,22 @@ pub mod root {
                 pub fn DeleteFile(filepath: *const libc::c_char) -> root::Result;
             }
             extern "C" {
+                #[link_name = "\u{1}_ZN2nn2fs15DeleteDirectoryEPKc"]
+                pub fn DeleteDirectory(path: *const libc::c_char) -> root::Result;
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2fs26DeleteDirectoryRecursivelyEPKc"]
+                pub fn DeleteDirectoryRecursively(path: *const libc::c_char) -> root::Result;
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2fs10RenameFileEPKcS2_"]
+                pub fn RenameFile(old: *const libc::c_char, new: *const libc::c_char) -> root::Result;
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2fs10RenameFileEPKcS2_"]
+                pub fn RenameDirectory(old: *const libc::c_char, new: *const libc::c_char) -> root::Result;
+            }
+            extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs8ReadFileEPmNS0_10FileHandleElPvmRKi"]
                 pub fn ReadFile(
                     outSize: *mut u64,
