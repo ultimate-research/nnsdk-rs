@@ -5653,6 +5653,7 @@ pub mod root {
                     arg4: root::s32,
                 ) -> root::nn::util::CharacterEncodingResult;
             }
+            
             #[repr(C)]
             pub struct RelocationTable {
                 pub mMagic: root::s32,
@@ -6559,6 +6560,18 @@ pub mod root {
                 pub fn GetCurrentPrimaryIpAddress(inAddr: *mut u64) -> root::Result;
             }
         }
+        pub mod ldn {
+            #[allow(unused_imports)]
+            use self::super::super::super::root;
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn3ldn10InitializeEv"]
+                pub fn Initialize() -> root::Result;
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn3ldn8FinalizeEv"]
+                pub fn Finalize() -> root::Result;
+            }
+        }
         pub mod socket {
             #[allow(unused_imports)]
             use self::super::super::super::root;
@@ -6596,6 +6609,12 @@ pub mod root {
                     poolSize: root::ulong,
                     allocPoolSize: root::ulong,
                     concurLimit: libc::c_int,
+                ) -> root::Result;
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn6socket10InitializeERKNS0_6ConfigE"]
+                pub fn Initialize_Config(
+                    config: *mut libc::c_void,
                 ) -> root::Result;
             }
             extern "C" {
