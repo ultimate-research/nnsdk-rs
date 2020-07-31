@@ -810,7 +810,7 @@ pub mod root {
             pub struct ApplicationErrorArg {
                 unk: u64,
                 error_code: u32,
-                language_code: root::nn::settings::LanguageCode,
+                language_code: *const root::nn::settings::LanguageCode,
                 dialog_message: [u8; 2048usize],
                 fullscreen_message: [u8; 2048usize],
             }
@@ -842,7 +842,7 @@ pub mod root {
                 );
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn3err19ApplicationErrorArgC1EjPKcS3_RKj"]
+                #[link_name = "\u{1}_ZN2nn3err19ApplicationErrorArgC2EjPKcS3_RKNS_8settings12LanguageCodeE"]
                 pub fn ApplicationErrorArg_ApplicationErrorArg1(
                     this: *mut root::nn::err::ApplicationErrorArg,
                     error_code: u32,
