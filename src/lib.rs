@@ -6311,8 +6311,8 @@ pub mod root {
                 pub fn GetNpadStyleSet(arg1: *const u32);
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn3hid22SetSupportedNpadIdTypeEPKjm"]
-                pub fn SetSupportedNpadIdType(arg1: *const u32, arg2: u64);
+                #[link_name = "\u{1}_ZN2nn3hid19GetPlayerLedPatternERKj"]
+                pub fn GetPlayerLedPattern(arg1: *const u32);
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3hid13GetNpadStatesEPNS0_17NpadHandheldStateEiRKj"]
