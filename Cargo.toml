@@ -3,11 +3,12 @@ name = "nnsdk"
 version = "0.1.0"
 authors = ["jam1garner <jam1.mcleod@hotmail.com>"]
 edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+description = "Cleanroom reverse-engineered bindings for nnsdk (Nintendo Switch SDK)"
+documentation = "https://docs.rs/nnsdk"
 
 [dependencies]
-libc = { git = "https://github.com/ultimate-research/libc-nnsdk.git" }
+libc-nnsdk = "0.0.1"
 
 [features]
 rustc-dep-of-std = []
