@@ -325,8 +325,7 @@ pub mod root {
     pub type uint = u32;
     pub type Result = u32;
     pub type Handle = u32;
-    pub type ThreadFunc =
-        ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>;
+    pub type ThreadFunc = ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>;
     pub const Module_Kernel: root::_bindgen_ty_1 = 1;
     pub const Module_Libnx: root::_bindgen_ty_1 = 345;
     pub const Module_HomebrewAbi: root::_bindgen_ty_1 = 346;
@@ -861,10 +860,7 @@ pub mod root {
                     ApplicationErrorArg_SetDialogMessage(self, message)
                 }
                 #[inline]
-                pub unsafe fn SetFullScreenMessage(
-                    &mut self,
-                    message: *const u8,
-                ) {
+                pub unsafe fn SetFullScreenMessage(&mut self, message: *const u8) {
                     ApplicationErrorArg_SetFullScreenMessage(self, message)
                 }
                 #[inline]
@@ -1556,8 +1552,7 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os21AllocateAddressRegionEPmm"]
-                pub fn AllocateAddressRegion(arg1: *mut u64, arg2: u64)
-                    -> root::Result;
+                pub fn AllocateAddressRegion(arg1: *mut u64, arg2: u64) -> root::Result;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os14AllocateMemoryEPmm"]
@@ -1759,9 +1754,7 @@ pub mod root {
                 #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mii"]
                 pub fn CreateThread(
                     arg1: *mut root::nn::os::ThreadType,
-                    arg2: ::core::option::Option<
-                        unsafe extern "C" fn(arg1: *mut libc::c_void),
-                    >,
+                    arg2: ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>,
                     arg: *mut libc::c_void,
                     srcStack: *mut libc::c_void,
                     stackSize: u64,
@@ -2585,7 +2578,9 @@ pub mod root {
                         i += 1;
                     }
 
-                    write!(f, "{}", unsafe { alloc::str::from_utf8_unchecked(&self.0[..i]) })
+                    write!(f, "{}", unsafe {
+                        alloc::str::from_utf8_unchecked(&self.0[..i])
+                    })
                 }
             }
 
@@ -2593,7 +2588,7 @@ pub mod root {
             pub struct Uid {
                 pub id: [u64; 2usize],
             }
-            
+
             impl Uid {
                 pub fn new() -> Self {
                     Self { id: [0, 0] }
@@ -3027,10 +3022,7 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs10CreateFileEPKcl"]
-                pub fn CreateFile(
-                    filepath: *const libc::c_char,
-                    size: root::s64,
-                ) -> root::Result;
+                pub fn CreateFile(filepath: *const libc::c_char, size: root::s64) -> root::Result;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs8OpenFileEPNS0_10FileHandleEPKci"]
@@ -3069,11 +3061,17 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs10RenameFileEPKcS2_"]
-                pub fn RenameFile(old: *const libc::c_char, new: *const libc::c_char) -> root::Result;
+                pub fn RenameFile(
+                    old: *const libc::c_char,
+                    new: *const libc::c_char,
+                ) -> root::Result;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs10RenameFileEPKcS2_"]
-                pub fn RenameDirectory(old: *const libc::c_char, new: *const libc::c_char) -> root::Result;
+                pub fn RenameDirectory(
+                    old: *const libc::c_char,
+                    new: *const libc::c_char,
+                ) -> root::Result;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs8ReadFileEPmNS0_10FileHandleElPvmRKi"]
@@ -4112,11 +4110,7 @@ pub mod root {
                         Md5Impl_Initialize(self)
                     }
                     #[inline]
-                    pub unsafe fn Update(
-                        &mut self,
-                        arg1: *const libc::c_void,
-                        dataSize: u64,
-                    ) {
+                    pub unsafe fn Update(&mut self, arg1: *const libc::c_void, dataSize: u64) {
                         Md5Impl_Update(self, arg1, dataSize)
                     }
                     #[inline]
@@ -4124,11 +4118,7 @@ pub mod root {
                         Md5Impl_ProcessBlock(self)
                     }
                     #[inline]
-                    pub unsafe fn GetHash(
-                        &mut self,
-                        arg1: *mut libc::c_void,
-                        hashSize: u64,
-                    ) {
+                    pub unsafe fn GetHash(&mut self, arg1: *mut libc::c_void, hashSize: u64) {
                         Md5Impl_GetHash(self, arg1, hashSize)
                     }
                     #[inline]
@@ -4317,11 +4307,7 @@ pub mod root {
                         Sha1Impl_Initialize(self)
                     }
                     #[inline]
-                    pub unsafe fn Update(
-                        &mut self,
-                        arg1: *const libc::c_void,
-                        arg2: u64,
-                    ) {
+                    pub unsafe fn Update(&mut self, arg1: *const libc::c_void, arg2: u64) {
                         Sha1Impl_Update(self, arg1, arg2)
                     }
                     #[inline]
@@ -4329,11 +4315,7 @@ pub mod root {
                         Sha1Impl_ProcessBlock(self, arg1)
                     }
                     #[inline]
-                    pub unsafe fn GetHash(
-                        &mut self,
-                        destHash: *mut libc::c_void,
-                        arg1: u64,
-                    ) {
+                    pub unsafe fn GetHash(&mut self, destHash: *mut libc::c_void, arg1: u64) {
                         Sha1Impl_GetHash(self, destHash, arg1)
                     }
                     #[inline]
@@ -4585,11 +4567,7 @@ pub mod root {
                         Sha256Impl_Initialize(self)
                     }
                     #[inline]
-                    pub unsafe fn Update(
-                        &mut self,
-                        arg1: *const libc::c_void,
-                        arg2: u64,
-                    ) {
+                    pub unsafe fn Update(&mut self, arg1: *const libc::c_void, arg2: u64) {
                         Sha256Impl_Update(self, arg1, arg2)
                     }
                     #[inline]
@@ -4597,11 +4575,7 @@ pub mod root {
                         Sha256Impl_ProcessBlocks(self, arg1, arg2)
                     }
                     #[inline]
-                    pub unsafe fn GetHash(
-                        &mut self,
-                        destHash: *mut libc::c_void,
-                        arg1: u64,
-                    ) {
+                    pub unsafe fn GetHash(&mut self, destHash: *mut libc::c_void, arg1: u64) {
                         Sha256Impl_GetHash(self, destHash, arg1)
                     }
                     #[inline]
@@ -4742,10 +4716,7 @@ pub mod root {
             }
             impl PlayReport {
                 #[inline]
-                pub unsafe fn SetEventId(
-                    &mut self,
-                    arg1: *const libc::c_char,
-                ) -> root::Result {
+                pub unsafe fn SetEventId(&mut self, arg1: *const libc::c_char) -> root::Result {
                     PlayReport_SetEventId(self, arg1)
                 }
                 #[inline]
@@ -5051,11 +5022,7 @@ pub mod root {
             }
             impl JpegDecoder {
                 #[inline]
-                pub unsafe fn SetImageData(
-                    &mut self,
-                    source: *const libc::c_void,
-                    size: u64,
-                ) {
+                pub unsafe fn SetImageData(&mut self, source: *const libc::c_void, size: u64) {
                     JpegDecoder_SetImageData(self, source, size)
                 }
                 #[inline]
@@ -5342,11 +5309,8 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn4diag13GetSymbolNameEPcmm"]
-                pub fn GetSymbolName(
-                    name: *mut libc::c_char,
-                    nameSize: u64,
-                    addr: u64,
-                ) -> *mut u32;
+                pub fn GetSymbolName(name: *mut libc::c_char, nameSize: u64, addr: u64)
+                    -> *mut u32;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn4diag40GetRequiredBufferSizeForGetAllModuleInfoEv"]
@@ -5559,11 +5523,7 @@ pub mod root {
             }
             impl StandardAllocator {
                 #[inline]
-                pub unsafe fn Initialize(
-                    &mut self,
-                    address: *mut libc::c_void,
-                    size: u64,
-                ) {
+                pub unsafe fn Initialize(&mut self, address: *mut libc::c_void, size: u64) {
                     StandardAllocator_Initialize(self, address, size)
                 }
                 #[inline]
@@ -5756,7 +5716,7 @@ pub mod root {
                     arg4: root::s32,
                 ) -> root::nn::util::CharacterEncodingResult;
             }
-            
+
             #[repr(C)]
             pub struct RelocationTable {
                 pub mMagic: root::s32,
@@ -6084,15 +6044,34 @@ pub mod root {
             #[allow(unused_imports)]
             use self::super::super::super::root;
             #[repr(C)]
-            #[derive(Debug, Copy, Clone)]
+            #[derive(Debug, Copy, Clone, Default)]
             pub struct NpadHandheldState {
-                _unused: [u8; 0],
+                pub updateCount: i64,
+                pub Buttons: u64,
+                pub LStickX: i32,
+                pub LStickY: i32,
+                pub RStickX: i32,
+                pub RStickY: i32,
+                pub Flags: u32,
             }
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
             pub struct NpadStyleTag {
                 _unused: [u8; 0],
             }
+
+            #[repr(C)]
+            #[derive(Debug, Copy, Clone)]
+            pub struct NpadStyleSet {
+                pub flags: u32,
+            }
+
+            // pub u32 NpadStyleFullKey = 0x1;
+            // pub u32 NpadStyleHandheld = 0x2;
+            // pub u32 NpadStyleJoyDual = 0x4;
+            // pub u32 NpadStyleJoyLeft = 0x8;
+            // pub u32 NpadStyleJoyRight = 0x10;
+
             #[repr(C)]
             pub struct ControllerSupportArg {
                 pub mMinPlayerCount: u8,
@@ -6308,7 +6287,7 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3hid15GetNpadStyleSetERKj"]
-                pub fn GetNpadStyleSet(arg1: *const u32);
+                pub fn GetNpadStyleSet(arg1: *const u32) -> NpadStyleSet;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3hid19GetPlayerLedPatternERKj"]
@@ -6720,9 +6699,7 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn6socket10InitializeERKNS0_6ConfigE"]
-                pub fn Initialize_Config(
-                    config: *mut libc::c_void,
-                ) -> root::Result;
+                pub fn Initialize_Config(config: *mut libc::c_void) -> root::Result;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn6socket8FinalizeEv"]
@@ -6764,19 +6741,12 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn6socket7ConnectEiPK8sockaddrj"]
-                pub fn Connect(
-                    socket: root::s32,
-                    addr: *const root::sockaddr,
-                    addrLen: u32,
-                ) -> u32;
+                pub fn Connect(socket: root::s32, addr: *const root::sockaddr, addrLen: u32)
+                    -> u32;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn6socket4BindEiPK8sockaddrj"]
-                pub fn Bind(
-                    socket: root::s32,
-                    addr: *const root::sockaddr,
-                    addrLen: u32,
-                ) -> u32;
+                pub fn Bind(socket: root::s32, addr: *const root::sockaddr, addrLen: u32) -> u32;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn6socket6ListenEii"]
@@ -6793,10 +6763,7 @@ pub mod root {
         }
     }
     extern "C" {
-        pub fn main(
-            argc: libc::c_int,
-            argv: *mut *mut libc::c_char,
-        ) -> libc::c_int;
+        pub fn main(argc: libc::c_int, argv: *mut *mut libc::c_char) -> libc::c_int;
     }
     extern "C" {
         pub fn nninitStartup();
@@ -12391,19 +12358,13 @@ pub mod root {
         ) -> libc::c_int;
     }
     extern "C" {
-        pub fn shutdown(
-            __fd: libc::c_int,
-            __how: libc::c_int,
-        ) -> libc::c_int;
+        pub fn shutdown(__fd: libc::c_int, __how: libc::c_int) -> libc::c_int;
     }
     extern "C" {
         pub fn sockatmark(__fd: libc::c_int) -> libc::c_int;
     }
     extern "C" {
-        pub fn isfdtype(
-            __fd: libc::c_int,
-            __fdtype: libc::c_int,
-        ) -> libc::c_int;
+        pub fn isfdtype(__fd: libc::c_int, __fdtype: libc::c_int) -> libc::c_int;
     }
     pub type __int128_t = i128;
     pub type __uint128_t = u128;
