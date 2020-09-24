@@ -729,6 +729,7 @@ pub mod root {
                 );
             }
             #[repr(C)]
+            #[derive(Debug, Default, Copy, Clone)]
             pub struct PosixTime {
                 pub time: u64,
             }
@@ -3175,6 +3176,19 @@ pub mod root {
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs16IsExFatSupportedEv"]
                 pub fn IsExFatSupported() -> bool;
+            }
+            #[repr(C)]
+            #[derive(Debug, Default, Copy, Clone)]
+            pub struct FileTimeStamp {
+                pub create: root::nn::time::PosixTime,
+                pub modify: root::nn::time::PosixTime,
+                pub access: root::nn::time::PosixTime,
+                pub local_time: bool,
+                padding: [u8;7],
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2fs24GetFileTimeStampForDebugEPNS0_13FileTimeStampEPKc"]
+                pub fn GetFileTimeStampForDebug(out_timestamp: *mut FileTimeStamp, filepath: *const libc::c_char) -> root::Result;
             }
         }
         pub mod ro {
