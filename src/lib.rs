@@ -2556,6 +2556,17 @@ pub mod root {
                 #[link_name = "\u{1}_ZN2nn2oe17GetDisplayVersionEPNS0_14DisplayVersionE"]
                 pub fn GetDisplayVersion(arg1: *mut root::nn::oe::DisplayVersion);
             }
+            #[repr(C)]
+            #[derive(Debug, Copy, Clone)]
+            pub enum CpuBoostMode {
+                Normal = 0,
+                Boost = 1,
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2oe15SetCpuBoostModeENS0_12CpuBoostModeE"]
+                pub fn SetCpuBoostMode(mode: CpuBoostMode);
+            }
+            
         }
         pub mod account {
             #[allow(unused_imports)]
