@@ -6326,6 +6326,26 @@ pub mod root {
                     arg3: *const u32,
                 );
             }
+
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_17NpadHandheldStateERKj"]
+                pub fn GetNpadHandheldState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+
+                #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_16NpadFullKeyStateERKj"]
+                pub fn GetNpadFullKeyState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+
+                #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_11NpadGcStateERKj"]
+                pub fn GetNpadGcState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+
+                #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_16NpadJoyDualStateERKj"]
+                pub fn GetNpadJoyDualState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+
+                #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_16NpadJoyLeftStateERKj"]
+                pub fn GetNpadJoyLeftState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+
+                #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_17NpadJoyRightStateERKj"]
+                pub fn GetNpadJoyRightState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+            }
         }
         pub mod audio {
             #[allow(unused_imports)]
