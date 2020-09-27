@@ -8,7 +8,7 @@ description = "Cleanroom reverse-engineered bindings for nnsdk (Nintendo Switch 
 documentation = "https://docs.rs/nnsdk"
 
 [dependencies]
-libc-nnsdk = "0.0.1"
+libc-nnsdk = { git = "https://github.com/ultimate-research/libc-nnsdk.git" }
 
 [features]
 rustc-dep-of-std = []
