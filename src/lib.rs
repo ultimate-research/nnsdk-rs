@@ -2458,7 +2458,7 @@ pub mod root {
             #[allow(unused_imports)]
             use self::super::super::super::root;
             pub type FocusHandlingMode = root::s32;
-            pub type PerformanceMode = root::s32;
+            pub type PerformanceMode = u32;
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
             pub struct DisplayVersion {
@@ -2494,11 +2494,15 @@ pub mod root {
                 pub fn Initialize();
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn2oe27SetPerformanceConfigurationEii"]
+                #[link_name = "\u{1}_ZN2nn2oe27SetPerformanceConfigurationENS0_15PerformanceModeEi"]
                 pub fn SetPerformanceConfiguration(
                     arg1: root::nn::oe::PerformanceMode,
-                    arg2: root::s32,
+                    arg2: u32,
                 );
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2oe27GetPerformanceConfigurationENS0_15PerformanceModeE"]
+                pub fn GetPerformanceConfiguration(arg1: root::nn::oe::PerformanceMode) -> u32;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2oe16GetOperationModeEv"]
@@ -2559,14 +2563,13 @@ pub mod root {
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
             pub enum CpuBoostMode {
-                Normal = 0,
+                Disabled = 0,
                 Boost = 1,
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2oe15SetCpuBoostModeENS0_12CpuBoostModeE"]
                 pub fn SetCpuBoostMode(mode: CpuBoostMode);
             }
-            
         }
         pub mod account {
             #[allow(unused_imports)]
