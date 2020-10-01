@@ -4992,6 +4992,34 @@ pub mod root {
                         Ok(instance)
                     }
                 }
+
+                pub fn set_background_kind(&mut self, kind: OfflineBackgroundKind) {
+                    unsafe { SetOfflineBackgroundKind(self, &kind) }
+                }
+
+                pub fn set_boot_display_kind(&mut self, kind: OfflineBootDisplayKind) {
+                    unsafe { SetOfflineBootDisplayKind(self, kind) }
+                }
+
+                pub fn display_footer(&mut self, enabled: bool) {
+                    unsafe { SetOfflineFooterEnabled(self, enabled) }
+                }
+
+                pub fn enable_javascript(&mut self, enabled: bool) {
+                    unsafe { SetOfflineJsExtensionEnabled(self, enabled) }
+                }
+
+                pub fn enable_pointer(&mut self, enabled: bool) {
+                    unsafe { SetOfflinePointerEnabled(self, enabled) }
+                }
+
+                pub fn enable_boot_loading_icon(&mut self, enabled: bool) {
+                    unsafe { SetOfflineBootLoadingIconEnabled(self, enabled) }
+                }
+
+                pub fn enable_web_audio(&mut self, enabled: bool) {
+                    unsafe { SetOfflineWebAudioEnabled(self, enabled) }
+                }
             }
             #[repr(C)]
             pub struct OfflineHtmlPageReturnValue {
