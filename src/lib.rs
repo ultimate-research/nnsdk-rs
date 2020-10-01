@@ -5065,6 +5065,11 @@ pub mod root {
 
                     instance
                 }
+
+                pub fn get_exit_reason(&self) -> OfflineExitReason {
+                    unsafe { GetOfflineExitReason(self) }
+                }
+
             }
         }
         pub mod image {
