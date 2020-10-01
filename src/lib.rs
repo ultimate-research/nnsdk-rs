@@ -4860,6 +4860,7 @@ pub mod root {
                 data: [u8; 0x2000],
             }
             #[repr(C)]
+            #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum OfflineBootDisplayKind {
                 Default,
                 White,
@@ -4868,6 +4869,7 @@ pub mod root {
                 BlurredScreenshot
             }
             #[repr(C)]
+            #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum OfflineBackgroundKind {
                 Default,
                 Screenshot,
@@ -4998,7 +5000,7 @@ pub mod root {
                 last_url_size: u64,
             }
             #[repr(C)]
-            #[derive(Debug, PartialEq)]
+            #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum OfflineExitReason {
                 ExitPressed = 0,
                 BackPressed = 1,
