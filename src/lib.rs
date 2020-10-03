@@ -2570,6 +2570,15 @@ pub mod root {
                 #[link_name = "\u{1}_ZN2nn2oe15SetCpuBoostModeENS0_12CpuBoostModeE"]
                 pub fn SetCpuBoostMode(mode: CpuBoostMode);
             }
+            extern "C" {
+                #[link_name = "_ZN2nn2oe14RestartProgramEPKvm"]
+                pub fn RestartProgram(argv: *const libc::c_void, argc: u32) -> !;
+            }
+            pub fn RestartProgramNoArgs() -> ! {
+                unsafe {
+                    RestartProgram("".as_ptr() as _, 0)
+                }
+            }
         }
         pub mod account {
             #[allow(unused_imports)]
