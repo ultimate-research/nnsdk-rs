@@ -4985,6 +4985,7 @@ pub mod root {
                 );
             }
             impl ShowOfflineHtmlPageArg {
+                #[cfg(not(feature = "rustc-dep-of-std"))]
                 #[inline]
                 pub fn new<T: AsRef<[u8]>>(page_path: T) -> Result<Self, core::str::Utf8Error> {
                     let mut path_bytes = page_path.as_ref().to_vec();
