@@ -1764,6 +1764,17 @@ pub mod root {
                 ) -> root::Result;
             }
             extern "C" {
+                #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mi"]
+                pub fn CreateThread1(
+                    arg1: *mut root::nn::os::ThreadType,
+                    arg2: unsafe extern "C" fn (arg1: *mut libc::c_void),
+                    arg: *mut libc::c_void,
+                    srcStack: *mut libc::c_void,
+                    stackSize: u64,
+                    priority: root::s32
+                ) -> root::Result;
+            }
+            extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os13DestroyThreadEPNS0_10ThreadTypeE"]
                 pub fn DestroyThread(arg1: *mut root::nn::os::ThreadType);
             }
@@ -1821,6 +1832,10 @@ pub mod root {
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os11SleepThreadENS_8TimeSpanE"]
                 pub fn SleepThread(arg1: root::nn::TimeSpan);
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2os10WaitThreadEPNS0_10ThreadTypeE"]
+                pub fn WaitThread(arg1: *mut root::nn::os::ThreadType);
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os15InitializeEventEPNS0_9EventTypeEbNS0_14EventClearModeE"]
