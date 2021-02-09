@@ -3106,7 +3106,7 @@ pub mod root {
                 ) -> root::Result;
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn2fs10RenameFileEPKcS2_"]
+                #[link_name = "\u{1}_ZN2nn2fs15RenameDirectoryEPKcS2_"]
                 pub fn RenameDirectory(
                     old: *const libc::c_char,
                     new: *const libc::c_char,
