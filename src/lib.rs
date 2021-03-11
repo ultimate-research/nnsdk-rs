@@ -5685,12 +5685,17 @@ pub mod root {
                 pub mIsEnabledThreadCache: bool,
                 pub _2: u16,
                 pub mAllocAddr: *mut u64,
+                pub _A: [u8; 0x28] // makes up the full size
             }
+
+            unsafe impl Send for StandardAllocator {}
+            unsafe impl Sync for StandardAllocator {}
+            
             #[test]
             fn bindgen_test_layout_StandardAllocator() {
                 assert_eq!(
                     ::core::mem::size_of::<StandardAllocator>(),
-                    16usize,
+                    56usize,
                     concat!("Size of: ", stringify!(StandardAllocator))
                 );
                 assert_eq!(
@@ -5778,6 +5783,14 @@ pub mod root {
                 ) -> *mut libc::c_void;
             }
             extern "C" {
+                #[link_name = "\u{1}_ZN2nn3mem17StandardAllocator8AllocateEmm"]
+                pub fn StandardAllocator_AllocateAlign(
+                    this: *mut root::nn::mem::StandardAllocator,
+                    size: u64,
+                    align: u64
+                ) -> *mut libc::c_void;
+            }
+            extern "C" {
                 #[link_name = "\u{1}_ZN2nn3mem17StandardAllocator4FreeEPv"]
                 pub fn StandardAllocator_Free(
                     this: *mut root::nn::mem::StandardAllocator,
@@ -5789,7 +5802,7 @@ pub mod root {
                 pub fn StandardAllocator_Dump(this: *mut root::nn::mem::StandardAllocator);
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn3mem17StandardAllocatorC1Ev"]
+                #[link_name = "\u{1}_ZN2nn3mem17StandardAllocatorC2Ev"]
                 pub fn StandardAllocator_StandardAllocator(
                     this: *mut root::nn::mem::StandardAllocator,
                 );
@@ -5814,6 +5827,10 @@ pub mod root {
                 #[inline]
                 pub unsafe fn Allocate(&mut self, size: u64) -> *mut libc::c_void {
                     StandardAllocator_Allocate(self, size)
+                }
+                #[inline]
+                pub unsafe fn AllocateAlign(&mut self, size: u64, align: u64) -> *mut libc::c_void {
+                    StandardAllocator_AllocateAlign(self, size, align)
                 }
                 #[inline]
                 pub unsafe fn Free(&mut self, address: *mut libc::c_void) {
@@ -6326,6 +6343,8 @@ pub mod root {
                 pub RStickX: i32,
                 pub RStickY: i32,
                 pub Flags: u32,
+                pub LTrigger: i32,
+                pub RTrigger: i32
             }
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
