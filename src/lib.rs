@@ -16,16 +16,18 @@ pub mod extensions;
 #[doc(inline)]
 pub use root::nn::*;
 
+use core::prelude::v1::*;
+
 #[allow(non_snake_case, non_camel_case_types, non_upper_case_globals)]
 #[doc(hidden)]
 pub mod root {
     #[repr(C)]
     #[derive(Default)]
-    pub struct __IncompleteArrayField<T>(core::marker::PhantomData<T>, [T; 0]);
+    pub struct __IncompleteArrayField<T>(::core::marker::PhantomData<T>, [T; 0]);
     impl<T> __IncompleteArrayField<T> {
         #[inline]
         pub const fn new() -> Self {
-            __IncompleteArrayField(core::marker::PhantomData, [])
+            __IncompleteArrayField(::core::marker::PhantomData, [])
         }
         #[inline]
         pub fn as_ptr(&self) -> *const T {
@@ -37,61 +39,61 @@ pub mod root {
         }
         #[inline]
         pub unsafe fn as_slice(&self, len: usize) -> &[T] {
-            core::slice::from_raw_parts(self.as_ptr(), len)
+            ::core::slice::from_raw_parts(self.as_ptr(), len)
         }
         #[inline]
         pub unsafe fn as_mut_slice(&mut self, len: usize) -> &mut [T] {
-            core::slice::from_raw_parts_mut(self.as_mut_ptr(), len)
+            ::core::slice::from_raw_parts_mut(self.as_mut_ptr(), len)
         }
     }
-    impl<T> core::fmt::Debug for __IncompleteArrayField<T> {
-        fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    impl<T> ::core::fmt::Debug for __IncompleteArrayField<T> {
+        fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             fmt.write_str("__IncompleteArrayField")
         }
     }
     #[repr(C)]
-    pub struct __BindgenUnionField<T>(core::marker::PhantomData<T>);
+    pub struct __BindgenUnionField<T>(::core::marker::PhantomData<T>);
     impl<T> __BindgenUnionField<T> {
         #[inline]
         pub const fn new() -> Self {
-            __BindgenUnionField(core::marker::PhantomData)
+            __BindgenUnionField(::core::marker::PhantomData)
         }
         #[inline]
         pub unsafe fn as_ref(&self) -> &T {
-            core::mem::transmute(self)
+            ::core::mem::transmute(self)
         }
         #[inline]
         pub unsafe fn as_mut(&mut self) -> &mut T {
-            core::mem::transmute(self)
+            ::core::mem::transmute(self)
         }
     }
-    impl<T> core::default::Default for __BindgenUnionField<T> {
+    impl<T> ::core::default::Default for __BindgenUnionField<T> {
         #[inline]
         fn default() -> Self {
             Self::new()
         }
     }
-    impl<T> core::clone::Clone for __BindgenUnionField<T> {
+    impl<T> ::core::clone::Clone for __BindgenUnionField<T> {
         #[inline]
         fn clone(&self) -> Self {
             Self::new()
         }
     }
-    impl<T> core::marker::Copy for __BindgenUnionField<T> {}
-    impl<T> core::fmt::Debug for __BindgenUnionField<T> {
-        fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    impl<T> ::core::marker::Copy for __BindgenUnionField<T> {}
+    impl<T> ::core::fmt::Debug for __BindgenUnionField<T> {
+        fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
             fmt.write_str("__BindgenUnionField")
         }
     }
-    impl<T> core::hash::Hash for __BindgenUnionField<T> {
-        fn hash<H: core::hash::Hasher>(&self, _state: &mut H) {}
+    impl<T> ::core::hash::Hash for __BindgenUnionField<T> {
+        fn hash<H: ::core::hash::Hasher>(&self, _state: &mut H) {}
     }
-    impl<T> core::cmp::PartialEq for __BindgenUnionField<T> {
+    impl<T> ::core::cmp::PartialEq for __BindgenUnionField<T> {
         fn eq(&self, _other: &__BindgenUnionField<T>) -> bool {
             true
         }
     }
-    impl<T> core::cmp::Eq for __BindgenUnionField<T> {}
+    impl<T> ::core::cmp::Eq for __BindgenUnionField<T> {}
     #[allow(unused_imports)]
     use self::super::root;
     pub type __u_char = libc::c_uchar;
@@ -136,17 +138,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___fsid_t() {
         assert_eq!(
-            core::mem::size_of::<__fsid_t>(),
+            ::core::mem::size_of::<__fsid_t>(),
             8usize,
             concat!("Size of: ", stringify!(__fsid_t))
         );
         assert_eq!(
-            core::mem::align_of::<__fsid_t>(),
+            ::core::mem::align_of::<__fsid_t>(),
             4usize,
             concat!("Alignment of ", stringify!(__fsid_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__fsid_t>())).__val as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__fsid_t>())).__val as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -213,18 +215,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_max_align_t() {
         assert_eq!(
-            core::mem::size_of::<max_align_t>(),
+            ::core::mem::size_of::<max_align_t>(),
             32usize,
             concat!("Size of: ", stringify!(max_align_t))
         );
         assert_eq!(
-            core::mem::align_of::<max_align_t>(),
+            ::core::mem::align_of::<max_align_t>(),
             16usize,
             concat!("Alignment of ", stringify!(max_align_t))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<max_align_t>())).__clang_max_align_nonce1 as *const _
+                &(*(::core::ptr::null::<max_align_t>())).__clang_max_align_nonce1 as *const _
                     as usize
             },
             0usize,
@@ -237,7 +239,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<max_align_t>())).__clang_max_align_nonce2 as *const _
+                &(*(::core::ptr::null::<max_align_t>())).__clang_max_align_nonce2 as *const _
                     as usize
             },
             16usize,
@@ -258,17 +260,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_imaxdiv_t() {
         assert_eq!(
-            core::mem::size_of::<imaxdiv_t>(),
+            ::core::mem::size_of::<imaxdiv_t>(),
             16usize,
             concat!("Size of: ", stringify!(imaxdiv_t))
         );
         assert_eq!(
-            core::mem::align_of::<imaxdiv_t>(),
+            ::core::mem::align_of::<imaxdiv_t>(),
             8usize,
             concat!("Alignment of ", stringify!(imaxdiv_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<imaxdiv_t>())).quot as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<imaxdiv_t>())).quot as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -278,7 +280,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<imaxdiv_t>())).rem as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<imaxdiv_t>())).rem as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -332,7 +334,7 @@ pub mod root {
     pub type uint = u32;
     pub type Result = u32;
     pub type Handle = u32;
-    pub type ThreadFunc = core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>;
+    pub type ThreadFunc = ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>;
     pub const Module_Kernel: root::_bindgen_ty_1 = 1;
     pub const Module_Libnx: root::_bindgen_ty_1 = 345;
     pub const Module_HomebrewAbi: root::_bindgen_ty_1 = 346;
@@ -498,17 +500,17 @@ pub mod root {
         #[test]
         fn bindgen_test_layout_TimeSpan() {
             assert_eq!(
-                core::mem::size_of::<TimeSpan>(),
+                ::core::mem::size_of::<TimeSpan>(),
                 8usize,
                 concat!("Size of: ", stringify!(TimeSpan))
             );
             assert_eq!(
-                core::mem::align_of::<TimeSpan>(),
+                ::core::mem::align_of::<TimeSpan>(),
                 8usize,
                 concat!("Alignment of ", stringify!(TimeSpan))
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<TimeSpan>())).nanoseconds as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<TimeSpan>())).nanoseconds as *const _ as usize },
                 0usize,
                 concat!(
                     "Offset of field: ",
@@ -542,17 +544,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_CalendarTime() {
                 assert_eq!(
-                    core::mem::size_of::<CalendarTime>(),
+                    ::core::mem::size_of::<CalendarTime>(),
                     8usize,
                     concat!("Size of: ", stringify!(CalendarTime))
                 );
                 assert_eq!(
-                    core::mem::align_of::<CalendarTime>(),
+                    ::core::mem::align_of::<CalendarTime>(),
                     2usize,
                     concat!("Alignment of ", stringify!(CalendarTime))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<CalendarTime>())).year as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<CalendarTime>())).year as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -562,7 +564,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<CalendarTime>())).month as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<CalendarTime>())).month as *const _ as usize },
                     2usize,
                     concat!(
                         "Offset of field: ",
@@ -572,7 +574,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<CalendarTime>())).day as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<CalendarTime>())).day as *const _ as usize },
                     3usize,
                     concat!(
                         "Offset of field: ",
@@ -582,7 +584,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<CalendarTime>())).hour as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<CalendarTime>())).hour as *const _ as usize },
                     4usize,
                     concat!(
                         "Offset of field: ",
@@ -593,7 +595,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<CalendarTime>())).minute as *const _ as usize
+                        &(*(::core::ptr::null::<CalendarTime>())).minute as *const _ as usize
                     },
                     5usize,
                     concat!(
@@ -605,7 +607,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<CalendarTime>())).second as *const _ as usize
+                        &(*(::core::ptr::null::<CalendarTime>())).second as *const _ as usize
                     },
                     6usize,
                     concat!(
@@ -634,18 +636,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_TimeZone() {
                 assert_eq!(
-                    core::mem::size_of::<TimeZone>(),
+                    ::core::mem::size_of::<TimeZone>(),
                     16usize,
                     concat!("Size of: ", stringify!(TimeZone))
                 );
                 assert_eq!(
-                    core::mem::align_of::<TimeZone>(),
+                    ::core::mem::align_of::<TimeZone>(),
                     4usize,
                     concat!("Alignment of ", stringify!(TimeZone))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<TimeZone>())).standardTimeName as *const _ as usize
+                        &(*(::core::ptr::null::<TimeZone>())).standardTimeName as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -656,7 +658,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<TimeZone>()))._9 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<TimeZone>()))._9 as *const _ as usize },
                     8usize,
                     concat!(
                         "Offset of field: ",
@@ -666,7 +668,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<TimeZone>())).utcOffset as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<TimeZone>())).utcOffset as *const _ as usize },
                     12usize,
                     concat!(
                         "Offset of field: ",
@@ -686,18 +688,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_CalendarAdditionalInfo() {
                 assert_eq!(
-                    core::mem::size_of::<CalendarAdditionalInfo>(),
+                    ::core::mem::size_of::<CalendarAdditionalInfo>(),
                     24usize,
                     concat!("Size of: ", stringify!(CalendarAdditionalInfo))
                 );
                 assert_eq!(
-                    core::mem::align_of::<CalendarAdditionalInfo>(),
+                    ::core::mem::align_of::<CalendarAdditionalInfo>(),
                     4usize,
                     concat!("Alignment of ", stringify!(CalendarAdditionalInfo))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<CalendarAdditionalInfo>())).dayOfTheWeek as *const _
+                        &(*(::core::ptr::null::<CalendarAdditionalInfo>())).dayOfTheWeek as *const _
                             as usize
                     },
                     0usize,
@@ -710,7 +712,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<CalendarAdditionalInfo>())).dayofYear as *const _
+                        &(*(::core::ptr::null::<CalendarAdditionalInfo>())).dayofYear as *const _
                             as usize
                     },
                     4usize,
@@ -723,7 +725,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<CalendarAdditionalInfo>())).timeZone as *const _
+                        &(*(::core::ptr::null::<CalendarAdditionalInfo>())).timeZone as *const _
                             as usize
                     },
                     8usize,
@@ -743,17 +745,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_PosixTime() {
                 assert_eq!(
-                    core::mem::size_of::<PosixTime>(),
+                    ::core::mem::size_of::<PosixTime>(),
                     8usize,
                     concat!("Size of: ", stringify!(PosixTime))
                 );
                 assert_eq!(
-                    core::mem::align_of::<PosixTime>(),
+                    ::core::mem::align_of::<PosixTime>(),
                     8usize,
                     concat!("Alignment of ", stringify!(PosixTime))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<PosixTime>())).time as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<PosixTime>())).time as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -771,12 +773,12 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_StandardUserSystemClock() {
                 assert_eq!(
-                    core::mem::size_of::<StandardUserSystemClock>(),
+                    ::core::mem::size_of::<StandardUserSystemClock>(),
                     1usize,
                     concat!("Size of: ", stringify!(StandardUserSystemClock))
                 );
                 assert_eq!(
-                    core::mem::align_of::<StandardUserSystemClock>(),
+                    ::core::mem::align_of::<StandardUserSystemClock>(),
                     1usize,
                     concat!("Alignment of ", stringify!(StandardUserSystemClock))
                 );
@@ -873,7 +875,7 @@ pub mod root {
                 }
                 #[inline]
                 pub unsafe fn new() -> Self {
-                    let mut temp = core::mem::MaybeUninit::uninit();
+                    let mut temp = ::core::mem::MaybeUninit::uninit();
                     ApplicationErrorArg_ApplicationErrorArg(temp.as_mut_ptr());
                     temp.assume_init()
                 }
@@ -884,7 +886,7 @@ pub mod root {
                     fullscreen_message: *const u8,
                     languageCode: *const root::nn::settings::LanguageCode,
                 ) -> Self {
-                    let mut temp = core::mem::MaybeUninit::uninit();
+                    let mut temp = ::core::mem::MaybeUninit::uninit();
                     ApplicationErrorArg_ApplicationErrorArg1(
                         temp.as_mut_ptr(),
                         error_code,
@@ -921,18 +923,18 @@ pub mod root {
                 #[test]
                 fn bindgen_test_layout_InternalCriticalSection() {
                     assert_eq!(
-                        core::mem::size_of::<InternalCriticalSection>(),
+                        ::core::mem::size_of::<InternalCriticalSection>(),
                         4usize,
                         concat!("Size of: ", stringify!(InternalCriticalSection))
                     );
                     assert_eq!(
-                        core::mem::align_of::<InternalCriticalSection>(),
+                        ::core::mem::align_of::<InternalCriticalSection>(),
                         4usize,
                         concat!("Alignment of ", stringify!(InternalCriticalSection))
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<InternalCriticalSection>())).Image as *const _
+                            &(*(::core::ptr::null::<InternalCriticalSection>())).Image as *const _
                                 as usize
                         },
                         0usize,
@@ -951,18 +953,18 @@ pub mod root {
                 #[test]
                 fn bindgen_test_layout_InternalConditionVariable() {
                     assert_eq!(
-                        core::mem::size_of::<InternalConditionVariable>(),
+                        ::core::mem::size_of::<InternalConditionVariable>(),
                         4usize,
                         concat!("Size of: ", stringify!(InternalConditionVariable))
                     );
                     assert_eq!(
-                        core::mem::align_of::<InternalConditionVariable>(),
+                        ::core::mem::align_of::<InternalConditionVariable>(),
                         4usize,
                         concat!("Alignment of ", stringify!(InternalConditionVariable))
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<InternalConditionVariable>())).Image as *const _
+                            &(*(::core::ptr::null::<InternalConditionVariable>())).Image as *const _
                                 as usize
                         },
                         0usize,
@@ -1001,17 +1003,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_EventType() {
                 assert_eq!(
-                    core::mem::size_of::<EventType>(),
+                    ::core::mem::size_of::<EventType>(),
                     40usize,
                     concat!("Size of: ", stringify!(EventType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<EventType>(),
+                    ::core::mem::align_of::<EventType>(),
                     8usize,
                     concat!("Alignment of ", stringify!(EventType))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<EventType>()))._x0 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<EventType>()))._x0 as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1021,7 +1023,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<EventType>()))._x8 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<EventType>()))._x8 as *const _ as usize },
                     8usize,
                     concat!(
                         "Offset of field: ",
@@ -1032,7 +1034,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<EventType>())).isSignaled as *const _ as usize
+                        &(*(::core::ptr::null::<EventType>())).isSignaled as *const _ as usize
                     },
                     16usize,
                     concat!(
@@ -1044,7 +1046,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<EventType>())).initiallySignaled as *const _
+                        &(*(::core::ptr::null::<EventType>())).initiallySignaled as *const _
                             as usize
                     },
                     17usize,
@@ -1057,7 +1059,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<EventType>())).shouldAutoClear as *const _ as usize
+                        &(*(::core::ptr::null::<EventType>())).shouldAutoClear as *const _ as usize
                     },
                     18usize,
                     concat!(
@@ -1068,7 +1070,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<EventType>())).isInit as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<EventType>())).isInit as *const _ as usize },
                     19usize,
                     concat!(
                         "Offset of field: ",
@@ -1079,7 +1081,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<EventType>())).signalCounter as *const _ as usize
+                        &(*(::core::ptr::null::<EventType>())).signalCounter as *const _ as usize
                     },
                     20usize,
                     concat!(
@@ -1091,7 +1093,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<EventType>())).signalCounter2 as *const _ as usize
+                        &(*(::core::ptr::null::<EventType>())).signalCounter2 as *const _ as usize
                     },
                     24usize,
                     concat!(
@@ -1102,7 +1104,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<EventType>())).crit as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<EventType>())).crit as *const _ as usize },
                     28usize,
                     concat!(
                         "Offset of field: ",
@@ -1112,7 +1114,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<EventType>())).condvar as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<EventType>())).condvar as *const _ as usize },
                     32usize,
                     concat!(
                         "Offset of field: ",
@@ -1149,17 +1151,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_ThreadType() {
                 assert_eq!(
-                    core::mem::size_of::<ThreadType>(),
+                    ::core::mem::size_of::<ThreadType>(),
                     448usize,
                     concat!("Size of: ", stringify!(ThreadType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<ThreadType>(),
+                    ::core::mem::align_of::<ThreadType>(),
                     8usize,
                     concat!("Alignment of ", stringify!(ThreadType))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>()))._0 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>()))._0 as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1169,7 +1171,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).State as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).State as *const _ as usize },
                     64usize,
                     concat!(
                         "Offset of field: ",
@@ -1179,7 +1181,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>()))._44 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>()))._44 as *const _ as usize },
                     68usize,
                     concat!(
                         "Offset of field: ",
@@ -1189,7 +1191,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>()))._45 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>()))._45 as *const _ as usize },
                     69usize,
                     concat!(
                         "Offset of field: ",
@@ -1199,7 +1201,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>()))._46 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>()))._46 as *const _ as usize },
                     70usize,
                     concat!(
                         "Offset of field: ",
@@ -1210,7 +1212,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ThreadType>())).PriorityBase as *const _ as usize
+                        &(*(::core::ptr::null::<ThreadType>())).PriorityBase as *const _ as usize
                     },
                     72usize,
                     concat!(
@@ -1222,7 +1224,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ThreadType>())).StackBase as *const _ as usize
+                        &(*(::core::ptr::null::<ThreadType>())).StackBase as *const _ as usize
                     },
                     80usize,
                     concat!(
@@ -1233,7 +1235,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).Stack as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).Stack as *const _ as usize },
                     88usize,
                     concat!(
                         "Offset of field: ",
@@ -1244,7 +1246,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ThreadType>())).StackSize as *const _ as usize
+                        &(*(::core::ptr::null::<ThreadType>())).StackSize as *const _ as usize
                     },
                     96usize,
                     concat!(
@@ -1255,7 +1257,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).Arg as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).Arg as *const _ as usize },
                     104usize,
                     concat!(
                         "Offset of field: ",
@@ -1266,7 +1268,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ThreadType>())).ThreadFunc as *const _ as usize
+                        &(*(::core::ptr::null::<ThreadType>())).ThreadFunc as *const _ as usize
                     },
                     112usize,
                     concat!(
@@ -1277,7 +1279,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>()))._88 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>()))._88 as *const _ as usize },
                     120usize,
                     concat!(
                         "Offset of field: ",
@@ -1287,7 +1289,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).Name as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).Name as *const _ as usize },
                     376usize,
                     concat!(
                         "Offset of field: ",
@@ -1297,7 +1299,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).Crit as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).Crit as *const _ as usize },
                     408usize,
                     concat!(
                         "Offset of field: ",
@@ -1307,7 +1309,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).Condvar as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).Condvar as *const _ as usize },
                     412usize,
                     concat!(
                         "Offset of field: ",
@@ -1317,7 +1319,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).Handle as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).Handle as *const _ as usize },
                     416usize,
                     concat!(
                         "Offset of field: ",
@@ -1327,7 +1329,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ThreadType>())).padding as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ThreadType>())).padding as *const _ as usize },
                     420usize,
                     concat!(
                         "Offset of field: ",
@@ -1355,18 +1357,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_MessageQueueType() {
                 assert_eq!(
-                    core::mem::size_of::<MessageQueueType>(),
+                    ::core::mem::size_of::<MessageQueueType>(),
                     72usize,
                     concat!("Size of: ", stringify!(MessageQueueType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<MessageQueueType>(),
+                    ::core::mem::align_of::<MessageQueueType>(),
                     8usize,
                     concat!("Alignment of ", stringify!(MessageQueueType))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>()))._x0 as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>()))._x0 as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -1378,7 +1380,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>()))._x8 as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>()))._x8 as *const _ as usize
                     },
                     8usize,
                     concat!(
@@ -1390,7 +1392,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>()))._x10 as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>()))._x10 as *const _ as usize
                     },
                     16usize,
                     concat!(
@@ -1402,7 +1404,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>()))._x18 as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>()))._x18 as *const _ as usize
                     },
                     24usize,
                     concat!(
@@ -1414,7 +1416,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>())).Buffer as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>())).Buffer as *const _ as usize
                     },
                     32usize,
                     concat!(
@@ -1426,7 +1428,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>())).MaxCount as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>())).MaxCount as *const _ as usize
                     },
                     40usize,
                     concat!(
@@ -1438,7 +1440,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>())).Count as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>())).Count as *const _ as usize
                     },
                     44usize,
                     concat!(
@@ -1450,7 +1452,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>())).Offset as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>())).Offset as *const _ as usize
                     },
                     48usize,
                     concat!(
@@ -1462,7 +1464,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>())).Initialized as *const _
+                        &(*(::core::ptr::null::<MessageQueueType>())).Initialized as *const _
                             as usize
                     },
                     52usize,
@@ -1475,7 +1477,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>()))._x38 as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>()))._x38 as *const _ as usize
                     },
                     56usize,
                     concat!(
@@ -1487,7 +1489,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>()))._x3C as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>()))._x3C as *const _ as usize
                     },
                     60usize,
                     concat!(
@@ -1499,7 +1501,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<MessageQueueType>()))._x40 as *const _ as usize
+                        &(*(::core::ptr::null::<MessageQueueType>()))._x40 as *const _ as usize
                     },
                     64usize,
                     concat!(
@@ -1518,12 +1520,12 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_ConditionVariableType() {
                 assert_eq!(
-                    core::mem::size_of::<ConditionVariableType>(),
+                    ::core::mem::size_of::<ConditionVariableType>(),
                     1usize,
                     concat!("Size of: ", stringify!(ConditionVariableType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<ConditionVariableType>(),
+                    ::core::mem::align_of::<ConditionVariableType>(),
                     1usize,
                     concat!("Alignment of ", stringify!(ConditionVariableType))
                 );
@@ -1589,17 +1591,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_MutexType() {
                 assert_eq!(
-                    core::mem::size_of::<MutexType>(),
+                    ::core::mem::size_of::<MutexType>(),
                     28usize,
                     concat!("Size of: ", stringify!(MutexType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<MutexType>(),
+                    ::core::mem::align_of::<MutexType>(),
                     4usize,
                     concat!("Alignment of ", stringify!(MutexType))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<MutexType>())).impl_ as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<MutexType>())).impl_ as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1762,7 +1764,7 @@ pub mod root {
                 #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mii"]
                 pub fn CreateThread(
                     arg1: *mut root::nn::os::ThreadType,
-                    arg2: core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>,
+                    arg2: ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>,
                     arg: *mut libc::c_void,
                     srcStack: *mut libc::c_void,
                     stackSize: u64,
@@ -1892,17 +1894,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_CpuRegister() {
                 assert_eq!(
-                    core::mem::size_of::<CpuRegister>(),
+                    ::core::mem::size_of::<CpuRegister>(),
                     8usize,
                     concat!("Size of: ", stringify!(CpuRegister))
                 );
                 assert_eq!(
-                    core::mem::align_of::<CpuRegister>(),
+                    ::core::mem::align_of::<CpuRegister>(),
                     8usize,
                     concat!("Alignment of ", stringify!(CpuRegister))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<CpuRegister>())).x as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<CpuRegister>())).x as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1912,7 +1914,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<CpuRegister>())).w as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<CpuRegister>())).w as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1922,7 +1924,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<CpuRegister>())).r as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<CpuRegister>())).r as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1947,17 +1949,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_FpuRegister() {
                 assert_eq!(
-                    core::mem::size_of::<FpuRegister>(),
+                    ::core::mem::size_of::<FpuRegister>(),
                     16usize,
                     concat!("Size of: ", stringify!(FpuRegister))
                 );
                 assert_eq!(
-                    core::mem::align_of::<FpuRegister>(),
+                    ::core::mem::align_of::<FpuRegister>(),
                     16usize,
                     concat!("Alignment of ", stringify!(FpuRegister))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<FpuRegister>())).v as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<FpuRegister>())).v as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1967,7 +1969,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<FpuRegister>())).d as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<FpuRegister>())).d as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -1977,7 +1979,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<FpuRegister>())).s as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<FpuRegister>())).s as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -2017,18 +2019,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_UserExceptionInfo() {
                 assert_eq!(
-                    core::mem::size_of::<UserExceptionInfo>(),
+                    ::core::mem::size_of::<UserExceptionInfo>(),
                     832usize,
                     concat!("Size of: ", stringify!(UserExceptionInfo))
                 );
                 assert_eq!(
-                    core::mem::align_of::<UserExceptionInfo>(),
+                    ::core::mem::align_of::<UserExceptionInfo>(),
                     16usize,
                     concat!("Alignment of ", stringify!(UserExceptionInfo))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).ErrorDescription as *const _
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).ErrorDescription as *const _
                             as usize
                     },
                     0usize,
@@ -2041,7 +2043,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).pad as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).pad as *const _ as usize
                     },
                     4usize,
                     concat!(
@@ -2053,7 +2055,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).CpuRegisters as *const _
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).CpuRegisters as *const _
                             as usize
                     },
                     16usize,
@@ -2066,7 +2068,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).FP as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).FP as *const _ as usize
                     },
                     248usize,
                     concat!(
@@ -2078,7 +2080,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).LR as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).LR as *const _ as usize
                     },
                     256usize,
                     concat!(
@@ -2090,7 +2092,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).SP as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).SP as *const _ as usize
                     },
                     264usize,
                     concat!(
@@ -2102,7 +2104,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).PC as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).PC as *const _ as usize
                     },
                     272usize,
                     concat!(
@@ -2114,7 +2116,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).padding as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).padding as *const _ as usize
                     },
                     280usize,
                     concat!(
@@ -2126,7 +2128,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).FpuRegisters as *const _
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).FpuRegisters as *const _
                             as usize
                     },
                     288usize,
@@ -2139,7 +2141,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).PState as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).PState as *const _ as usize
                     },
                     800usize,
                     concat!(
@@ -2151,7 +2153,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).AFSR0 as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).AFSR0 as *const _ as usize
                     },
                     804usize,
                     concat!(
@@ -2163,7 +2165,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).AFSR1 as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).AFSR1 as *const _ as usize
                     },
                     808usize,
                     concat!(
@@ -2175,7 +2177,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).ESR as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).ESR as *const _ as usize
                     },
                     812usize,
                     concat!(
@@ -2187,7 +2189,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<UserExceptionInfo>())).FAR as *const _ as usize
+                        &(*(::core::ptr::null::<UserExceptionInfo>())).FAR as *const _ as usize
                     },
                     816usize,
                     concat!(
@@ -2202,7 +2204,7 @@ pub mod root {
                 #[link_name = "\u{1}_ZN2nn2os23SetUserExceptionHandlerEPFvPNS0_17UserExceptionInfoEEPvmS2_"]
                 #[allow(improper_ctypes)]
                 pub fn SetUserExceptionHandler(
-                    arg1: core::option::Option<
+                    arg1: ::core::option::Option<
                         unsafe extern "C" fn(arg1: *mut root::nn::os::UserExceptionInfo),
                     >,
                     arg2: *mut libc::c_void,
@@ -2247,18 +2249,18 @@ pub mod root {
                 #[test]
                 fn bindgen_test_layout_FirmwareVersion() {
                     assert_eq!(
-                        core::mem::size_of::<FirmwareVersion>(),
+                        ::core::mem::size_of::<FirmwareVersion>(),
                         256usize,
                         concat!("Size of: ", stringify!(FirmwareVersion))
                     );
                     assert_eq!(
-                        core::mem::align_of::<FirmwareVersion>(),
+                        ::core::mem::align_of::<FirmwareVersion>(),
                         1usize,
                         concat!("Alignment of ", stringify!(FirmwareVersion))
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).major as *const _ as usize
+                            &(*(::core::ptr::null::<FirmwareVersion>())).major as *const _ as usize
                         },
                         0usize,
                         concat!(
@@ -2270,7 +2272,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).minor as *const _ as usize
+                            &(*(::core::ptr::null::<FirmwareVersion>())).minor as *const _ as usize
                         },
                         1usize,
                         concat!(
@@ -2282,7 +2284,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).micro as *const _ as usize
+                            &(*(::core::ptr::null::<FirmwareVersion>())).micro as *const _ as usize
                         },
                         2usize,
                         concat!(
@@ -2294,7 +2296,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).padding1 as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).padding1 as *const _
                                 as usize
                         },
                         3usize,
@@ -2307,7 +2309,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).revision_major as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).revision_major as *const _
                                 as usize
                         },
                         4usize,
@@ -2320,7 +2322,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).revision_minor as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).revision_minor as *const _
                                 as usize
                         },
                         5usize,
@@ -2333,7 +2335,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).padding2 as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).padding2 as *const _
                                 as usize
                         },
                         6usize,
@@ -2346,7 +2348,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).padding3 as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).padding3 as *const _
                                 as usize
                         },
                         7usize,
@@ -2359,7 +2361,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).platform as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).platform as *const _
                                 as usize
                         },
                         8usize,
@@ -2372,7 +2374,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).version_hash as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).version_hash as *const _
                                 as usize
                         },
                         40usize,
@@ -2385,7 +2387,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).display_version as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).display_version as *const _
                                 as usize
                         },
                         104usize,
@@ -2398,7 +2400,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<FirmwareVersion>())).display_title as *const _
+                            &(*(::core::ptr::null::<FirmwareVersion>())).display_title as *const _
                                 as usize
                         },
                         128usize,
@@ -2441,17 +2443,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_LanguageCode() {
                 assert_eq!(
-                    core::mem::size_of::<LanguageCode>(),
+                    ::core::mem::size_of::<LanguageCode>(),
                     8usize,
                     concat!("Size of: ", stringify!(LanguageCode))
                 );
                 assert_eq!(
-                    core::mem::align_of::<LanguageCode>(),
+                    ::core::mem::align_of::<LanguageCode>(),
                     1usize,
                     concat!("Alignment of ", stringify!(LanguageCode))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<LanguageCode>())).code as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<LanguageCode>())).code as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -2489,18 +2491,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_DisplayVersion() {
                 assert_eq!(
-                    core::mem::size_of::<DisplayVersion>(),
+                    ::core::mem::size_of::<DisplayVersion>(),
                     16usize,
                     concat!("Size of: ", stringify!(DisplayVersion))
                 );
                 assert_eq!(
-                    core::mem::align_of::<DisplayVersion>(),
+                    ::core::mem::align_of::<DisplayVersion>(),
                     1usize,
                     concat!("Alignment of ", stringify!(DisplayVersion))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<DisplayVersion>())).name as *const _ as usize
+                        &(*(::core::ptr::null::<DisplayVersion>())).name as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -2644,17 +2646,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Uid() {
                 assert_eq!(
-                    core::mem::size_of::<Uid>(),
+                    ::core::mem::size_of::<Uid>(),
                     16usize,
                     concat!("Size of: ", stringify!(Uid))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Uid>(),
+                    ::core::mem::align_of::<Uid>(),
                     8usize,
                     concat!("Alignment of ", stringify!(Uid))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Uid>()))._x0 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Uid>()))._x0 as *const _ as usize },
                     0usize,
                     concat!("Offset of field: ", stringify!(Uid), "::", stringify!(_x0))
                 );
@@ -2749,12 +2751,12 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_AsyncContext() {
                 assert_eq!(
-                    core::mem::size_of::<AsyncContext>(),
+                    ::core::mem::size_of::<AsyncContext>(),
                     1usize,
                     concat!("Size of: ", stringify!(AsyncContext))
                 );
                 assert_eq!(
-                    core::mem::align_of::<AsyncContext>(),
+                    ::core::mem::align_of::<AsyncContext>(),
                     1usize,
                     concat!("Alignment of ", stringify!(AsyncContext))
                 );
@@ -2811,7 +2813,7 @@ pub mod root {
                 }
                 #[inline]
                 pub unsafe fn new() -> Self {
-                    let mut __bindgen_tmp = core::mem::MaybeUninit::uninit();
+                    let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
                     AsyncContext_AsyncContext(__bindgen_tmp.as_mut_ptr());
                     __bindgen_tmp.assume_init()
                 }
@@ -2832,18 +2834,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_DirectoryEntry() {
                 assert_eq!(
-                    core::mem::size_of::<DirectoryEntry>(),
+                    ::core::mem::size_of::<DirectoryEntry>(),
                     784usize,
                     concat!("Size of: ", stringify!(DirectoryEntry))
                 );
                 assert_eq!(
-                    core::mem::align_of::<DirectoryEntry>(),
+                    ::core::mem::align_of::<DirectoryEntry>(),
                     8usize,
                     concat!("Alignment of ", stringify!(DirectoryEntry))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<DirectoryEntry>())).name as *const _ as usize
+                        &(*(::core::ptr::null::<DirectoryEntry>())).name as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -2855,7 +2857,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<DirectoryEntry>()))._x302 as *const _ as usize
+                        &(*(::core::ptr::null::<DirectoryEntry>()))._x302 as *const _ as usize
                     },
                     769usize,
                     concat!(
@@ -2867,7 +2869,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<DirectoryEntry>())).type_ as *const _ as usize
+                        &(*(::core::ptr::null::<DirectoryEntry>())).type_ as *const _ as usize
                     },
                     772usize,
                     concat!(
@@ -2879,7 +2881,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<DirectoryEntry>()))._x304 as *const _ as usize
+                        &(*(::core::ptr::null::<DirectoryEntry>()))._x304 as *const _ as usize
                     },
                     773usize,
                     concat!(
@@ -2891,7 +2893,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<DirectoryEntry>())).fileSize as *const _ as usize
+                        &(*(::core::ptr::null::<DirectoryEntry>())).fileSize as *const _ as usize
                     },
                     776usize,
                     concat!(
@@ -2910,17 +2912,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_FileHandle() {
                 assert_eq!(
-                    core::mem::size_of::<FileHandle>(),
+                    ::core::mem::size_of::<FileHandle>(),
                     8usize,
                     concat!("Size of: ", stringify!(FileHandle))
                 );
                 assert_eq!(
-                    core::mem::align_of::<FileHandle>(),
+                    ::core::mem::align_of::<FileHandle>(),
                     8usize,
                     concat!("Alignment of ", stringify!(FileHandle))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<FileHandle>())).handle as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<FileHandle>())).handle as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -2938,18 +2940,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_DirectoryHandle() {
                 assert_eq!(
-                    core::mem::size_of::<DirectoryHandle>(),
+                    ::core::mem::size_of::<DirectoryHandle>(),
                     8usize,
                     concat!("Size of: ", stringify!(DirectoryHandle))
                 );
                 assert_eq!(
-                    core::mem::align_of::<DirectoryHandle>(),
+                    ::core::mem::align_of::<DirectoryHandle>(),
                     8usize,
                     concat!("Alignment of ", stringify!(DirectoryHandle))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<DirectoryHandle>())).handle as *const _ as usize
+                        &(*(::core::ptr::null::<DirectoryHandle>())).handle as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -2985,17 +2987,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_WriteOption() {
                 assert_eq!(
-                    core::mem::size_of::<WriteOption>(),
+                    ::core::mem::size_of::<WriteOption>(),
                     4usize,
                     concat!("Size of: ", stringify!(WriteOption))
                 );
                 assert_eq!(
-                    core::mem::align_of::<WriteOption>(),
+                    ::core::mem::align_of::<WriteOption>(),
                     4usize,
                     concat!("Alignment of ", stringify!(WriteOption))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<WriteOption>())).flags as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<WriteOption>())).flags as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -3255,18 +3257,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Module() {
                 assert_eq!(
-                    core::mem::size_of::<Module>(),
+                    ::core::mem::size_of::<Module>(),
                     312usize,
                     concat!("Size of: ", stringify!(Module))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Module>(),
+                    ::core::mem::align_of::<Module>(),
                     8usize,
                     concat!("Alignment of ", stringify!(Module))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<Module>())).ModuleObject as *const _ as usize
+                        &(*(::core::ptr::null::<Module>())).ModuleObject as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -3277,7 +3279,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>())).State as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>())).State as *const _ as usize },
                     8usize,
                     concat!(
                         "Offset of field: ",
@@ -3287,7 +3289,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>())).NroPtr as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>())).NroPtr as *const _ as usize },
                     16usize,
                     concat!(
                         "Offset of field: ",
@@ -3297,7 +3299,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>())).BssPtr as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>())).BssPtr as *const _ as usize },
                     24usize,
                     concat!(
                         "Offset of field: ",
@@ -3307,7 +3309,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>()))._x20 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>()))._x20 as *const _ as usize },
                     32usize,
                     concat!(
                         "Offset of field: ",
@@ -3318,7 +3320,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<Module>())).SourceBuffer as *const _ as usize
+                        &(*(::core::ptr::null::<Module>())).SourceBuffer as *const _ as usize
                     },
                     40usize,
                     concat!(
@@ -3329,7 +3331,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>())).Name as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>())).Name as *const _ as usize },
                     48usize,
                     concat!(
                         "Offset of field: ",
@@ -3339,7 +3341,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>()))._x130 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>()))._x130 as *const _ as usize },
                     304usize,
                     concat!(
                         "Offset of field: ",
@@ -3349,7 +3351,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>()))._x131 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>()))._x131 as *const _ as usize },
                     305usize,
                     concat!(
                         "Offset of field: ",
@@ -3359,7 +3361,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Module>())).isLoaded as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Module>())).isLoaded as *const _ as usize },
                     306usize,
                     concat!(
                         "Offset of field: ",
@@ -3376,17 +3378,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_ModuleId() {
                 assert_eq!(
-                    core::mem::size_of::<ModuleId>(),
+                    ::core::mem::size_of::<ModuleId>(),
                     32usize,
                     concat!("Size of: ", stringify!(ModuleId))
                 );
                 assert_eq!(
-                    core::mem::align_of::<ModuleId>(),
+                    ::core::mem::align_of::<ModuleId>(),
                     1usize,
                     concat!("Alignment of ", stringify!(ModuleId))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ModuleId>())).build_id as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ModuleId>())).build_id as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -3419,18 +3421,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_NroHeader() {
                 assert_eq!(
-                    core::mem::size_of::<NroHeader>(),
+                    ::core::mem::size_of::<NroHeader>(),
                     128usize,
                     concat!("Size of: ", stringify!(NroHeader))
                 );
                 assert_eq!(
-                    core::mem::align_of::<NroHeader>(),
+                    ::core::mem::align_of::<NroHeader>(),
                     4usize,
                     concat!("Alignment of ", stringify!(NroHeader))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).entrypoint_insn as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).entrypoint_insn as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -3442,7 +3444,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).mod_offset as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).mod_offset as *const _ as usize
                     },
                     4usize,
                     concat!(
@@ -3453,7 +3455,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>()))._x8 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>()))._x8 as *const _ as usize },
                     8usize,
                     concat!(
                         "Offset of field: ",
@@ -3463,7 +3465,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>())).magic as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>())).magic as *const _ as usize },
                     16usize,
                     concat!(
                         "Offset of field: ",
@@ -3473,7 +3475,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>()))._x14 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>()))._x14 as *const _ as usize },
                     20usize,
                     concat!(
                         "Offset of field: ",
@@ -3483,7 +3485,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>())).size as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>())).size as *const _ as usize },
                     24usize,
                     concat!(
                         "Offset of field: ",
@@ -3494,7 +3496,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).reserved_1C as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).reserved_1C as *const _ as usize
                     },
                     28usize,
                     concat!(
@@ -3506,7 +3508,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).text_offset as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).text_offset as *const _ as usize
                     },
                     32usize,
                     concat!(
@@ -3518,7 +3520,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).text_size as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).text_size as *const _ as usize
                     },
                     36usize,
                     concat!(
@@ -3530,7 +3532,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).ro_offset as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).ro_offset as *const _ as usize
                     },
                     40usize,
                     concat!(
@@ -3541,7 +3543,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>())).ro_size as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>())).ro_size as *const _ as usize },
                     44usize,
                     concat!(
                         "Offset of field: ",
@@ -3552,7 +3554,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).rw_offset as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).rw_offset as *const _ as usize
                     },
                     48usize,
                     concat!(
@@ -3563,7 +3565,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>())).rw_size as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>())).rw_size as *const _ as usize },
                     52usize,
                     concat!(
                         "Offset of field: ",
@@ -3573,7 +3575,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>())).bss_size as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>())).bss_size as *const _ as usize },
                     56usize,
                     concat!(
                         "Offset of field: ",
@@ -3583,7 +3585,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>()))._x3C as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>()))._x3C as *const _ as usize },
                     60usize,
                     concat!(
                         "Offset of field: ",
@@ -3594,7 +3596,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NroHeader>())).module_id as *const _ as usize
+                        &(*(::core::ptr::null::<NroHeader>())).module_id as *const _ as usize
                     },
                     64usize,
                     concat!(
@@ -3605,7 +3607,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NroHeader>()))._x60 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NroHeader>()))._x60 as *const _ as usize },
                     96usize,
                     concat!(
                         "Offset of field: ",
@@ -3622,17 +3624,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_ProgramId() {
                 assert_eq!(
-                    core::mem::size_of::<ProgramId>(),
+                    ::core::mem::size_of::<ProgramId>(),
                     8usize,
                     concat!("Size of: ", stringify!(ProgramId))
                 );
                 assert_eq!(
-                    core::mem::align_of::<ProgramId>(),
+                    ::core::mem::align_of::<ProgramId>(),
                     8usize,
                     concat!("Alignment of ", stringify!(ProgramId))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ProgramId>())).value as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ProgramId>())).value as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -3663,17 +3665,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_NrrHeader() {
                 assert_eq!(
-                    core::mem::size_of::<NrrHeader>(),
+                    ::core::mem::size_of::<NrrHeader>(),
                     848usize,
                     concat!("Size of: ", stringify!(NrrHeader))
                 );
                 assert_eq!(
-                    core::mem::align_of::<NrrHeader>(),
+                    ::core::mem::align_of::<NrrHeader>(),
                     8usize,
                     concat!("Alignment of ", stringify!(NrrHeader))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>())).magic as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>())).magic as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -3683,7 +3685,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>()))._x4 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>()))._x4 as *const _ as usize },
                     4usize,
                     concat!(
                         "Offset of field: ",
@@ -3694,7 +3696,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NrrHeader>())).program_id_mask as *const _ as usize
+                        &(*(::core::ptr::null::<NrrHeader>())).program_id_mask as *const _ as usize
                     },
                     16usize,
                     concat!(
@@ -3706,7 +3708,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NrrHeader>())).program_id_pattern as *const _
+                        &(*(::core::ptr::null::<NrrHeader>())).program_id_pattern as *const _
                             as usize
                     },
                     24usize,
@@ -3718,7 +3720,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>()))._x20 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>()))._x20 as *const _ as usize },
                     32usize,
                     concat!(
                         "Offset of field: ",
@@ -3728,7 +3730,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>())).modulus as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>())).modulus as *const _ as usize },
                     48usize,
                     concat!(
                         "Offset of field: ",
@@ -3739,7 +3741,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NrrHeader>())).fixed_key_signature as *const _
+                        &(*(::core::ptr::null::<NrrHeader>())).fixed_key_signature as *const _
                             as usize
                     },
                     304usize,
@@ -3752,7 +3754,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NrrHeader>())).nrr_signature as *const _ as usize
+                        &(*(::core::ptr::null::<NrrHeader>())).nrr_signature as *const _ as usize
                     },
                     560usize,
                     concat!(
@@ -3764,7 +3766,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NrrHeader>())).program_id as *const _ as usize
+                        &(*(::core::ptr::null::<NrrHeader>())).program_id as *const _ as usize
                     },
                     816usize,
                     concat!(
@@ -3775,7 +3777,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>())).size as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>())).size as *const _ as usize },
                     824usize,
                     concat!(
                         "Offset of field: ",
@@ -3785,7 +3787,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>())).type_ as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>())).type_ as *const _ as usize },
                     828usize,
                     concat!(
                         "Offset of field: ",
@@ -3795,7 +3797,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>()))._x33D as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>()))._x33D as *const _ as usize },
                     829usize,
                     concat!(
                         "Offset of field: ",
@@ -3806,7 +3808,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NrrHeader>())).hashes_offset as *const _ as usize
+                        &(*(::core::ptr::null::<NrrHeader>())).hashes_offset as *const _ as usize
                     },
                     832usize,
                     concat!(
@@ -3818,7 +3820,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<NrrHeader>())).num_hashes as *const _ as usize
+                        &(*(::core::ptr::null::<NrrHeader>())).num_hashes as *const _ as usize
                     },
                     836usize,
                     concat!(
@@ -3829,7 +3831,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<NrrHeader>()))._x348 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<NrrHeader>()))._x348 as *const _ as usize },
                     840usize,
                     concat!(
                         "Offset of field: ",
@@ -3854,18 +3856,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_RegistrationInfo() {
                 assert_eq!(
-                    core::mem::size_of::<RegistrationInfo>(),
+                    ::core::mem::size_of::<RegistrationInfo>(),
                     32usize,
                     concat!("Size of: ", stringify!(RegistrationInfo))
                 );
                 assert_eq!(
-                    core::mem::align_of::<RegistrationInfo>(),
+                    ::core::mem::align_of::<RegistrationInfo>(),
                     8usize,
                     concat!("Alignment of ", stringify!(RegistrationInfo))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<RegistrationInfo>())).state as *const _ as usize
+                        &(*(::core::ptr::null::<RegistrationInfo>())).state as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -3877,7 +3879,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<RegistrationInfo>())).nrrPtr as *const _ as usize
+                        &(*(::core::ptr::null::<RegistrationInfo>())).nrrPtr as *const _ as usize
                     },
                     8usize,
                     concat!(
@@ -3889,7 +3891,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<RegistrationInfo>()))._x10 as *const _ as usize
+                        &(*(::core::ptr::null::<RegistrationInfo>()))._x10 as *const _ as usize
                     },
                     16usize,
                     concat!(
@@ -3901,7 +3903,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<RegistrationInfo>()))._x18 as *const _ as usize
+                        &(*(::core::ptr::null::<RegistrationInfo>()))._x18 as *const _ as usize
                     },
                     24usize,
                     concat!(
@@ -4055,17 +4057,17 @@ pub mod root {
                 #[test]
                 fn bindgen_test_layout_Md5Impl() {
                     assert_eq!(
-                        core::mem::size_of::<Md5Impl>(),
+                        ::core::mem::size_of::<Md5Impl>(),
                         96usize,
                         concat!("Size of: ", stringify!(Md5Impl))
                     );
                     assert_eq!(
-                        core::mem::align_of::<Md5Impl>(),
+                        ::core::mem::align_of::<Md5Impl>(),
                         8usize,
                         concat!("Alignment of ", stringify!(Md5Impl))
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Md5Impl>()))._x0 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Md5Impl>()))._x0 as *const _ as usize },
                         0usize,
                         concat!(
                             "Offset of field: ",
@@ -4075,7 +4077,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Md5Impl>()))._x4 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Md5Impl>()))._x4 as *const _ as usize },
                         4usize,
                         concat!(
                             "Offset of field: ",
@@ -4085,7 +4087,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Md5Impl>()))._x8 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Md5Impl>()))._x8 as *const _ as usize },
                         8usize,
                         concat!(
                             "Offset of field: ",
@@ -4095,7 +4097,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Md5Impl>()))._xC as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Md5Impl>()))._xC as *const _ as usize },
                         12usize,
                         concat!(
                             "Offset of field: ",
@@ -4105,7 +4107,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Md5Impl>()))._x10 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Md5Impl>()))._x10 as *const _ as usize },
                         16usize,
                         concat!(
                             "Offset of field: ",
@@ -4115,7 +4117,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Md5Impl>()))._x50 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Md5Impl>()))._x50 as *const _ as usize },
                         80usize,
                         concat!(
                             "Offset of field: ",
@@ -4125,7 +4127,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Md5Impl>()))._x58 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Md5Impl>()))._x58 as *const _ as usize },
                         88usize,
                         concat!(
                             "Offset of field: ",
@@ -4204,17 +4206,17 @@ pub mod root {
                 #[test]
                 fn bindgen_test_layout_Sha1Impl() {
                     assert_eq!(
-                        core::mem::size_of::<Sha1Impl>(),
+                        ::core::mem::size_of::<Sha1Impl>(),
                         128usize,
                         concat!("Size of: ", stringify!(Sha1Impl))
                     );
                     assert_eq!(
-                        core::mem::align_of::<Sha1Impl>(),
+                        ::core::mem::align_of::<Sha1Impl>(),
                         16usize,
                         concat!("Alignment of ", stringify!(Sha1Impl))
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x0 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x0 as *const _ as usize },
                         0usize,
                         concat!(
                             "Offset of field: ",
@@ -4224,7 +4226,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x8 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x8 as *const _ as usize },
                         8usize,
                         concat!(
                             "Offset of field: ",
@@ -4234,7 +4236,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x10 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x10 as *const _ as usize },
                         16usize,
                         concat!(
                             "Offset of field: ",
@@ -4244,7 +4246,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x14 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x14 as *const _ as usize },
                         32usize,
                         concat!(
                             "Offset of field: ",
@@ -4254,7 +4256,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x24 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x24 as *const _ as usize },
                         48usize,
                         concat!(
                             "Offset of field: ",
@@ -4264,7 +4266,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x34 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x34 as *const _ as usize },
                         64usize,
                         concat!(
                             "Offset of field: ",
@@ -4274,7 +4276,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x44 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x44 as *const _ as usize },
                         80usize,
                         concat!(
                             "Offset of field: ",
@@ -4284,7 +4286,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x48 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x48 as *const _ as usize },
                         88usize,
                         concat!(
                             "Offset of field: ",
@@ -4294,7 +4296,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x50 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x50 as *const _ as usize },
                         96usize,
                         concat!(
                             "Offset of field: ",
@@ -4304,7 +4306,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x58 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x58 as *const _ as usize },
                         104usize,
                         concat!(
                             "Offset of field: ",
@@ -4314,7 +4316,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha1Impl>()))._x60 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha1Impl>()))._x60 as *const _ as usize },
                         112usize,
                         concat!(
                             "Offset of field: ",
@@ -4403,17 +4405,17 @@ pub mod root {
                 #[test]
                 fn bindgen_test_layout_Sha256Impl() {
                     assert_eq!(
-                        core::mem::size_of::<Sha256Impl>(),
+                        ::core::mem::size_of::<Sha256Impl>(),
                         144usize,
                         concat!("Size of: ", stringify!(Sha256Impl))
                     );
                     assert_eq!(
-                        core::mem::align_of::<Sha256Impl>(),
+                        ::core::mem::align_of::<Sha256Impl>(),
                         16usize,
                         concat!("Alignment of ", stringify!(Sha256Impl))
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha256Impl>()))._x0 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha256Impl>()))._x0 as *const _ as usize },
                         0usize,
                         concat!(
                             "Offset of field: ",
@@ -4423,7 +4425,7 @@ pub mod root {
                         )
                     );
                     assert_eq!(
-                        unsafe { &(*(core::ptr::null::<Sha256Impl>()))._x8 as *const _ as usize },
+                        unsafe { &(*(::core::ptr::null::<Sha256Impl>()))._x8 as *const _ as usize },
                         8usize,
                         concat!(
                             "Offset of field: ",
@@ -4434,7 +4436,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x10 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x10 as *const _ as usize
                         },
                         16usize,
                         concat!(
@@ -4446,7 +4448,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x14 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x14 as *const _ as usize
                         },
                         32usize,
                         concat!(
@@ -4458,7 +4460,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x24 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x24 as *const _ as usize
                         },
                         48usize,
                         concat!(
@@ -4470,7 +4472,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x34 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x34 as *const _ as usize
                         },
                         64usize,
                         concat!(
@@ -4482,7 +4484,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x44 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x44 as *const _ as usize
                         },
                         80usize,
                         concat!(
@@ -4494,7 +4496,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x48 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x48 as *const _ as usize
                         },
                         88usize,
                         concat!(
@@ -4506,7 +4508,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x50 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x50 as *const _ as usize
                         },
                         96usize,
                         concat!(
@@ -4518,7 +4520,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x58 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x58 as *const _ as usize
                         },
                         104usize,
                         concat!(
@@ -4530,7 +4532,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x60 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x60 as *const _ as usize
                         },
                         112usize,
                         concat!(
@@ -4542,7 +4544,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x68 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x68 as *const _ as usize
                         },
                         120usize,
                         concat!(
@@ -4554,7 +4556,7 @@ pub mod root {
                     );
                     assert_eq!(
                         unsafe {
-                            &(*(core::ptr::null::<Sha256Impl>()))._x70 as *const _ as usize
+                            &(*(::core::ptr::null::<Sha256Impl>()))._x70 as *const _ as usize
                         },
                         128usize,
                         concat!(
@@ -4668,18 +4670,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_PlayReport() {
                 assert_eq!(
-                    core::mem::size_of::<PlayReport>(),
+                    ::core::mem::size_of::<PlayReport>(),
                     56usize,
                     concat!("Size of: ", stringify!(PlayReport))
                 );
                 assert_eq!(
-                    core::mem::align_of::<PlayReport>(),
+                    ::core::mem::align_of::<PlayReport>(),
                     8usize,
                     concat!("Alignment of ", stringify!(PlayReport))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<PlayReport>())).m_EventName as *const _ as usize
+                        &(*(::core::ptr::null::<PlayReport>())).m_EventName as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -4690,7 +4692,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<PlayReport>())).m_Buff as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<PlayReport>())).m_Buff as *const _ as usize },
                     32usize,
                     concat!(
                         "Offset of field: ",
@@ -4701,7 +4703,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<PlayReport>())).m_BuffLength as *const _ as usize
+                        &(*(::core::ptr::null::<PlayReport>())).m_BuffLength as *const _ as usize
                     },
                     40usize,
                     concat!(
@@ -4712,7 +4714,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<PlayReport>())).m_End as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<PlayReport>())).m_End as *const _ as usize },
                     48usize,
                     concat!(
                         "Offset of field: ",
@@ -4819,7 +4821,7 @@ pub mod root {
                 }
                 #[inline]
                 pub unsafe fn new() -> Self {
-                    let mut __bindgen_tmp = core::mem::MaybeUninit::uninit();
+                    let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
                     PlayReport_PlayReport(__bindgen_tmp.as_mut_ptr());
                     __bindgen_tmp.assume_init()
                 }
@@ -5127,17 +5129,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Dimension() {
                 assert_eq!(
-                    core::mem::size_of::<Dimension>(),
+                    ::core::mem::size_of::<Dimension>(),
                     8usize,
                     concat!("Size of: ", stringify!(Dimension))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Dimension>(),
+                    ::core::mem::align_of::<Dimension>(),
                     4usize,
                     concat!("Alignment of ", stringify!(Dimension))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Dimension>())).width as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Dimension>())).width as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -5147,7 +5149,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Dimension>())).height as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Dimension>())).height as *const _ as usize },
                     4usize,
                     concat!(
                         "Offset of field: ",
@@ -5173,18 +5175,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_JpegDecoder() {
                 assert_eq!(
-                    core::mem::size_of::<JpegDecoder>(),
+                    ::core::mem::size_of::<JpegDecoder>(),
                     56usize,
                     concat!("Size of: ", stringify!(JpegDecoder))
                 );
                 assert_eq!(
-                    core::mem::align_of::<JpegDecoder>(),
+                    ::core::mem::align_of::<JpegDecoder>(),
                     8usize,
                     concat!("Alignment of ", stringify!(JpegDecoder))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<JpegDecoder>())).mProcessStage as *const _ as usize
+                        &(*(::core::ptr::null::<JpegDecoder>())).mProcessStage as *const _ as usize
                     },
                     8usize,
                     concat!(
@@ -5195,7 +5197,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<JpegDecoder>())).mData as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<JpegDecoder>())).mData as *const _ as usize },
                     16usize,
                     concat!(
                         "Offset of field: ",
@@ -5205,7 +5207,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<JpegDecoder>())).mSize as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<JpegDecoder>())).mSize as *const _ as usize },
                     24usize,
                     concat!(
                         "Offset of field: ",
@@ -5215,7 +5217,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<JpegDecoder>()))._18 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<JpegDecoder>()))._18 as *const _ as usize },
                     32usize,
                     concat!(
                         "Offset of field: ",
@@ -5226,7 +5228,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<JpegDecoder>())).mFormat as *const _ as usize
+                        &(*(::core::ptr::null::<JpegDecoder>())).mFormat as *const _ as usize
                     },
                     36usize,
                     concat!(
@@ -5238,7 +5240,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<JpegDecoder>())).mImgDimensions as *const _ as usize
+                        &(*(::core::ptr::null::<JpegDecoder>())).mImgDimensions as *const _ as usize
                     },
                     40usize,
                     concat!(
@@ -5249,7 +5251,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<JpegDecoder>()))._28 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<JpegDecoder>()))._28 as *const _ as usize },
                     48usize,
                     concat!(
                         "Offset of field: ",
@@ -5330,7 +5332,7 @@ pub mod root {
                 }
                 #[inline]
                 pub unsafe fn new() -> Self {
-                    let mut __bindgen_tmp = core::mem::MaybeUninit::uninit();
+                    let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
                     JpegDecoder_JpegDecoder(__bindgen_tmp.as_mut_ptr());
                     __bindgen_tmp.assume_init()
                 }
@@ -5366,12 +5368,12 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Profile() {
                 assert_eq!(
-                    core::mem::size_of::<Profile>(),
+                    ::core::mem::size_of::<Profile>(),
                     1usize,
                     concat!("Size of: ", stringify!(Profile))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Profile>(),
+                    ::core::mem::align_of::<Profile>(),
                     1usize,
                     concat!("Alignment of ", stringify!(Profile))
                 );
@@ -5427,7 +5429,7 @@ pub mod root {
                 }
                 #[inline]
                 pub unsafe fn new() -> Self {
-                    let mut __bindgen_tmp = core::mem::MaybeUninit::uninit();
+                    let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
                     Profile_Profile(__bindgen_tmp.as_mut_ptr());
                     __bindgen_tmp.assume_init()
                 }
@@ -5440,12 +5442,12 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_AsyncContext() {
                 assert_eq!(
-                    core::mem::size_of::<AsyncContext>(),
+                    ::core::mem::size_of::<AsyncContext>(),
                     1usize,
                     concat!("Size of: ", stringify!(AsyncContext))
                 );
                 assert_eq!(
-                    core::mem::align_of::<AsyncContext>(),
+                    ::core::mem::align_of::<AsyncContext>(),
                     1usize,
                     concat!("Alignment of ", stringify!(AsyncContext))
                 );
@@ -5487,7 +5489,7 @@ pub mod root {
                 }
                 #[inline]
                 pub unsafe fn new() -> Self {
-                    let mut __bindgen_tmp = core::mem::MaybeUninit::uninit();
+                    let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
                     AsyncContext_AsyncContext(__bindgen_tmp.as_mut_ptr());
                     __bindgen_tmp.assume_init()
                 }
@@ -5514,17 +5516,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_ModuleInfo() {
                 assert_eq!(
-                    core::mem::size_of::<ModuleInfo>(),
+                    ::core::mem::size_of::<ModuleInfo>(),
                     24usize,
                     concat!("Size of: ", stringify!(ModuleInfo))
                 );
                 assert_eq!(
-                    core::mem::align_of::<ModuleInfo>(),
+                    ::core::mem::align_of::<ModuleInfo>(),
                     8usize,
                     concat!("Alignment of ", stringify!(ModuleInfo))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ModuleInfo>())).mPath as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ModuleInfo>())).mPath as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -5535,7 +5537,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ModuleInfo>())).mBaseAddr as *const _ as usize
+                        &(*(::core::ptr::null::<ModuleInfo>())).mBaseAddr as *const _ as usize
                     },
                     8usize,
                     concat!(
@@ -5546,7 +5548,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<ModuleInfo>())).mSize as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<ModuleInfo>())).mSize as *const _ as usize },
                     16usize,
                     concat!(
                         "Offset of field: ",
@@ -5628,12 +5630,12 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Context() {
                 assert_eq!(
-                    core::mem::size_of::<Context>(),
+                    ::core::mem::size_of::<Context>(),
                     1usize,
                     concat!("Size of: ", stringify!(Context))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Context>(),
+                    ::core::mem::align_of::<Context>(),
                     1usize,
                     concat!("Alignment of ", stringify!(Context))
                 );
@@ -5696,18 +5698,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_StandardAllocator() {
                 assert_eq!(
-                    core::mem::size_of::<StandardAllocator>(),
+                    ::core::mem::size_of::<StandardAllocator>(),
                     16usize,
                     concat!("Size of: ", stringify!(StandardAllocator))
                 );
                 assert_eq!(
-                    core::mem::align_of::<StandardAllocator>(),
+                    ::core::mem::align_of::<StandardAllocator>(),
                     8usize,
                     concat!("Alignment of ", stringify!(StandardAllocator))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<StandardAllocator>())).mIsInitialized as *const _
+                        &(*(::core::ptr::null::<StandardAllocator>())).mIsInitialized as *const _
                             as usize
                     },
                     0usize,
@@ -5720,7 +5722,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<StandardAllocator>())).mIsEnabledThreadCache
+                        &(*(::core::ptr::null::<StandardAllocator>())).mIsEnabledThreadCache
                             as *const _ as usize
                     },
                     1usize,
@@ -5733,7 +5735,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<StandardAllocator>()))._2 as *const _ as usize
+                        &(*(::core::ptr::null::<StandardAllocator>()))._2 as *const _ as usize
                     },
                     2usize,
                     concat!(
@@ -5745,7 +5747,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<StandardAllocator>())).mAllocAddr as *const _
+                        &(*(::core::ptr::null::<StandardAllocator>())).mAllocAddr as *const _
                             as usize
                     },
                     8usize,
@@ -5832,7 +5834,7 @@ pub mod root {
                 }
                 #[inline]
                 pub unsafe fn new() -> Self {
-                    let mut __bindgen_tmp = core::mem::MaybeUninit::uninit();
+                    let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
                     StandardAllocator_StandardAllocator(__bindgen_tmp.as_mut_ptr());
                     __bindgen_tmp.assume_init()
                 }
@@ -5878,17 +5880,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Unorm8x4() {
                 assert_eq!(
-                    core::mem::size_of::<Unorm8x4>(),
+                    ::core::mem::size_of::<Unorm8x4>(),
                     4usize,
                     concat!("Size of: ", stringify!(Unorm8x4))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Unorm8x4>(),
+                    ::core::mem::align_of::<Unorm8x4>(),
                     1usize,
                     concat!("Alignment of ", stringify!(Unorm8x4))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Unorm8x4>())).elements as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Unorm8x4>())).elements as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -5908,17 +5910,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Color4u8() {
                 assert_eq!(
-                    core::mem::size_of::<Color4u8>(),
+                    ::core::mem::size_of::<Color4u8>(),
                     4usize,
                     concat!("Size of: ", stringify!(Color4u8))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Color4u8>(),
+                    ::core::mem::align_of::<Color4u8>(),
                     1usize,
                     concat!("Alignment of ", stringify!(Color4u8))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Color4u8>())).r as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Color4u8>())).r as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -5928,7 +5930,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Color4u8>())).g as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Color4u8>())).g as *const _ as usize },
                     1usize,
                     concat!(
                         "Offset of field: ",
@@ -5938,7 +5940,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Color4u8>())).b as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Color4u8>())).b as *const _ as usize },
                     2usize,
                     concat!(
                         "Offset of field: ",
@@ -5948,7 +5950,7 @@ pub mod root {
                     )
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Color4u8>())).a as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Color4u8>())).a as *const _ as usize },
                     3usize,
                     concat!(
                         "Offset of field: ",
@@ -6006,18 +6008,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_RelocationTable() {
                 assert_eq!(
-                    core::mem::size_of::<RelocationTable>(),
+                    ::core::mem::size_of::<RelocationTable>(),
                     12usize,
                     concat!("Size of: ", stringify!(RelocationTable))
                 );
                 assert_eq!(
-                    core::mem::align_of::<RelocationTable>(),
+                    ::core::mem::align_of::<RelocationTable>(),
                     4usize,
                     concat!("Alignment of ", stringify!(RelocationTable))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<RelocationTable>())).mMagic as *const _ as usize
+                        &(*(::core::ptr::null::<RelocationTable>())).mMagic as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -6029,7 +6031,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<RelocationTable>())).mPosition as *const _ as usize
+                        &(*(::core::ptr::null::<RelocationTable>())).mPosition as *const _ as usize
                     },
                     4usize,
                     concat!(
@@ -6041,7 +6043,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<RelocationTable>())).mSectionCount as *const _
+                        &(*(::core::ptr::null::<RelocationTable>())).mSectionCount as *const _
                             as usize
                     },
                     8usize,
@@ -6090,18 +6092,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_BinaryFileHeader() {
                 assert_eq!(
-                    core::mem::size_of::<BinaryFileHeader>(),
+                    ::core::mem::size_of::<BinaryFileHeader>(),
                     32usize,
                     concat!("Size of: ", stringify!(BinaryFileHeader))
                 );
                 assert_eq!(
-                    core::mem::align_of::<BinaryFileHeader>(),
+                    ::core::mem::align_of::<BinaryFileHeader>(),
                     4usize,
                     concat!("Alignment of ", stringify!(BinaryFileHeader))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mMagic as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mMagic as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -6113,7 +6115,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mSig as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mSig as *const _ as usize
                     },
                     4usize,
                     concat!(
@@ -6125,7 +6127,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mVerMicro as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mVerMicro as *const _ as usize
                     },
                     8usize,
                     concat!(
@@ -6137,7 +6139,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mVerMinor as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mVerMinor as *const _ as usize
                     },
                     9usize,
                     concat!(
@@ -6149,7 +6151,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mVerMajor as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mVerMajor as *const _ as usize
                     },
                     10usize,
                     concat!(
@@ -6161,7 +6163,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mBOM as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mBOM as *const _ as usize
                     },
                     12usize,
                     concat!(
@@ -6173,7 +6175,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mAlignment as *const _
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mAlignment as *const _
                             as usize
                     },
                     14usize,
@@ -6186,7 +6188,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mTargetAddrSize as *const _
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mTargetAddrSize as *const _
                             as usize
                     },
                     15usize,
@@ -6199,7 +6201,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mFileNameOffset as *const _
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mFileNameOffset as *const _
                             as usize
                     },
                     16usize,
@@ -6212,7 +6214,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mFlag as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mFlag as *const _ as usize
                     },
                     20usize,
                     concat!(
@@ -6224,7 +6226,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mFirstBlockOffs as *const _
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mFirstBlockOffs as *const _
                             as usize
                     },
                     22usize,
@@ -6237,7 +6239,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mRelocationTableOffs
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mRelocationTableOffs
                             as *const _ as usize
                     },
                     24usize,
@@ -6250,7 +6252,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<BinaryFileHeader>())).mSize as *const _ as usize
+                        &(*(::core::ptr::null::<BinaryFileHeader>())).mSize as *const _ as usize
                     },
                     28usize,
                     concat!(
@@ -6368,18 +6370,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_ControllerSupportArg() {
                 assert_eq!(
-                    core::mem::size_of::<ControllerSupportArg>(),
+                    ::core::mem::size_of::<ControllerSupportArg>(),
                     540usize,
                     concat!("Size of: ", stringify!(ControllerSupportArg))
                 );
                 assert_eq!(
-                    core::mem::align_of::<ControllerSupportArg>(),
+                    ::core::mem::align_of::<ControllerSupportArg>(),
                     1usize,
                     concat!("Alignment of ", stringify!(ControllerSupportArg))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mMinPlayerCount
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mMinPlayerCount
                             as *const _ as usize
                     },
                     0usize,
@@ -6392,7 +6394,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mMaxPlayerCount
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mMaxPlayerCount
                             as *const _ as usize
                     },
                     1usize,
@@ -6405,7 +6407,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mTakeOverConnection
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mTakeOverConnection
                             as *const _ as usize
                     },
                     2usize,
@@ -6418,7 +6420,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mLeftJustify as *const _
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mLeftJustify as *const _
                             as usize
                     },
                     3usize,
@@ -6431,7 +6433,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mPermitJoyconDual
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mPermitJoyconDual
                             as *const _ as usize
                     },
                     4usize,
@@ -6444,7 +6446,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mSingleMode as *const _
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mSingleMode as *const _
                             as usize
                     },
                     5usize,
@@ -6457,7 +6459,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mUseColors as *const _
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mUseColors as *const _
                             as usize
                     },
                     6usize,
@@ -6470,7 +6472,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mColors as *const _
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mColors as *const _
                             as usize
                     },
                     7usize,
@@ -6483,7 +6485,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mUsingControllerNames
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mUsingControllerNames
                             as *const _ as usize
                     },
                     23usize,
@@ -6496,7 +6498,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportArg>())).mControllerNames
+                        &(*(::core::ptr::null::<ControllerSupportArg>())).mControllerNames
                             as *const _ as usize
                     },
                     24usize,
@@ -6517,18 +6519,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_ControllerSupportResultInfo() {
                 assert_eq!(
-                    core::mem::size_of::<ControllerSupportResultInfo>(),
+                    ::core::mem::size_of::<ControllerSupportResultInfo>(),
                     8usize,
                     concat!("Size of: ", stringify!(ControllerSupportResultInfo))
                 );
                 assert_eq!(
-                    core::mem::align_of::<ControllerSupportResultInfo>(),
+                    ::core::mem::align_of::<ControllerSupportResultInfo>(),
                     4usize,
                     concat!("Alignment of ", stringify!(ControllerSupportResultInfo))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportResultInfo>())).mPlayerCount
+                        &(*(::core::ptr::null::<ControllerSupportResultInfo>())).mPlayerCount
                             as *const _ as usize
                     },
                     0usize,
@@ -6541,7 +6543,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<ControllerSupportResultInfo>())).mSelectedId
+                        &(*(::core::ptr::null::<ControllerSupportResultInfo>())).mSelectedId
                             as *const _ as usize
                     },
                     4usize,
@@ -6623,18 +6625,18 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_AudioRendererConfig() {
                 assert_eq!(
-                    core::mem::size_of::<AudioRendererConfig>(),
+                    ::core::mem::size_of::<AudioRendererConfig>(),
                     88usize,
                     concat!("Size of: ", stringify!(AudioRendererConfig))
                 );
                 assert_eq!(
-                    core::mem::align_of::<AudioRendererConfig>(),
+                    ::core::mem::align_of::<AudioRendererConfig>(),
                     8usize,
                     concat!("Alignment of ", stringify!(AudioRendererConfig))
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._0 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._0 as *const _ as usize
                     },
                     0usize,
                     concat!(
@@ -6646,7 +6648,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._8 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._8 as *const _ as usize
                     },
                     8usize,
                     concat!(
@@ -6658,7 +6660,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._10 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._10 as *const _ as usize
                     },
                     16usize,
                     concat!(
@@ -6670,7 +6672,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._18 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._18 as *const _ as usize
                     },
                     24usize,
                     concat!(
@@ -6682,7 +6684,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._20 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._20 as *const _ as usize
                     },
                     32usize,
                     concat!(
@@ -6694,7 +6696,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._28 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._28 as *const _ as usize
                     },
                     40usize,
                     concat!(
@@ -6706,7 +6708,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._30 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._30 as *const _ as usize
                     },
                     48usize,
                     concat!(
@@ -6718,7 +6720,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._38 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._38 as *const _ as usize
                     },
                     56usize,
                     concat!(
@@ -6730,7 +6732,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._40 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._40 as *const _ as usize
                     },
                     64usize,
                     concat!(
@@ -6742,7 +6744,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._48 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._48 as *const _ as usize
                     },
                     72usize,
                     concat!(
@@ -6754,7 +6756,7 @@ pub mod root {
                 );
                 assert_eq!(
                     unsafe {
-                        &(*(core::ptr::null::<AudioRendererConfig>()))._50 as *const _ as usize
+                        &(*(::core::ptr::null::<AudioRendererConfig>()))._50 as *const _ as usize
                     },
                     80usize,
                     concat!(
@@ -6773,17 +6775,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_DelayType() {
                 assert_eq!(
-                    core::mem::size_of::<DelayType>(),
+                    ::core::mem::size_of::<DelayType>(),
                     8usize,
                     concat!("Size of: ", stringify!(DelayType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<DelayType>(),
+                    ::core::mem::align_of::<DelayType>(),
                     8usize,
                     concat!("Alignment of ", stringify!(DelayType))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<DelayType>()))._0 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<DelayType>()))._0 as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -6801,17 +6803,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_FinalMixType() {
                 assert_eq!(
-                    core::mem::size_of::<FinalMixType>(),
+                    ::core::mem::size_of::<FinalMixType>(),
                     8usize,
                     concat!("Size of: ", stringify!(FinalMixType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<FinalMixType>(),
+                    ::core::mem::align_of::<FinalMixType>(),
                     8usize,
                     concat!("Alignment of ", stringify!(FinalMixType))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<FinalMixType>()))._0 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<FinalMixType>()))._0 as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -6829,17 +6831,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_SubMixType() {
                 assert_eq!(
-                    core::mem::size_of::<SubMixType>(),
+                    ::core::mem::size_of::<SubMixType>(),
                     8usize,
                     concat!("Size of: ", stringify!(SubMixType))
                 );
                 assert_eq!(
-                    core::mem::align_of::<SubMixType>(),
+                    ::core::mem::align_of::<SubMixType>(),
                     8usize,
                     concat!("Alignment of ", stringify!(SubMixType))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<SubMixType>()))._0 as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<SubMixType>()))._0 as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -6889,17 +6891,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_Handle() {
                 assert_eq!(
-                    core::mem::size_of::<Handle>(),
+                    ::core::mem::size_of::<Handle>(),
                     4usize,
                     concat!("Size of: ", stringify!(Handle))
                 );
                 assert_eq!(
-                    core::mem::align_of::<Handle>(),
+                    ::core::mem::align_of::<Handle>(),
                     4usize,
                     concat!("Alignment of ", stringify!(Handle))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<Handle>())).handle as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<Handle>())).handle as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -6968,17 +6970,17 @@ pub mod root {
             #[test]
             fn bindgen_test_layout_InAddr() {
                 assert_eq!(
-                    core::mem::size_of::<InAddr>(),
+                    ::core::mem::size_of::<InAddr>(),
                     4usize,
                     concat!("Size of: ", stringify!(InAddr))
                 );
                 assert_eq!(
-                    core::mem::align_of::<InAddr>(),
+                    ::core::mem::align_of::<InAddr>(),
                     4usize,
                     concat!("Alignment of ", stringify!(InAddr))
                 );
                 assert_eq!(
-                    unsafe { &(*(core::ptr::null::<InAddr>())).addr as *const _ as usize },
+                    unsafe { &(*(::core::ptr::null::<InAddr>())).addr as *const _ as usize },
                     0usize,
                     concat!(
                         "Offset of field: ",
@@ -7102,17 +7104,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_nnosMutexType() {
         assert_eq!(
-            core::mem::size_of::<nnosMutexType>(),
+            ::core::mem::size_of::<nnosMutexType>(),
             28usize,
             concat!("Size of: ", stringify!(nnosMutexType))
         );
         assert_eq!(
-            core::mem::align_of::<nnosMutexType>(),
+            ::core::mem::align_of::<nnosMutexType>(),
             4usize,
             concat!("Alignment of ", stringify!(nnosMutexType))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<nnosMutexType>())).curState as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<nnosMutexType>())).curState as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7123,7 +7125,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<nnosMutexType>())).isRecursiveMutex as *const _ as usize
+                &(*(::core::ptr::null::<nnosMutexType>())).isRecursiveMutex as *const _ as usize
             },
             1usize,
             concat!(
@@ -7134,7 +7136,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<nnosMutexType>())).lockLevel as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<nnosMutexType>())).lockLevel as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -7144,7 +7146,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<nnosMutexType>()))._6 as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<nnosMutexType>()))._6 as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -7234,17 +7236,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Ehdr() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Ehdr>(),
+            ::core::mem::size_of::<Elf32_Ehdr>(),
             52usize,
             concat!("Size of: ", stringify!(Elf32_Ehdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Ehdr>(),
+            ::core::mem::align_of::<Elf32_Ehdr>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Ehdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_ident as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_ident as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7254,7 +7256,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_type as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -7264,7 +7266,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_machine as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_machine as *const _ as usize },
             18usize,
             concat!(
                 "Offset of field: ",
@@ -7274,7 +7276,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_version as *const _ as usize },
             20usize,
             concat!(
                 "Offset of field: ",
@@ -7284,7 +7286,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_entry as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_entry as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -7294,7 +7296,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_phoff as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_phoff as *const _ as usize },
             28usize,
             concat!(
                 "Offset of field: ",
@@ -7304,7 +7306,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_shoff as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_shoff as *const _ as usize },
             32usize,
             concat!(
                 "Offset of field: ",
@@ -7314,7 +7316,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_flags as *const _ as usize },
             36usize,
             concat!(
                 "Offset of field: ",
@@ -7324,7 +7326,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_ehsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_ehsize as *const _ as usize },
             40usize,
             concat!(
                 "Offset of field: ",
@@ -7334,7 +7336,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_phentsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_phentsize as *const _ as usize },
             42usize,
             concat!(
                 "Offset of field: ",
@@ -7344,7 +7346,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_phnum as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_phnum as *const _ as usize },
             44usize,
             concat!(
                 "Offset of field: ",
@@ -7354,7 +7356,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_shentsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_shentsize as *const _ as usize },
             46usize,
             concat!(
                 "Offset of field: ",
@@ -7364,7 +7366,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_shnum as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_shnum as *const _ as usize },
             48usize,
             concat!(
                 "Offset of field: ",
@@ -7374,7 +7376,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Ehdr>())).e_shstrndx as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Ehdr>())).e_shstrndx as *const _ as usize },
             50usize,
             concat!(
                 "Offset of field: ",
@@ -7405,17 +7407,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Ehdr() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Ehdr>(),
+            ::core::mem::size_of::<Elf64_Ehdr>(),
             64usize,
             concat!("Size of: ", stringify!(Elf64_Ehdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Ehdr>(),
+            ::core::mem::align_of::<Elf64_Ehdr>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Ehdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_ident as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_ident as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7425,7 +7427,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_type as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -7435,7 +7437,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_machine as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_machine as *const _ as usize },
             18usize,
             concat!(
                 "Offset of field: ",
@@ -7445,7 +7447,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_version as *const _ as usize },
             20usize,
             concat!(
                 "Offset of field: ",
@@ -7455,7 +7457,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_entry as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_entry as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -7465,7 +7467,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_phoff as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_phoff as *const _ as usize },
             32usize,
             concat!(
                 "Offset of field: ",
@@ -7475,7 +7477,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_shoff as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_shoff as *const _ as usize },
             40usize,
             concat!(
                 "Offset of field: ",
@@ -7485,7 +7487,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_flags as *const _ as usize },
             48usize,
             concat!(
                 "Offset of field: ",
@@ -7495,7 +7497,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_ehsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_ehsize as *const _ as usize },
             52usize,
             concat!(
                 "Offset of field: ",
@@ -7505,7 +7507,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_phentsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_phentsize as *const _ as usize },
             54usize,
             concat!(
                 "Offset of field: ",
@@ -7515,7 +7517,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_phnum as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_phnum as *const _ as usize },
             56usize,
             concat!(
                 "Offset of field: ",
@@ -7525,7 +7527,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_shentsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_shentsize as *const _ as usize },
             58usize,
             concat!(
                 "Offset of field: ",
@@ -7535,7 +7537,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_shnum as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_shnum as *const _ as usize },
             60usize,
             concat!(
                 "Offset of field: ",
@@ -7545,7 +7547,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Ehdr>())).e_shstrndx as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Ehdr>())).e_shstrndx as *const _ as usize },
             62usize,
             concat!(
                 "Offset of field: ",
@@ -7572,17 +7574,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Shdr() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Shdr>(),
+            ::core::mem::size_of::<Elf32_Shdr>(),
             40usize,
             concat!("Size of: ", stringify!(Elf32_Shdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Shdr>(),
+            ::core::mem::align_of::<Elf32_Shdr>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Shdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7592,7 +7594,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_type as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -7602,7 +7604,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_flags as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -7612,7 +7614,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_addr as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_addr as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -7622,7 +7624,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_offset as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -7632,7 +7634,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_size as *const _ as usize },
             20usize,
             concat!(
                 "Offset of field: ",
@@ -7642,7 +7644,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_link as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_link as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -7652,7 +7654,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_info as *const _ as usize },
             28usize,
             concat!(
                 "Offset of field: ",
@@ -7662,7 +7664,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_addralign as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_addralign as *const _ as usize },
             32usize,
             concat!(
                 "Offset of field: ",
@@ -7672,7 +7674,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Shdr>())).sh_entsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Shdr>())).sh_entsize as *const _ as usize },
             36usize,
             concat!(
                 "Offset of field: ",
@@ -7699,17 +7701,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Shdr() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Shdr>(),
+            ::core::mem::size_of::<Elf64_Shdr>(),
             64usize,
             concat!("Size of: ", stringify!(Elf64_Shdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Shdr>(),
+            ::core::mem::align_of::<Elf64_Shdr>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Shdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7719,7 +7721,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_type as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -7729,7 +7731,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_flags as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -7739,7 +7741,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_addr as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_addr as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -7749,7 +7751,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_offset as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -7759,7 +7761,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_size as *const _ as usize },
             32usize,
             concat!(
                 "Offset of field: ",
@@ -7769,7 +7771,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_link as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_link as *const _ as usize },
             40usize,
             concat!(
                 "Offset of field: ",
@@ -7779,7 +7781,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_info as *const _ as usize },
             44usize,
             concat!(
                 "Offset of field: ",
@@ -7789,7 +7791,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_addralign as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_addralign as *const _ as usize },
             48usize,
             concat!(
                 "Offset of field: ",
@@ -7799,7 +7801,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Shdr>())).sh_entsize as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Shdr>())).sh_entsize as *const _ as usize },
             56usize,
             concat!(
                 "Offset of field: ",
@@ -7819,17 +7821,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Chdr() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Chdr>(),
+            ::core::mem::size_of::<Elf32_Chdr>(),
             12usize,
             concat!("Size of: ", stringify!(Elf32_Chdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Chdr>(),
+            ::core::mem::align_of::<Elf32_Chdr>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Chdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Chdr>())).ch_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Chdr>())).ch_type as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7839,7 +7841,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Chdr>())).ch_size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Chdr>())).ch_size as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -7849,7 +7851,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Chdr>())).ch_addralign as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Chdr>())).ch_addralign as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -7870,17 +7872,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Chdr() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Chdr>(),
+            ::core::mem::size_of::<Elf64_Chdr>(),
             24usize,
             concat!("Size of: ", stringify!(Elf64_Chdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Chdr>(),
+            ::core::mem::align_of::<Elf64_Chdr>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Chdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Chdr>())).ch_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Chdr>())).ch_type as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7890,7 +7892,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Chdr>())).ch_reserved as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Chdr>())).ch_reserved as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -7900,7 +7902,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Chdr>())).ch_size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Chdr>())).ch_size as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -7910,7 +7912,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Chdr>())).ch_addralign as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Chdr>())).ch_addralign as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -7933,17 +7935,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Sym() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Sym>(),
+            ::core::mem::size_of::<Elf32_Sym>(),
             16usize,
             concat!("Size of: ", stringify!(Elf32_Sym))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Sym>(),
+            ::core::mem::align_of::<Elf32_Sym>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Sym))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Sym>())).st_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Sym>())).st_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -7953,7 +7955,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Sym>())).st_value as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Sym>())).st_value as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -7963,7 +7965,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Sym>())).st_size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Sym>())).st_size as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -7973,7 +7975,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Sym>())).st_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Sym>())).st_info as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -7983,7 +7985,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Sym>())).st_other as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Sym>())).st_other as *const _ as usize },
             13usize,
             concat!(
                 "Offset of field: ",
@@ -7993,7 +7995,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Sym>())).st_shndx as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Sym>())).st_shndx as *const _ as usize },
             14usize,
             concat!(
                 "Offset of field: ",
@@ -8016,17 +8018,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Sym() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Sym>(),
+            ::core::mem::size_of::<Elf64_Sym>(),
             24usize,
             concat!("Size of: ", stringify!(Elf64_Sym))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Sym>(),
+            ::core::mem::align_of::<Elf64_Sym>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Sym))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Sym>())).st_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Sym>())).st_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8036,7 +8038,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Sym>())).st_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Sym>())).st_info as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8046,7 +8048,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Sym>())).st_other as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Sym>())).st_other as *const _ as usize },
             5usize,
             concat!(
                 "Offset of field: ",
@@ -8056,7 +8058,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Sym>())).st_shndx as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Sym>())).st_shndx as *const _ as usize },
             6usize,
             concat!(
                 "Offset of field: ",
@@ -8066,7 +8068,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Sym>())).st_value as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Sym>())).st_value as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8076,7 +8078,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Sym>())).st_size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Sym>())).st_size as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -8095,17 +8097,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Syminfo() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Syminfo>(),
+            ::core::mem::size_of::<Elf32_Syminfo>(),
             4usize,
             concat!("Size of: ", stringify!(Elf32_Syminfo))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Syminfo>(),
+            ::core::mem::align_of::<Elf32_Syminfo>(),
             2usize,
             concat!("Alignment of ", stringify!(Elf32_Syminfo))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Syminfo>())).si_boundto as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Syminfo>())).si_boundto as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8115,7 +8117,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Syminfo>())).si_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Syminfo>())).si_flags as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -8134,17 +8136,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Syminfo() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Syminfo>(),
+            ::core::mem::size_of::<Elf64_Syminfo>(),
             4usize,
             concat!("Size of: ", stringify!(Elf64_Syminfo))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Syminfo>(),
+            ::core::mem::align_of::<Elf64_Syminfo>(),
             2usize,
             concat!("Alignment of ", stringify!(Elf64_Syminfo))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Syminfo>())).si_boundto as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Syminfo>())).si_boundto as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8154,7 +8156,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Syminfo>())).si_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Syminfo>())).si_flags as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -8173,17 +8175,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Rel() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Rel>(),
+            ::core::mem::size_of::<Elf32_Rel>(),
             8usize,
             concat!("Size of: ", stringify!(Elf32_Rel))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Rel>(),
+            ::core::mem::align_of::<Elf32_Rel>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Rel))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Rel>())).r_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Rel>())).r_offset as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8193,7 +8195,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Rel>())).r_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Rel>())).r_info as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8212,17 +8214,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Rel() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Rel>(),
+            ::core::mem::size_of::<Elf64_Rel>(),
             16usize,
             concat!("Size of: ", stringify!(Elf64_Rel))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Rel>(),
+            ::core::mem::align_of::<Elf64_Rel>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Rel))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Rel>())).r_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Rel>())).r_offset as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8232,7 +8234,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Rel>())).r_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Rel>())).r_info as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8252,17 +8254,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Rela() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Rela>(),
+            ::core::mem::size_of::<Elf32_Rela>(),
             12usize,
             concat!("Size of: ", stringify!(Elf32_Rela))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Rela>(),
+            ::core::mem::align_of::<Elf32_Rela>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Rela))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Rela>())).r_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Rela>())).r_offset as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8272,7 +8274,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Rela>())).r_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Rela>())).r_info as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8282,7 +8284,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Rela>())).r_addend as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Rela>())).r_addend as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8302,17 +8304,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Rela() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Rela>(),
+            ::core::mem::size_of::<Elf64_Rela>(),
             24usize,
             concat!("Size of: ", stringify!(Elf64_Rela))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Rela>(),
+            ::core::mem::align_of::<Elf64_Rela>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Rela))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Rela>())).r_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Rela>())).r_offset as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8322,7 +8324,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Rela>())).r_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Rela>())).r_info as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8332,7 +8334,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Rela>())).r_addend as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Rela>())).r_addend as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -8357,17 +8359,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Phdr() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Phdr>(),
+            ::core::mem::size_of::<Elf32_Phdr>(),
             32usize,
             concat!("Size of: ", stringify!(Elf32_Phdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Phdr>(),
+            ::core::mem::align_of::<Elf32_Phdr>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Phdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_type as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8377,7 +8379,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_offset as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8387,7 +8389,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_vaddr as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_vaddr as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8397,7 +8399,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_paddr as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_paddr as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -8407,7 +8409,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_filesz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_filesz as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -8417,7 +8419,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_memsz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_memsz as *const _ as usize },
             20usize,
             concat!(
                 "Offset of field: ",
@@ -8427,7 +8429,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_flags as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -8437,7 +8439,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Phdr>())).p_align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Phdr>())).p_align as *const _ as usize },
             28usize,
             concat!(
                 "Offset of field: ",
@@ -8462,17 +8464,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Phdr() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Phdr>(),
+            ::core::mem::size_of::<Elf64_Phdr>(),
             56usize,
             concat!("Size of: ", stringify!(Elf64_Phdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Phdr>(),
+            ::core::mem::align_of::<Elf64_Phdr>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Phdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_type as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8482,7 +8484,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_flags as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8492,7 +8494,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_offset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_offset as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8502,7 +8504,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_vaddr as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_vaddr as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -8512,7 +8514,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_paddr as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_paddr as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -8522,7 +8524,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_filesz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_filesz as *const _ as usize },
             32usize,
             concat!(
                 "Offset of field: ",
@@ -8532,7 +8534,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_memsz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_memsz as *const _ as usize },
             40usize,
             concat!(
                 "Offset of field: ",
@@ -8542,7 +8544,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Phdr>())).p_align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Phdr>())).p_align as *const _ as usize },
             48usize,
             concat!(
                 "Offset of field: ",
@@ -8568,18 +8570,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Dyn__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Dyn__bindgen_ty_1>(),
+            ::core::mem::size_of::<Elf32_Dyn__bindgen_ty_1>(),
             4usize,
             concat!("Size of: ", stringify!(Elf32_Dyn__bindgen_ty_1))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Dyn__bindgen_ty_1>(),
+            ::core::mem::align_of::<Elf32_Dyn__bindgen_ty_1>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Dyn__bindgen_ty_1))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf32_Dyn__bindgen_ty_1>())).d_val as *const _ as usize
+                &(*(::core::ptr::null::<Elf32_Dyn__bindgen_ty_1>())).d_val as *const _ as usize
             },
             0usize,
             concat!(
@@ -8591,7 +8593,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf32_Dyn__bindgen_ty_1>())).d_ptr as *const _ as usize
+                &(*(::core::ptr::null::<Elf32_Dyn__bindgen_ty_1>())).d_ptr as *const _ as usize
             },
             0usize,
             concat!(
@@ -8605,17 +8607,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Dyn() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Dyn>(),
+            ::core::mem::size_of::<Elf32_Dyn>(),
             8usize,
             concat!("Size of: ", stringify!(Elf32_Dyn))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Dyn>(),
+            ::core::mem::align_of::<Elf32_Dyn>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Dyn))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Dyn>())).d_tag as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Dyn>())).d_tag as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8625,7 +8627,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Dyn>())).d_un as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Dyn>())).d_un as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8651,18 +8653,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Dyn__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Dyn__bindgen_ty_1>(),
+            ::core::mem::size_of::<Elf64_Dyn__bindgen_ty_1>(),
             8usize,
             concat!("Size of: ", stringify!(Elf64_Dyn__bindgen_ty_1))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Dyn__bindgen_ty_1>(),
+            ::core::mem::align_of::<Elf64_Dyn__bindgen_ty_1>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Dyn__bindgen_ty_1))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf64_Dyn__bindgen_ty_1>())).d_val as *const _ as usize
+                &(*(::core::ptr::null::<Elf64_Dyn__bindgen_ty_1>())).d_val as *const _ as usize
             },
             0usize,
             concat!(
@@ -8674,7 +8676,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf64_Dyn__bindgen_ty_1>())).d_ptr as *const _ as usize
+                &(*(::core::ptr::null::<Elf64_Dyn__bindgen_ty_1>())).d_ptr as *const _ as usize
             },
             0usize,
             concat!(
@@ -8688,17 +8690,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Dyn() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Dyn>(),
+            ::core::mem::size_of::<Elf64_Dyn>(),
             16usize,
             concat!("Size of: ", stringify!(Elf64_Dyn))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Dyn>(),
+            ::core::mem::align_of::<Elf64_Dyn>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Dyn))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Dyn>())).d_tag as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Dyn>())).d_tag as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8708,7 +8710,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Dyn>())).d_un as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Dyn>())).d_un as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8732,17 +8734,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Verdef() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Verdef>(),
+            ::core::mem::size_of::<Elf32_Verdef>(),
             20usize,
             concat!("Size of: ", stringify!(Elf32_Verdef))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Verdef>(),
+            ::core::mem::align_of::<Elf32_Verdef>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Verdef))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdef>())).vd_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdef>())).vd_version as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8752,7 +8754,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdef>())).vd_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdef>())).vd_flags as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -8762,7 +8764,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdef>())).vd_ndx as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdef>())).vd_ndx as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8772,7 +8774,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdef>())).vd_cnt as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdef>())).vd_cnt as *const _ as usize },
             6usize,
             concat!(
                 "Offset of field: ",
@@ -8782,7 +8784,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdef>())).vd_hash as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdef>())).vd_hash as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8792,7 +8794,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdef>())).vd_aux as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdef>())).vd_aux as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -8802,7 +8804,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdef>())).vd_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdef>())).vd_next as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -8826,17 +8828,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Verdef() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Verdef>(),
+            ::core::mem::size_of::<Elf64_Verdef>(),
             20usize,
             concat!("Size of: ", stringify!(Elf64_Verdef))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Verdef>(),
+            ::core::mem::align_of::<Elf64_Verdef>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf64_Verdef))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdef>())).vd_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdef>())).vd_version as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8846,7 +8848,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdef>())).vd_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdef>())).vd_flags as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -8856,7 +8858,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdef>())).vd_ndx as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdef>())).vd_ndx as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8866,7 +8868,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdef>())).vd_cnt as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdef>())).vd_cnt as *const _ as usize },
             6usize,
             concat!(
                 "Offset of field: ",
@@ -8876,7 +8878,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdef>())).vd_hash as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdef>())).vd_hash as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -8886,7 +8888,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdef>())).vd_aux as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdef>())).vd_aux as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -8896,7 +8898,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdef>())).vd_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdef>())).vd_next as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -8915,17 +8917,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Verdaux() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Verdaux>(),
+            ::core::mem::size_of::<Elf32_Verdaux>(),
             8usize,
             concat!("Size of: ", stringify!(Elf32_Verdaux))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Verdaux>(),
+            ::core::mem::align_of::<Elf32_Verdaux>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Verdaux))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdaux>())).vda_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdaux>())).vda_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8935,7 +8937,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verdaux>())).vda_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verdaux>())).vda_next as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8954,17 +8956,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Verdaux() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Verdaux>(),
+            ::core::mem::size_of::<Elf64_Verdaux>(),
             8usize,
             concat!("Size of: ", stringify!(Elf64_Verdaux))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Verdaux>(),
+            ::core::mem::align_of::<Elf64_Verdaux>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf64_Verdaux))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdaux>())).vda_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdaux>())).vda_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -8974,7 +8976,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verdaux>())).vda_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verdaux>())).vda_next as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -8996,17 +8998,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Verneed() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Verneed>(),
+            ::core::mem::size_of::<Elf32_Verneed>(),
             16usize,
             concat!("Size of: ", stringify!(Elf32_Verneed))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Verneed>(),
+            ::core::mem::align_of::<Elf32_Verneed>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Verneed))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verneed>())).vn_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verneed>())).vn_version as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9016,7 +9018,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verneed>())).vn_cnt as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verneed>())).vn_cnt as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -9026,7 +9028,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verneed>())).vn_file as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verneed>())).vn_file as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9036,7 +9038,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verneed>())).vn_aux as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verneed>())).vn_aux as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9046,7 +9048,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Verneed>())).vn_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Verneed>())).vn_next as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -9068,17 +9070,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Verneed() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Verneed>(),
+            ::core::mem::size_of::<Elf64_Verneed>(),
             16usize,
             concat!("Size of: ", stringify!(Elf64_Verneed))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Verneed>(),
+            ::core::mem::align_of::<Elf64_Verneed>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf64_Verneed))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verneed>())).vn_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verneed>())).vn_version as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9088,7 +9090,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verneed>())).vn_cnt as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verneed>())).vn_cnt as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -9098,7 +9100,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verneed>())).vn_file as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verneed>())).vn_file as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9108,7 +9110,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verneed>())).vn_aux as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verneed>())).vn_aux as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9118,7 +9120,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Verneed>())).vn_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Verneed>())).vn_next as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -9140,17 +9142,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Vernaux() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Vernaux>(),
+            ::core::mem::size_of::<Elf32_Vernaux>(),
             16usize,
             concat!("Size of: ", stringify!(Elf32_Vernaux))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Vernaux>(),
+            ::core::mem::align_of::<Elf32_Vernaux>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Vernaux))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Vernaux>())).vna_hash as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Vernaux>())).vna_hash as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9160,7 +9162,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Vernaux>())).vna_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Vernaux>())).vna_flags as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9170,7 +9172,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Vernaux>())).vna_other as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Vernaux>())).vna_other as *const _ as usize },
             6usize,
             concat!(
                 "Offset of field: ",
@@ -9180,7 +9182,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Vernaux>())).vna_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Vernaux>())).vna_name as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9190,7 +9192,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Vernaux>())).vna_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Vernaux>())).vna_next as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -9212,17 +9214,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Vernaux() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Vernaux>(),
+            ::core::mem::size_of::<Elf64_Vernaux>(),
             16usize,
             concat!("Size of: ", stringify!(Elf64_Vernaux))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Vernaux>(),
+            ::core::mem::align_of::<Elf64_Vernaux>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf64_Vernaux))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Vernaux>())).vna_hash as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Vernaux>())).vna_hash as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9232,7 +9234,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Vernaux>())).vna_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Vernaux>())).vna_flags as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9242,7 +9244,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Vernaux>())).vna_other as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Vernaux>())).vna_other as *const _ as usize },
             6usize,
             concat!(
                 "Offset of field: ",
@@ -9252,7 +9254,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Vernaux>())).vna_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Vernaux>())).vna_name as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9262,7 +9264,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Vernaux>())).vna_next as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Vernaux>())).vna_next as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -9287,18 +9289,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_auxv_t__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<Elf32_auxv_t__bindgen_ty_1>(),
+            ::core::mem::size_of::<Elf32_auxv_t__bindgen_ty_1>(),
             4usize,
             concat!("Size of: ", stringify!(Elf32_auxv_t__bindgen_ty_1))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_auxv_t__bindgen_ty_1>(),
+            ::core::mem::align_of::<Elf32_auxv_t__bindgen_ty_1>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_auxv_t__bindgen_ty_1))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf32_auxv_t__bindgen_ty_1>())).a_val as *const _ as usize
+                &(*(::core::ptr::null::<Elf32_auxv_t__bindgen_ty_1>())).a_val as *const _ as usize
             },
             0usize,
             concat!(
@@ -9312,17 +9314,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_auxv_t() {
         assert_eq!(
-            core::mem::size_of::<Elf32_auxv_t>(),
+            ::core::mem::size_of::<Elf32_auxv_t>(),
             8usize,
             concat!("Size of: ", stringify!(Elf32_auxv_t))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_auxv_t>(),
+            ::core::mem::align_of::<Elf32_auxv_t>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_auxv_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_auxv_t>())).a_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_auxv_t>())).a_type as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9332,7 +9334,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_auxv_t>())).a_un as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_auxv_t>())).a_un as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9357,18 +9359,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_auxv_t__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<Elf64_auxv_t__bindgen_ty_1>(),
+            ::core::mem::size_of::<Elf64_auxv_t__bindgen_ty_1>(),
             8usize,
             concat!("Size of: ", stringify!(Elf64_auxv_t__bindgen_ty_1))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_auxv_t__bindgen_ty_1>(),
+            ::core::mem::align_of::<Elf64_auxv_t__bindgen_ty_1>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_auxv_t__bindgen_ty_1))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf64_auxv_t__bindgen_ty_1>())).a_val as *const _ as usize
+                &(*(::core::ptr::null::<Elf64_auxv_t__bindgen_ty_1>())).a_val as *const _ as usize
             },
             0usize,
             concat!(
@@ -9382,17 +9384,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_auxv_t() {
         assert_eq!(
-            core::mem::size_of::<Elf64_auxv_t>(),
+            ::core::mem::size_of::<Elf64_auxv_t>(),
             16usize,
             concat!("Size of: ", stringify!(Elf64_auxv_t))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_auxv_t>(),
+            ::core::mem::align_of::<Elf64_auxv_t>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_auxv_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_auxv_t>())).a_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_auxv_t>())).a_type as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9402,7 +9404,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_auxv_t>())).a_un as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_auxv_t>())).a_un as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9422,17 +9424,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Nhdr() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Nhdr>(),
+            ::core::mem::size_of::<Elf32_Nhdr>(),
             12usize,
             concat!("Size of: ", stringify!(Elf32_Nhdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Nhdr>(),
+            ::core::mem::align_of::<Elf32_Nhdr>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Nhdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Nhdr>())).n_namesz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Nhdr>())).n_namesz as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9442,7 +9444,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Nhdr>())).n_descsz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Nhdr>())).n_descsz as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9452,7 +9454,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Nhdr>())).n_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Nhdr>())).n_type as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9472,17 +9474,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Nhdr() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Nhdr>(),
+            ::core::mem::size_of::<Elf64_Nhdr>(),
             12usize,
             concat!("Size of: ", stringify!(Elf64_Nhdr))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Nhdr>(),
+            ::core::mem::align_of::<Elf64_Nhdr>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf64_Nhdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Nhdr>())).n_namesz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Nhdr>())).n_namesz as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9492,7 +9494,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Nhdr>())).n_descsz as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Nhdr>())).n_descsz as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9502,7 +9504,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Nhdr>())).n_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Nhdr>())).n_type as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9524,17 +9526,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Move() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Move>(),
+            ::core::mem::size_of::<Elf32_Move>(),
             24usize,
             concat!("Size of: ", stringify!(Elf32_Move))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Move>(),
+            ::core::mem::align_of::<Elf32_Move>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf32_Move))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Move>())).m_value as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Move>())).m_value as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9544,7 +9546,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Move>())).m_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Move>())).m_info as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9554,7 +9556,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Move>())).m_poffset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Move>())).m_poffset as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -9564,7 +9566,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Move>())).m_repeat as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Move>())).m_repeat as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -9574,7 +9576,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Move>())).m_stride as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Move>())).m_stride as *const _ as usize },
             18usize,
             concat!(
                 "Offset of field: ",
@@ -9596,17 +9598,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Move() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Move>(),
+            ::core::mem::size_of::<Elf64_Move>(),
             32usize,
             concat!("Size of: ", stringify!(Elf64_Move))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Move>(),
+            ::core::mem::align_of::<Elf64_Move>(),
             8usize,
             concat!("Alignment of ", stringify!(Elf64_Move))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Move>())).m_value as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Move>())).m_value as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9616,7 +9618,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Move>())).m_info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Move>())).m_info as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9626,7 +9628,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Move>())).m_poffset as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Move>())).m_poffset as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -9636,7 +9638,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Move>())).m_repeat as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Move>())).m_repeat as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -9646,7 +9648,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Move>())).m_stride as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Move>())).m_stride as *const _ as usize },
             26usize,
             concat!(
                 "Offset of field: ",
@@ -9672,18 +9674,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_gptab__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<Elf32_gptab__bindgen_ty_1>(),
+            ::core::mem::size_of::<Elf32_gptab__bindgen_ty_1>(),
             8usize,
             concat!("Size of: ", stringify!(Elf32_gptab__bindgen_ty_1))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_gptab__bindgen_ty_1>(),
+            ::core::mem::align_of::<Elf32_gptab__bindgen_ty_1>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_gptab__bindgen_ty_1))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf32_gptab__bindgen_ty_1>())).gt_current_g_value
+                &(*(::core::ptr::null::<Elf32_gptab__bindgen_ty_1>())).gt_current_g_value
                     as *const _ as usize
             },
             0usize,
@@ -9696,7 +9698,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf32_gptab__bindgen_ty_1>())).gt_unused as *const _
+                &(*(::core::ptr::null::<Elf32_gptab__bindgen_ty_1>())).gt_unused as *const _
                     as usize
             },
             4usize,
@@ -9717,18 +9719,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_gptab__bindgen_ty_2() {
         assert_eq!(
-            core::mem::size_of::<Elf32_gptab__bindgen_ty_2>(),
+            ::core::mem::size_of::<Elf32_gptab__bindgen_ty_2>(),
             8usize,
             concat!("Size of: ", stringify!(Elf32_gptab__bindgen_ty_2))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_gptab__bindgen_ty_2>(),
+            ::core::mem::align_of::<Elf32_gptab__bindgen_ty_2>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_gptab__bindgen_ty_2))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf32_gptab__bindgen_ty_2>())).gt_g_value as *const _
+                &(*(::core::ptr::null::<Elf32_gptab__bindgen_ty_2>())).gt_g_value as *const _
                     as usize
             },
             0usize,
@@ -9741,7 +9743,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf32_gptab__bindgen_ty_2>())).gt_bytes as *const _ as usize
+                &(*(::core::ptr::null::<Elf32_gptab__bindgen_ty_2>())).gt_bytes as *const _ as usize
             },
             4usize,
             concat!(
@@ -9755,17 +9757,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_gptab() {
         assert_eq!(
-            core::mem::size_of::<Elf32_gptab>(),
+            ::core::mem::size_of::<Elf32_gptab>(),
             8usize,
             concat!("Size of: ", stringify!(Elf32_gptab))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_gptab>(),
+            ::core::mem::align_of::<Elf32_gptab>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_gptab))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_gptab>())).gt_header as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_gptab>())).gt_header as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9775,7 +9777,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_gptab>())).gt_entry as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_gptab>())).gt_entry as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9795,17 +9797,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_RegInfo() {
         assert_eq!(
-            core::mem::size_of::<Elf32_RegInfo>(),
+            ::core::mem::size_of::<Elf32_RegInfo>(),
             24usize,
             concat!("Size of: ", stringify!(Elf32_RegInfo))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_RegInfo>(),
+            ::core::mem::align_of::<Elf32_RegInfo>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_RegInfo))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_RegInfo>())).ri_gprmask as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_RegInfo>())).ri_gprmask as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9815,7 +9817,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_RegInfo>())).ri_cprmask as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_RegInfo>())).ri_cprmask as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9825,7 +9827,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_RegInfo>())).ri_gp_value as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_RegInfo>())).ri_gp_value as *const _ as usize },
             20usize,
             concat!(
                 "Offset of field: ",
@@ -9846,17 +9848,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf_Options() {
         assert_eq!(
-            core::mem::size_of::<Elf_Options>(),
+            ::core::mem::size_of::<Elf_Options>(),
             8usize,
             concat!("Size of: ", stringify!(Elf_Options))
         );
         assert_eq!(
-            core::mem::align_of::<Elf_Options>(),
+            ::core::mem::align_of::<Elf_Options>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf_Options))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf_Options>())).kind as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf_Options>())).kind as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9866,7 +9868,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf_Options>())).size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf_Options>())).size as *const _ as usize },
             1usize,
             concat!(
                 "Offset of field: ",
@@ -9876,7 +9878,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf_Options>())).section as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf_Options>())).section as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -9886,7 +9888,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf_Options>())).info as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf_Options>())).info as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9905,17 +9907,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf_Options_Hw() {
         assert_eq!(
-            core::mem::size_of::<Elf_Options_Hw>(),
+            ::core::mem::size_of::<Elf_Options_Hw>(),
             8usize,
             concat!("Size of: ", stringify!(Elf_Options_Hw))
         );
         assert_eq!(
-            core::mem::align_of::<Elf_Options_Hw>(),
+            ::core::mem::align_of::<Elf_Options_Hw>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf_Options_Hw))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf_Options_Hw>())).hwp_flags1 as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf_Options_Hw>())).hwp_flags1 as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9925,7 +9927,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf_Options_Hw>())).hwp_flags2 as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf_Options_Hw>())).hwp_flags2 as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9947,17 +9949,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf32_Lib() {
         assert_eq!(
-            core::mem::size_of::<Elf32_Lib>(),
+            ::core::mem::size_of::<Elf32_Lib>(),
             20usize,
             concat!("Size of: ", stringify!(Elf32_Lib))
         );
         assert_eq!(
-            core::mem::align_of::<Elf32_Lib>(),
+            ::core::mem::align_of::<Elf32_Lib>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf32_Lib))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Lib>())).l_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Lib>())).l_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -9967,7 +9969,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Lib>())).l_time_stamp as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Lib>())).l_time_stamp as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -9977,7 +9979,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Lib>())).l_checksum as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Lib>())).l_checksum as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -9987,7 +9989,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Lib>())).l_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Lib>())).l_version as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -9997,7 +9999,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf32_Lib>())).l_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf32_Lib>())).l_flags as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -10019,17 +10021,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf64_Lib() {
         assert_eq!(
-            core::mem::size_of::<Elf64_Lib>(),
+            ::core::mem::size_of::<Elf64_Lib>(),
             20usize,
             concat!("Size of: ", stringify!(Elf64_Lib))
         );
         assert_eq!(
-            core::mem::align_of::<Elf64_Lib>(),
+            ::core::mem::align_of::<Elf64_Lib>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf64_Lib))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Lib>())).l_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Lib>())).l_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -10039,7 +10041,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Lib>())).l_time_stamp as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Lib>())).l_time_stamp as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -10049,7 +10051,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Lib>())).l_checksum as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Lib>())).l_checksum as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -10059,7 +10061,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Lib>())).l_version as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Lib>())).l_version as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -10069,7 +10071,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf64_Lib>())).l_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf64_Lib>())).l_flags as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -10098,18 +10100,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_Elf_MIPS_ABIFlags_v0() {
         assert_eq!(
-            core::mem::size_of::<Elf_MIPS_ABIFlags_v0>(),
+            ::core::mem::size_of::<Elf_MIPS_ABIFlags_v0>(),
             24usize,
             concat!("Size of: ", stringify!(Elf_MIPS_ABIFlags_v0))
         );
         assert_eq!(
-            core::mem::align_of::<Elf_MIPS_ABIFlags_v0>(),
+            ::core::mem::align_of::<Elf_MIPS_ABIFlags_v0>(),
             4usize,
             concat!("Alignment of ", stringify!(Elf_MIPS_ABIFlags_v0))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).version as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).version as *const _ as usize
             },
             0usize,
             concat!(
@@ -10121,7 +10123,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).isa_level as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).isa_level as *const _ as usize
             },
             2usize,
             concat!(
@@ -10133,7 +10135,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).isa_rev as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).isa_rev as *const _ as usize
             },
             3usize,
             concat!(
@@ -10145,7 +10147,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).gpr_size as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).gpr_size as *const _ as usize
             },
             4usize,
             concat!(
@@ -10157,7 +10159,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).cpr1_size as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).cpr1_size as *const _ as usize
             },
             5usize,
             concat!(
@@ -10169,7 +10171,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).cpr2_size as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).cpr2_size as *const _ as usize
             },
             6usize,
             concat!(
@@ -10181,7 +10183,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).fp_abi as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).fp_abi as *const _ as usize
             },
             7usize,
             concat!(
@@ -10193,7 +10195,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).isa_ext as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).isa_ext as *const _ as usize
             },
             8usize,
             concat!(
@@ -10204,7 +10206,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).ases as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).ases as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -10215,7 +10217,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).flags1 as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).flags1 as *const _ as usize
             },
             16usize,
             concat!(
@@ -10227,7 +10229,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).flags2 as *const _ as usize
+                &(*(::core::ptr::null::<Elf_MIPS_ABIFlags_v0>())).flags2 as *const _ as usize
             },
             20usize,
             concat!(
@@ -10262,8 +10264,8 @@ pub mod root {
             pub dynamic: *mut root::Elf64_Dyn,
             pub is_rela: bool,
             pub rela_or_rel_plt_size: u64,
-            pub dt_init: core::option::Option<unsafe extern "C" fn()>,
-            pub dt_fini: core::option::Option<unsafe extern "C" fn()>,
+            pub dt_init: ::core::option::Option<unsafe extern "C" fn()>,
+            pub dt_fini: ::core::option::Option<unsafe extern "C" fn()>,
             pub hash_bucket: *mut u32,
             pub hash_chain: *mut u32,
             pub dynstr: *mut libc::c_char,
@@ -10289,18 +10291,18 @@ pub mod root {
         #[test]
         fn bindgen_test_layout_ModuleObject__bindgen_ty_1() {
             assert_eq!(
-                core::mem::size_of::<ModuleObject__bindgen_ty_1>(),
+                ::core::mem::size_of::<ModuleObject__bindgen_ty_1>(),
                 8usize,
                 concat!("Size of: ", stringify!(ModuleObject__bindgen_ty_1))
             );
             assert_eq!(
-                core::mem::align_of::<ModuleObject__bindgen_ty_1>(),
+                ::core::mem::align_of::<ModuleObject__bindgen_ty_1>(),
                 8usize,
                 concat!("Alignment of ", stringify!(ModuleObject__bindgen_ty_1))
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject__bindgen_ty_1>())).rel as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject__bindgen_ty_1>())).rel as *const _ as usize
                 },
                 0usize,
                 concat!(
@@ -10312,7 +10314,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject__bindgen_ty_1>())).rela as *const _
+                    &(*(::core::ptr::null::<ModuleObject__bindgen_ty_1>())).rela as *const _
                         as usize
                 },
                 0usize,
@@ -10325,7 +10327,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject__bindgen_ty_1>())).raw as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject__bindgen_ty_1>())).raw as *const _ as usize
                 },
                 0usize,
                 concat!(
@@ -10346,18 +10348,18 @@ pub mod root {
         #[test]
         fn bindgen_test_layout_ModuleObject__bindgen_ty_2() {
             assert_eq!(
-                core::mem::size_of::<ModuleObject__bindgen_ty_2>(),
+                ::core::mem::size_of::<ModuleObject__bindgen_ty_2>(),
                 8usize,
                 concat!("Size of: ", stringify!(ModuleObject__bindgen_ty_2))
             );
             assert_eq!(
-                core::mem::align_of::<ModuleObject__bindgen_ty_2>(),
+                ::core::mem::align_of::<ModuleObject__bindgen_ty_2>(),
                 8usize,
                 concat!("Alignment of ", stringify!(ModuleObject__bindgen_ty_2))
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject__bindgen_ty_2>())).rel as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject__bindgen_ty_2>())).rel as *const _ as usize
                 },
                 0usize,
                 concat!(
@@ -10369,7 +10371,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject__bindgen_ty_2>())).rela as *const _
+                    &(*(::core::ptr::null::<ModuleObject__bindgen_ty_2>())).rela as *const _
                         as usize
                 },
                 0usize,
@@ -10384,17 +10386,17 @@ pub mod root {
         #[test]
         fn bindgen_test_layout_ModuleObject() {
             assert_eq!(
-                core::mem::size_of::<ModuleObject>(),
+                ::core::mem::size_of::<ModuleObject>(),
                 184usize,
                 concat!("Size of: ", stringify!(ModuleObject))
             );
             assert_eq!(
-                core::mem::align_of::<ModuleObject>(),
+                ::core::mem::align_of::<ModuleObject>(),
                 8usize,
                 concat!("Alignment of ", stringify!(ModuleObject))
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).next as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).next as *const _ as usize },
                 0usize,
                 concat!(
                     "Offset of field: ",
@@ -10404,7 +10406,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).prev as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).prev as *const _ as usize },
                 8usize,
                 concat!(
                     "Offset of field: ",
@@ -10415,7 +10417,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).rela_or_rel_plt as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).rela_or_rel_plt as *const _ as usize
                 },
                 16usize,
                 concat!(
@@ -10427,7 +10429,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).rela_or_rel as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).rela_or_rel as *const _ as usize
                 },
                 24usize,
                 concat!(
@@ -10439,7 +10441,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).module_base as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).module_base as *const _ as usize
                 },
                 32usize,
                 concat!(
@@ -10450,7 +10452,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).dynamic as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).dynamic as *const _ as usize },
                 40usize,
                 concat!(
                     "Offset of field: ",
@@ -10460,7 +10462,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).is_rela as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).is_rela as *const _ as usize },
                 48usize,
                 concat!(
                     "Offset of field: ",
@@ -10471,7 +10473,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).rela_or_rel_plt_size as *const _
+                    &(*(::core::ptr::null::<ModuleObject>())).rela_or_rel_plt_size as *const _
                         as usize
                 },
                 56usize,
@@ -10483,7 +10485,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).dt_init as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).dt_init as *const _ as usize },
                 64usize,
                 concat!(
                     "Offset of field: ",
@@ -10493,7 +10495,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).dt_fini as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).dt_fini as *const _ as usize },
                 72usize,
                 concat!(
                     "Offset of field: ",
@@ -10504,7 +10506,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).hash_bucket as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).hash_bucket as *const _ as usize
                 },
                 80usize,
                 concat!(
@@ -10516,7 +10518,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).hash_chain as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).hash_chain as *const _ as usize
                 },
                 88usize,
                 concat!(
@@ -10527,7 +10529,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).dynstr as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).dynstr as *const _ as usize },
                 96usize,
                 concat!(
                     "Offset of field: ",
@@ -10537,7 +10539,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).dynsym as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).dynsym as *const _ as usize },
                 104usize,
                 concat!(
                     "Offset of field: ",
@@ -10548,7 +10550,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).dynstr_size as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).dynstr_size as *const _ as usize
                 },
                 112usize,
                 concat!(
@@ -10559,7 +10561,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).got as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).got as *const _ as usize },
                 120usize,
                 concat!(
                     "Offset of field: ",
@@ -10570,7 +10572,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).rela_dyn_size as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).rela_dyn_size as *const _ as usize
                 },
                 128usize,
                 concat!(
@@ -10582,7 +10584,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).rel_dyn_size as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).rel_dyn_size as *const _ as usize
                 },
                 136usize,
                 concat!(
@@ -10593,7 +10595,7 @@ pub mod root {
                 )
             );
             assert_eq!(
-                unsafe { &(*(core::ptr::null::<ModuleObject>())).rel_count as *const _ as usize },
+                unsafe { &(*(::core::ptr::null::<ModuleObject>())).rel_count as *const _ as usize },
                 144usize,
                 concat!(
                     "Offset of field: ",
@@ -10604,7 +10606,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).rela_count as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).rela_count as *const _ as usize
                 },
                 152usize,
                 concat!(
@@ -10616,7 +10618,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).hash_nchain_value as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).hash_nchain_value as *const _ as usize
                 },
                 160usize,
                 concat!(
@@ -10628,7 +10630,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).hash_nbucket_value as *const _
+                    &(*(::core::ptr::null::<ModuleObject>())).hash_nbucket_value as *const _
                         as usize
                 },
                 168usize,
@@ -10641,7 +10643,7 @@ pub mod root {
             );
             assert_eq!(
                 unsafe {
-                    &(*(core::ptr::null::<ModuleObject>())).got_stub_ptr as *const _ as usize
+                    &(*(::core::ptr::null::<ModuleObject>())).got_stub_ptr as *const _ as usize
                 },
                 176usize,
                 concat!(
@@ -10725,17 +10727,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_iovec() {
         assert_eq!(
-            core::mem::size_of::<iovec>(),
+            ::core::mem::size_of::<iovec>(),
             16usize,
             concat!("Size of: ", stringify!(iovec))
         );
         assert_eq!(
-            core::mem::align_of::<iovec>(),
+            ::core::mem::align_of::<iovec>(),
             8usize,
             concat!("Alignment of ", stringify!(iovec))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<iovec>())).iov_base as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<iovec>())).iov_base as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -10745,7 +10747,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<iovec>())).iov_len as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<iovec>())).iov_len as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -10798,17 +10800,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___sigset_t() {
         assert_eq!(
-            core::mem::size_of::<__sigset_t>(),
+            ::core::mem::size_of::<__sigset_t>(),
             128usize,
             concat!("Size of: ", stringify!(__sigset_t))
         );
         assert_eq!(
-            core::mem::align_of::<__sigset_t>(),
+            ::core::mem::align_of::<__sigset_t>(),
             8usize,
             concat!("Alignment of ", stringify!(__sigset_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__sigset_t>())).__val as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__sigset_t>())).__val as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -10828,17 +10830,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_timeval() {
         assert_eq!(
-            core::mem::size_of::<timeval>(),
+            ::core::mem::size_of::<timeval>(),
             16usize,
             concat!("Size of: ", stringify!(timeval))
         );
         assert_eq!(
-            core::mem::align_of::<timeval>(),
+            ::core::mem::align_of::<timeval>(),
             8usize,
             concat!("Alignment of ", stringify!(timeval))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<timeval>())).tv_sec as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<timeval>())).tv_sec as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -10848,7 +10850,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<timeval>())).tv_usec as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<timeval>())).tv_usec as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -10867,17 +10869,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_timespec() {
         assert_eq!(
-            core::mem::size_of::<timespec>(),
+            ::core::mem::size_of::<timespec>(),
             16usize,
             concat!("Size of: ", stringify!(timespec))
         );
         assert_eq!(
-            core::mem::align_of::<timespec>(),
+            ::core::mem::align_of::<timespec>(),
             8usize,
             concat!("Alignment of ", stringify!(timespec))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<timespec>())).tv_sec as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<timespec>())).tv_sec as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -10887,7 +10889,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<timespec>())).tv_nsec as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<timespec>())).tv_nsec as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -10906,17 +10908,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_fd_set() {
         assert_eq!(
-            core::mem::size_of::<fd_set>(),
+            ::core::mem::size_of::<fd_set>(),
             128usize,
             concat!("Size of: ", stringify!(fd_set))
         );
         assert_eq!(
-            core::mem::align_of::<fd_set>(),
+            ::core::mem::align_of::<fd_set>(),
             8usize,
             concat!("Alignment of ", stringify!(fd_set))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<fd_set>())).fds_bits as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<fd_set>())).fds_bits as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -10972,18 +10974,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_rwlock_arch_t() {
         assert_eq!(
-            core::mem::size_of::<__pthread_rwlock_arch_t>(),
+            ::core::mem::size_of::<__pthread_rwlock_arch_t>(),
             56usize,
             concat!("Size of: ", stringify!(__pthread_rwlock_arch_t))
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_rwlock_arch_t>(),
+            ::core::mem::align_of::<__pthread_rwlock_arch_t>(),
             8usize,
             concat!("Alignment of ", stringify!(__pthread_rwlock_arch_t))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__readers as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__readers as *const _ as usize
             },
             0usize,
             concat!(
@@ -10995,7 +10997,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__writers as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__writers as *const _ as usize
             },
             4usize,
             concat!(
@@ -11007,7 +11009,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__wrphase_futex as *const _
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__wrphase_futex as *const _
                     as usize
             },
             8usize,
@@ -11020,7 +11022,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__writers_futex as *const _
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__writers_futex as *const _
                     as usize
             },
             12usize,
@@ -11033,7 +11035,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__pad3 as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__pad3 as *const _ as usize
             },
             16usize,
             concat!(
@@ -11045,7 +11047,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__pad4 as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__pad4 as *const _ as usize
             },
             20usize,
             concat!(
@@ -11057,7 +11059,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__cur_writer as *const _
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__cur_writer as *const _
                     as usize
             },
             24usize,
@@ -11070,7 +11072,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__shared as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__shared as *const _ as usize
             },
             28usize,
             concat!(
@@ -11082,7 +11084,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__rwelision as *const _
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__rwelision as *const _
                     as usize
             },
             32usize,
@@ -11095,7 +11097,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__pad1 as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__pad1 as *const _ as usize
             },
             33usize,
             concat!(
@@ -11107,7 +11109,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__pad2 as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__pad2 as *const _ as usize
             },
             40usize,
             concat!(
@@ -11119,7 +11121,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_rwlock_arch_t>())).__flags as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_rwlock_arch_t>())).__flags as *const _ as usize
             },
             48usize,
             concat!(
@@ -11139,18 +11141,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_internal_list() {
         assert_eq!(
-            core::mem::size_of::<__pthread_internal_list>(),
+            ::core::mem::size_of::<__pthread_internal_list>(),
             16usize,
             concat!("Size of: ", stringify!(__pthread_internal_list))
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_internal_list>(),
+            ::core::mem::align_of::<__pthread_internal_list>(),
             8usize,
             concat!("Alignment of ", stringify!(__pthread_internal_list))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_internal_list>())).__prev as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_internal_list>())).__prev as *const _ as usize
             },
             0usize,
             concat!(
@@ -11162,7 +11164,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_internal_list>())).__next as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_internal_list>())).__next as *const _ as usize
             },
             8usize,
             concat!(
@@ -11189,17 +11191,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_mutex_s() {
         assert_eq!(
-            core::mem::size_of::<__pthread_mutex_s>(),
+            ::core::mem::size_of::<__pthread_mutex_s>(),
             40usize,
             concat!("Size of: ", stringify!(__pthread_mutex_s))
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_mutex_s>(),
+            ::core::mem::align_of::<__pthread_mutex_s>(),
             8usize,
             concat!("Alignment of ", stringify!(__pthread_mutex_s))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_mutex_s>())).__lock as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_mutex_s>())).__lock as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11209,7 +11211,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_mutex_s>())).__count as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_mutex_s>())).__count as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -11219,7 +11221,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_mutex_s>())).__owner as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_mutex_s>())).__owner as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -11229,7 +11231,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_mutex_s>())).__nusers as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_mutex_s>())).__nusers as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -11239,7 +11241,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_mutex_s>())).__kind as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_mutex_s>())).__kind as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -11249,7 +11251,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_mutex_s>())).__spins as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_mutex_s>())).__spins as *const _ as usize },
             20usize,
             concat!(
                 "Offset of field: ",
@@ -11260,7 +11262,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_mutex_s>())).__elision as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_mutex_s>())).__elision as *const _ as usize
             },
             22usize,
             concat!(
@@ -11271,7 +11273,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_mutex_s>())).__list as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_mutex_s>())).__list as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -11308,7 +11310,7 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_cond_s__bindgen_ty_1__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>(),
+            ::core::mem::size_of::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>(),
             8usize,
             concat!(
                 "Size of: ",
@@ -11316,7 +11318,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>(),
+            ::core::mem::align_of::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>(),
             4usize,
             concat!(
                 "Alignment of ",
@@ -11325,7 +11327,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>())).__low
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>())).__low
                     as *const _ as usize
             },
             0usize,
@@ -11338,7 +11340,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>())).__high
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_1__bindgen_ty_1>())).__high
                     as *const _ as usize
             },
             4usize,
@@ -11353,18 +11355,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_cond_s__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<__pthread_cond_s__bindgen_ty_1>(),
+            ::core::mem::size_of::<__pthread_cond_s__bindgen_ty_1>(),
             8usize,
             concat!("Size of: ", stringify!(__pthread_cond_s__bindgen_ty_1))
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_cond_s__bindgen_ty_1>(),
+            ::core::mem::align_of::<__pthread_cond_s__bindgen_ty_1>(),
             8usize,
             concat!("Alignment of ", stringify!(__pthread_cond_s__bindgen_ty_1))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_1>())).__wseq as *const _
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_1>())).__wseq as *const _
                     as usize
             },
             0usize,
@@ -11377,7 +11379,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_1>())).__wseq32 as *const _
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_1>())).__wseq32 as *const _
                     as usize
             },
             0usize,
@@ -11405,7 +11407,7 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_cond_s__bindgen_ty_2__bindgen_ty_1() {
         assert_eq!(
-            core::mem::size_of::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>(),
+            ::core::mem::size_of::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>(),
             8usize,
             concat!(
                 "Size of: ",
@@ -11413,7 +11415,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>(),
+            ::core::mem::align_of::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>(),
             4usize,
             concat!(
                 "Alignment of ",
@@ -11422,7 +11424,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>())).__low
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>())).__low
                     as *const _ as usize
             },
             0usize,
@@ -11435,7 +11437,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>())).__high
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_2__bindgen_ty_1>())).__high
                     as *const _ as usize
             },
             4usize,
@@ -11450,18 +11452,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_cond_s__bindgen_ty_2() {
         assert_eq!(
-            core::mem::size_of::<__pthread_cond_s__bindgen_ty_2>(),
+            ::core::mem::size_of::<__pthread_cond_s__bindgen_ty_2>(),
             8usize,
             concat!("Size of: ", stringify!(__pthread_cond_s__bindgen_ty_2))
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_cond_s__bindgen_ty_2>(),
+            ::core::mem::align_of::<__pthread_cond_s__bindgen_ty_2>(),
             8usize,
             concat!("Alignment of ", stringify!(__pthread_cond_s__bindgen_ty_2))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_2>())).__g1_start as *const _
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_2>())).__g1_start as *const _
                     as usize
             },
             0usize,
@@ -11474,7 +11476,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s__bindgen_ty_2>())).__g1_start32 as *const _
+                &(*(::core::ptr::null::<__pthread_cond_s__bindgen_ty_2>())).__g1_start32 as *const _
                     as usize
             },
             0usize,
@@ -11489,17 +11491,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___pthread_cond_s() {
         assert_eq!(
-            core::mem::size_of::<__pthread_cond_s>(),
+            ::core::mem::size_of::<__pthread_cond_s>(),
             48usize,
             concat!("Size of: ", stringify!(__pthread_cond_s))
         );
         assert_eq!(
-            core::mem::align_of::<__pthread_cond_s>(),
+            ::core::mem::align_of::<__pthread_cond_s>(),
             8usize,
             concat!("Alignment of ", stringify!(__pthread_cond_s))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_cond_s>())).__g_refs as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_cond_s>())).__g_refs as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -11509,7 +11511,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_cond_s>())).__g_size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_cond_s>())).__g_size as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -11520,7 +11522,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s>())).__g1_orig_size as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_cond_s>())).__g1_orig_size as *const _ as usize
             },
             32usize,
             concat!(
@@ -11531,7 +11533,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__pthread_cond_s>())).__wrefs as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__pthread_cond_s>())).__wrefs as *const _ as usize },
             36usize,
             concat!(
                 "Offset of field: ",
@@ -11542,7 +11544,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<__pthread_cond_s>())).__g_signals as *const _ as usize
+                &(*(::core::ptr::null::<__pthread_cond_s>())).__g_signals as *const _ as usize
             },
             40usize,
             concat!(
@@ -11564,17 +11566,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_mutexattr_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_mutexattr_t>(),
+            ::core::mem::size_of::<pthread_mutexattr_t>(),
             4usize,
             concat!("Size of: ", stringify!(pthread_mutexattr_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_mutexattr_t>(),
+            ::core::mem::align_of::<pthread_mutexattr_t>(),
             4usize,
             concat!("Alignment of ", stringify!(pthread_mutexattr_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_mutexattr_t>())).__size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_mutexattr_t>())).__size as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11585,7 +11587,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<pthread_mutexattr_t>())).__align as *const _ as usize
+                &(*(::core::ptr::null::<pthread_mutexattr_t>())).__align as *const _ as usize
             },
             0usize,
             concat!(
@@ -11606,17 +11608,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_condattr_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_condattr_t>(),
+            ::core::mem::size_of::<pthread_condattr_t>(),
             4usize,
             concat!("Size of: ", stringify!(pthread_condattr_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_condattr_t>(),
+            ::core::mem::align_of::<pthread_condattr_t>(),
             4usize,
             concat!("Alignment of ", stringify!(pthread_condattr_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_condattr_t>())).__size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_condattr_t>())).__size as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11626,7 +11628,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_condattr_t>())).__align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_condattr_t>())).__align as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11648,17 +11650,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_attr_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_attr_t>(),
+            ::core::mem::size_of::<pthread_attr_t>(),
             56usize,
             concat!("Size of: ", stringify!(pthread_attr_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_attr_t>(),
+            ::core::mem::align_of::<pthread_attr_t>(),
             8usize,
             concat!("Alignment of ", stringify!(pthread_attr_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_attr_t>())).__size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_attr_t>())).__size as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11668,7 +11670,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_attr_t>())).__align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_attr_t>())).__align as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11689,17 +11691,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_mutex_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_mutex_t>(),
+            ::core::mem::size_of::<pthread_mutex_t>(),
             40usize,
             concat!("Size of: ", stringify!(pthread_mutex_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_mutex_t>(),
+            ::core::mem::align_of::<pthread_mutex_t>(),
             8usize,
             concat!("Alignment of ", stringify!(pthread_mutex_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_mutex_t>())).__data as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_mutex_t>())).__data as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11709,7 +11711,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_mutex_t>())).__size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_mutex_t>())).__size as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11719,7 +11721,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_mutex_t>())).__align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_mutex_t>())).__align as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11740,17 +11742,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_cond_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_cond_t>(),
+            ::core::mem::size_of::<pthread_cond_t>(),
             48usize,
             concat!("Size of: ", stringify!(pthread_cond_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_cond_t>(),
+            ::core::mem::align_of::<pthread_cond_t>(),
             8usize,
             concat!("Alignment of ", stringify!(pthread_cond_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_cond_t>())).__data as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_cond_t>())).__data as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11760,7 +11762,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_cond_t>())).__size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_cond_t>())).__size as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11770,7 +11772,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_cond_t>())).__align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_cond_t>())).__align as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11791,17 +11793,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_rwlock_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_rwlock_t>(),
+            ::core::mem::size_of::<pthread_rwlock_t>(),
             56usize,
             concat!("Size of: ", stringify!(pthread_rwlock_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_rwlock_t>(),
+            ::core::mem::align_of::<pthread_rwlock_t>(),
             8usize,
             concat!("Alignment of ", stringify!(pthread_rwlock_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_rwlock_t>())).__data as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_rwlock_t>())).__data as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11811,7 +11813,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_rwlock_t>())).__size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_rwlock_t>())).__size as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11821,7 +11823,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_rwlock_t>())).__align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_rwlock_t>())).__align as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11841,18 +11843,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_rwlockattr_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_rwlockattr_t>(),
+            ::core::mem::size_of::<pthread_rwlockattr_t>(),
             8usize,
             concat!("Size of: ", stringify!(pthread_rwlockattr_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_rwlockattr_t>(),
+            ::core::mem::align_of::<pthread_rwlockattr_t>(),
             8usize,
             concat!("Alignment of ", stringify!(pthread_rwlockattr_t))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<pthread_rwlockattr_t>())).__size as *const _ as usize
+                &(*(::core::ptr::null::<pthread_rwlockattr_t>())).__size as *const _ as usize
             },
             0usize,
             concat!(
@@ -11864,7 +11866,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<pthread_rwlockattr_t>())).__align as *const _ as usize
+                &(*(::core::ptr::null::<pthread_rwlockattr_t>())).__align as *const _ as usize
             },
             0usize,
             concat!(
@@ -11886,17 +11888,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_barrier_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_barrier_t>(),
+            ::core::mem::size_of::<pthread_barrier_t>(),
             32usize,
             concat!("Size of: ", stringify!(pthread_barrier_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_barrier_t>(),
+            ::core::mem::align_of::<pthread_barrier_t>(),
             8usize,
             concat!("Alignment of ", stringify!(pthread_barrier_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_barrier_t>())).__size as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_barrier_t>())).__size as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11906,7 +11908,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<pthread_barrier_t>())).__align as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<pthread_barrier_t>())).__align as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -11926,18 +11928,18 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_pthread_barrierattr_t() {
         assert_eq!(
-            core::mem::size_of::<pthread_barrierattr_t>(),
+            ::core::mem::size_of::<pthread_barrierattr_t>(),
             4usize,
             concat!("Size of: ", stringify!(pthread_barrierattr_t))
         );
         assert_eq!(
-            core::mem::align_of::<pthread_barrierattr_t>(),
+            ::core::mem::align_of::<pthread_barrierattr_t>(),
             4usize,
             concat!("Alignment of ", stringify!(pthread_barrierattr_t))
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<pthread_barrierattr_t>())).__size as *const _ as usize
+                &(*(::core::ptr::null::<pthread_barrierattr_t>())).__size as *const _ as usize
             },
             0usize,
             concat!(
@@ -11949,7 +11951,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<pthread_barrierattr_t>())).__align as *const _ as usize
+                &(*(::core::ptr::null::<pthread_barrierattr_t>())).__align as *const _ as usize
             },
             0usize,
             concat!(
@@ -11981,17 +11983,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_sockaddr() {
         assert_eq!(
-            core::mem::size_of::<sockaddr>(),
+            ::core::mem::size_of::<sockaddr>(),
             16usize,
             concat!("Size of: ", stringify!(sockaddr))
         );
         assert_eq!(
-            core::mem::align_of::<sockaddr>(),
+            ::core::mem::align_of::<sockaddr>(),
             2usize,
             concat!("Alignment of ", stringify!(sockaddr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<sockaddr>())).sa_family as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<sockaddr>())).sa_family as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12001,7 +12003,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<sockaddr>())).sa_data as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<sockaddr>())).sa_data as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -12021,17 +12023,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_sockaddr_storage() {
         assert_eq!(
-            core::mem::size_of::<sockaddr_storage>(),
+            ::core::mem::size_of::<sockaddr_storage>(),
             128usize,
             concat!("Size of: ", stringify!(sockaddr_storage))
         );
         assert_eq!(
-            core::mem::align_of::<sockaddr_storage>(),
+            ::core::mem::align_of::<sockaddr_storage>(),
             8usize,
             concat!("Alignment of ", stringify!(sockaddr_storage))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<sockaddr_storage>())).ss_family as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<sockaddr_storage>())).ss_family as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12042,7 +12044,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<sockaddr_storage>())).__ss_padding as *const _ as usize
+                &(*(::core::ptr::null::<sockaddr_storage>())).__ss_padding as *const _ as usize
             },
             2usize,
             concat!(
@@ -12054,7 +12056,7 @@ pub mod root {
         );
         assert_eq!(
             unsafe {
-                &(*(core::ptr::null::<sockaddr_storage>())).__ss_align as *const _ as usize
+                &(*(::core::ptr::null::<sockaddr_storage>())).__ss_align as *const _ as usize
             },
             120usize,
             concat!(
@@ -12102,17 +12104,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_msghdr() {
         assert_eq!(
-            core::mem::size_of::<msghdr>(),
+            ::core::mem::size_of::<msghdr>(),
             56usize,
             concat!("Size of: ", stringify!(msghdr))
         );
         assert_eq!(
-            core::mem::align_of::<msghdr>(),
+            ::core::mem::align_of::<msghdr>(),
             8usize,
             concat!("Alignment of ", stringify!(msghdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<msghdr>())).msg_name as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<msghdr>())).msg_name as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12122,7 +12124,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<msghdr>())).msg_namelen as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<msghdr>())).msg_namelen as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -12132,7 +12134,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<msghdr>())).msg_iov as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<msghdr>())).msg_iov as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -12142,7 +12144,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<msghdr>())).msg_iovlen as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<msghdr>())).msg_iovlen as *const _ as usize },
             24usize,
             concat!(
                 "Offset of field: ",
@@ -12152,7 +12154,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<msghdr>())).msg_control as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<msghdr>())).msg_control as *const _ as usize },
             32usize,
             concat!(
                 "Offset of field: ",
@@ -12162,7 +12164,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<msghdr>())).msg_controllen as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<msghdr>())).msg_controllen as *const _ as usize },
             40usize,
             concat!(
                 "Offset of field: ",
@@ -12172,7 +12174,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<msghdr>())).msg_flags as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<msghdr>())).msg_flags as *const _ as usize },
             48usize,
             concat!(
                 "Offset of field: ",
@@ -12193,17 +12195,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_cmsghdr() {
         assert_eq!(
-            core::mem::size_of::<cmsghdr>(),
+            ::core::mem::size_of::<cmsghdr>(),
             16usize,
             concat!("Size of: ", stringify!(cmsghdr))
         );
         assert_eq!(
-            core::mem::align_of::<cmsghdr>(),
+            ::core::mem::align_of::<cmsghdr>(),
             8usize,
             concat!("Alignment of ", stringify!(cmsghdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<cmsghdr>())).cmsg_len as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<cmsghdr>())).cmsg_len as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12213,7 +12215,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<cmsghdr>())).cmsg_level as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<cmsghdr>())).cmsg_level as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -12223,7 +12225,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<cmsghdr>())).cmsg_type as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<cmsghdr>())).cmsg_type as *const _ as usize },
             12usize,
             concat!(
                 "Offset of field: ",
@@ -12233,7 +12235,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<cmsghdr>())).__cmsg_data as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<cmsghdr>())).__cmsg_data as *const _ as usize },
             16usize,
             concat!(
                 "Offset of field: ",
@@ -12262,17 +12264,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_ucred() {
         assert_eq!(
-            core::mem::size_of::<ucred>(),
+            ::core::mem::size_of::<ucred>(),
             12usize,
             concat!("Size of: ", stringify!(ucred))
         );
         assert_eq!(
-            core::mem::align_of::<ucred>(),
+            ::core::mem::align_of::<ucred>(),
             4usize,
             concat!("Alignment of ", stringify!(ucred))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<ucred>())).pid as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<ucred>())).pid as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12282,7 +12284,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<ucred>())).uid as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<ucred>())).uid as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -12292,7 +12294,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<ucred>())).gid as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<ucred>())).gid as *const _ as usize },
             8usize,
             concat!(
                 "Offset of field: ",
@@ -12310,17 +12312,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___kernel_fd_set() {
         assert_eq!(
-            core::mem::size_of::<__kernel_fd_set>(),
+            ::core::mem::size_of::<__kernel_fd_set>(),
             128usize,
             concat!("Size of: ", stringify!(__kernel_fd_set))
         );
         assert_eq!(
-            core::mem::align_of::<__kernel_fd_set>(),
+            ::core::mem::align_of::<__kernel_fd_set>(),
             8usize,
             concat!("Alignment of ", stringify!(__kernel_fd_set))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__kernel_fd_set>())).fds_bits as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__kernel_fd_set>())).fds_bits as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12331,7 +12333,7 @@ pub mod root {
         );
     }
     pub type __kernel_sighandler_t =
-        core::option::Option<unsafe extern "C" fn(arg1: libc::c_int)>;
+        ::core::option::Option<unsafe extern "C" fn(arg1: libc::c_int)>;
     pub type __kernel_key_t = libc::c_int;
     pub type __kernel_mqd_t = libc::c_int;
     pub type __kernel_old_uid_t = libc::c_ushort;
@@ -12360,17 +12362,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout___kernel_fsid_t() {
         assert_eq!(
-            core::mem::size_of::<__kernel_fsid_t>(),
+            ::core::mem::size_of::<__kernel_fsid_t>(),
             8usize,
             concat!("Size of: ", stringify!(__kernel_fsid_t))
         );
         assert_eq!(
-            core::mem::align_of::<__kernel_fsid_t>(),
+            ::core::mem::align_of::<__kernel_fsid_t>(),
             4usize,
             concat!("Alignment of ", stringify!(__kernel_fsid_t))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<__kernel_fsid_t>())).val as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<__kernel_fsid_t>())).val as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12399,17 +12401,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_linger() {
         assert_eq!(
-            core::mem::size_of::<linger>(),
+            ::core::mem::size_of::<linger>(),
             8usize,
             concat!("Size of: ", stringify!(linger))
         );
         assert_eq!(
-            core::mem::align_of::<linger>(),
+            ::core::mem::align_of::<linger>(),
             4usize,
             concat!("Alignment of ", stringify!(linger))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<linger>())).l_onoff as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<linger>())).l_onoff as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12419,7 +12421,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<linger>())).l_linger as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<linger>())).l_linger as *const _ as usize },
             4usize,
             concat!(
                 "Offset of field: ",
@@ -12438,17 +12440,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_osockaddr() {
         assert_eq!(
-            core::mem::size_of::<osockaddr>(),
+            ::core::mem::size_of::<osockaddr>(),
             16usize,
             concat!("Size of: ", stringify!(osockaddr))
         );
         assert_eq!(
-            core::mem::align_of::<osockaddr>(),
+            ::core::mem::align_of::<osockaddr>(),
             2usize,
             concat!("Alignment of ", stringify!(osockaddr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<osockaddr>())).sa_family as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<osockaddr>())).sa_family as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12458,7 +12460,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<osockaddr>())).sa_data as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<osockaddr>())).sa_data as *const _ as usize },
             2usize,
             concat!(
                 "Offset of field: ",
@@ -12481,17 +12483,17 @@ pub mod root {
     #[test]
     fn bindgen_test_layout_mmsghdr() {
         assert_eq!(
-            core::mem::size_of::<mmsghdr>(),
+            ::core::mem::size_of::<mmsghdr>(),
             64usize,
             concat!("Size of: ", stringify!(mmsghdr))
         );
         assert_eq!(
-            core::mem::align_of::<mmsghdr>(),
+            ::core::mem::align_of::<mmsghdr>(),
             8usize,
             concat!("Alignment of ", stringify!(mmsghdr))
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<mmsghdr>())).msg_hdr as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<mmsghdr>())).msg_hdr as *const _ as usize },
             0usize,
             concat!(
                 "Offset of field: ",
@@ -12501,7 +12503,7 @@ pub mod root {
             )
         );
         assert_eq!(
-            unsafe { &(*(core::ptr::null::<mmsghdr>())).msg_len as *const _ as usize },
+            unsafe { &(*(::core::ptr::null::<mmsghdr>())).msg_len as *const _ as usize },
             56usize,
             concat!(
                 "Offset of field: ",
