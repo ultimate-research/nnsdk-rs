@@ -16,5 +16,5 @@ compiler_builtins = { version = "0.1", optional = true }
 rustc-dep-of-std = [
   "core",
   "compiler_builtins",
-  "libc/rustc-dep-of-std",
+  "libc-nnsdk/rustc-dep-of-std",
 ]
