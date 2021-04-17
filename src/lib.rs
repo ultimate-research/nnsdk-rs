@@ -3964,10 +3964,9 @@ pub mod root {
                 ) -> root::Result;
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn2ro20UnregisterModuleInfoEPNS0_16RegistrationInfoEPKv"]
+                #[link_name = "\u{1}_ZN2nn2ro20UnregisterModuleInfoEPNS0_16RegistrationInfoE"]
                 pub fn UnregisterModuleInfo(
-                    arg1: *mut root::nn::ro::RegistrationInfo,
-                    arg2: *const libc::c_void,
+                    arg1: *mut root::nn::ro::RegistrationInfo
                 ) -> root::Result;
             }
         }
