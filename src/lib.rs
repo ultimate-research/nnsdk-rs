@@ -2594,6 +2594,10 @@ pub mod root {
                     RestartProgram("".as_ptr() as _, 0)
                 }
             }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2oe15ExitApplicationEv"]
+                pub fn ExitApplication() -> !;
+            }
         }
         pub mod account {
             #[allow(unused_imports)]
