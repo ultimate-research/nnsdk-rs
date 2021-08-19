@@ -316,6 +316,15 @@ pub mod root {
             __base: libc::c_int,
         ) -> root::uintmax_t;
     }
+    extern "C" {
+        #[link_name = "\u{1}__cxa_demangle"]
+        pub fn cxa_demangle(
+            symbol_name: *const u8,
+            unk1: *const u8,
+            unk2: *const u8,
+            result: *mut u32,
+        ) -> *mut u8;
+    }
     pub type s8 = i8;
     pub type s16 = i16;
     pub type s32 = i32;
@@ -5583,6 +5592,21 @@ pub mod root {
                         arg5: root::Result,
                     );
                 }
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn4diag12GetBacktraceEPmi"]
+                pub fn GetBacktrace(out_array: *mut *const u8, array_len: i32)
+                    -> usize;
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn4diag12GetBacktraceEPmimmm"]
+                pub fn GetBacktrace1(
+                    out_array: *mut *const u8,
+                    array_len: i32,
+                    fp: *const u64,
+                    sp: *const u64,
+                    pc: *const u64
+                ) -> usize;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn4diag13GetSymbolNameEPcmm"]
