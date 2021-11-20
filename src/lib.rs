@@ -529,8 +529,8 @@ pub mod root {
                 pub fn Initialize() -> root::Result;
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn4time12IsInitialzedEv"]
-                pub fn IsInitialzed() -> bool;
+                #[link_name = "\u{1}_ZN2nn4time13IsInitializedEv"]
+                pub fn IsInitialized() -> bool;
             }
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
