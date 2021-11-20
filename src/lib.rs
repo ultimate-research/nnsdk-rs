@@ -2605,6 +2605,10 @@ pub mod root {
                 }
             }
             extern "C" {
+                #[link_name = "\u{1}_ZN2nn2oe28RequestToRelaunchApplicationEv"]
+                pub fn RequestToRelaunchApplication() -> !;
+            }
+            extern "C" {
                 #[link_name = "\u{1}_ZN2nn2oe15ExitApplicationEv"]
                 pub fn ExitApplication() -> !;
             }
