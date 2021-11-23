@@ -1534,12 +1534,27 @@ pub mod root {
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
             pub struct SystemEvent {
-                _unused: [u8; 0],
+                _unused: [u8; 0x28],
             }
             #[repr(C)]
             #[derive(Debug, Copy, Clone)]
             pub struct SystemEventType {
-                _unused: [u8; 0],
+                pub _unused: [u8; 0x29],
+            }
+            impl SystemEventType {
+                pub fn new(clear_mode: SystemEventClearMode) -> Self {
+                    let x = Self {
+                        _unused: [0;0x29],
+                    };
+                    unsafe { CreateSystemEvent(&x, clear_mode, false) };
+                    x
+                }
+            }
+            #[repr(C)]
+            #[derive(Debug, Copy, Clone)]
+            pub enum SystemEventClearMode {
+                Manual = 0,
+                Auto = 1,
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os11SetHostArgcEi"]
@@ -1584,6 +1599,14 @@ pub mod root {
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os17SetMemoryHeapSizeEm"]
                 pub fn SetMemoryHeapSize(arg1: u64);
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2os17CreateSystemEventEPNS0_15SystemEventTypeENS0_14EventClearModeEb"]
+                pub fn CreateSystemEvent(arg1: *const SystemEventType, clear_mode: SystemEventClearMode, skip_init: bool) -> root::Result;
+            }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn2os18TryWaitSystemEventEPNS0_15SystemEventTypeE"]
+                pub fn TryWaitSystemEvent(arg1: *const SystemEventType) -> bool;
             }
             #[repr(C)]
             pub struct MutexType {
@@ -4916,6 +4939,12 @@ pub mod root {
                 Screenshot,
                 BlurredScreenshot
             }
+            #[repr(C)]
+            #[derive(Copy, Clone, Debug, PartialEq)]
+            pub enum WebSessionBootMode {
+                Default,
+                InitiallyHidden
+            }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web19ShowOfflineHtmlPageEPNS0_26OfflineHtmlPageReturnValueERKNS0_22ShowOfflineHtmlPageArgE"]
                 pub fn ShowOfflineHtmlPage(
@@ -5016,6 +5045,10 @@ pub mod root {
                     background_kind: *const OfflineBackgroundKind,
                 );
             }
+            extern "C" {
+                #[link_name = "\u{1}_ZN2nn3web11SetBootModeEPNS0_22ShowOfflineHtmlPageArgENS0_18WebSessionBootModeE"]
+                pub fn SetBootMode(webpage_arg: &ShowOfflineHtmlPageArg, mode: WebSessionBootMode);
+            }
             impl ShowOfflineHtmlPageArg {
                 #[cfg(not(feature = "rustc-dep-of-std"))]
                 #[inline]
@@ -5061,6 +5094,10 @@ pub mod root {
 
                 pub fn enable_web_audio(&mut self, enabled: bool) {
                     unsafe { SetOfflineWebAudioEnabled(self, enabled) }
+                }
+                
+                pub fn set_boot_mode(&mut self, mode: WebSessionBootMode) {
+                    unsafe { SetBootMode(self, mode) }
                 }
             }
             #[repr(C)]
@@ -5112,6 +5149,49 @@ pub mod root {
                     unsafe { GetOfflineExitReason(self) }
                 }
 
+            }
+            pub mod offlinewebsession {
+                use self::super::super::super::root;
+                use self::super::{ShowOfflineHtmlPageArg, OfflineHtmlPageReturnValue};
+                #[repr(C)]
+                #[derive(Debug)]
+                pub struct OfflineWebSessionImpl {
+                    // This should be edited to use a const usize instead, as the size varies between SDK version. Refer to GetWorkBufferSize to get the actual size.
+                    pub x: [u8;0xd0],
+                }
+                #[repr(C)]
+                #[derive(Debug)]
+                pub struct OfflineWebSession {
+                    pub inner_web_impl: *const OfflineWebSessionImpl,
+                }
+                extern "C" {
+                    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession17GetWorkBufferSizeEv"]
+                    pub fn GetWorkBufferSize() -> usize;
+                }
+                extern "C" {
+                    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession10InitializeEPvm"]
+                    pub fn Initialize(session: *const OfflineWebSession, web_impl: *const OfflineWebSessionImpl);
+                }
+                extern "C" {
+                    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession5StartEPPNS_2os15SystemEventTypeERKNS0_22ShowOfflineHtmlPageArgE"]
+                    pub fn Start(session: &OfflineWebSession, system_evt: &&root::nn::os::SystemEventType, webpage_arg: &ShowOfflineHtmlPageArg);
+                }
+                extern "C" {
+                    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession6AppearEv"]
+                    pub fn Appear(session: &OfflineWebSession) -> bool;
+                }
+                extern "C" {
+                    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession21TrySendContentMessageEPKcm"]
+                    pub fn TrySendContentMessage(session: &OfflineWebSession, buffer: *const u8, buf_len: usize);
+                }
+                extern "C" {
+                    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession24TryReceiveContentMessageEPmPcm"]
+                    pub fn TryReceiveContentMessage(session: &OfflineWebSession, out_size: *mut usize, buffer: *const u8, buf_len: usize) -> bool;
+                }
+                extern "C" {
+                    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession11WaitForExitEPNS0_26OfflineHtmlPageReturnValueE"]
+                    pub fn WaitForExit(session: &OfflineWebSession, return_val: &OfflineHtmlPageReturnValue) -> root::Result;
+                }
             }
         }
         pub mod image {
