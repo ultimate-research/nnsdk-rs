@@ -5192,7 +5192,7 @@ pub mod root {
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession21TrySendContentMessageEPKcm"]
-                    pub fn TrySendContentMessage(session: &OfflineWebSession, buffer: *const u8, buf_len: usize);
+                    pub fn TrySendContentMessage(session: &OfflineWebSession, buffer: *const u8, buf_len: usize) -> bool;
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession24TryReceiveContentMessageEPmPcm"]
