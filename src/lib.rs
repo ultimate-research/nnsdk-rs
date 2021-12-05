@@ -1543,9 +1543,7 @@ pub mod root {
             }
             impl SystemEventType {
                 pub fn new(clear_mode: SystemEventClearMode) -> Self {
-                    let x = Self {
-                        _unused: [0;0x29],
-                    };
+                    let x = Self { _unused: [0; 0x29] };
                     unsafe { CreateSystemEvent(&x, clear_mode, false) };
                     x
                 }
@@ -1602,7 +1600,11 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os17CreateSystemEventEPNS0_15SystemEventTypeENS0_14EventClearModeEb"]
-                pub fn CreateSystemEvent(arg1: *const SystemEventType, clear_mode: SystemEventClearMode, skip_init: bool) -> root::Result;
+                pub fn CreateSystemEvent(
+                    arg1: *const SystemEventType,
+                    clear_mode: SystemEventClearMode,
+                    skip_init: bool,
+                ) -> root::Result;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2os18TryWaitSystemEventEPNS0_15SystemEventTypeE"]
@@ -1800,11 +1802,11 @@ pub mod root {
                 #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mi"]
                 pub fn CreateThread1(
                     arg1: *mut root::nn::os::ThreadType,
-                    arg2: unsafe extern "C" fn (arg1: *mut libc::c_void),
+                    arg2: unsafe extern "C" fn(arg1: *mut libc::c_void),
                     arg: *mut libc::c_void,
                     srcStack: *mut libc::c_void,
                     stackSize: u64,
-                    priority: root::s32
+                    priority: root::s32,
                 ) -> root::Result;
             }
             extern "C" {
@@ -2543,10 +2545,7 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2oe27SetPerformanceConfigurationENS0_15PerformanceModeEi"]
-                pub fn SetPerformanceConfiguration(
-                    arg1: root::nn::oe::PerformanceMode,
-                    arg2: u32,
-                );
+                pub fn SetPerformanceConfiguration(arg1: root::nn::oe::PerformanceMode, arg2: u32);
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2oe27GetPerformanceConfigurationENS0_15PerformanceModeE"]
@@ -2623,9 +2622,7 @@ pub mod root {
                 pub fn RestartProgram(argv: *const libc::c_void, argc: u32) -> !;
             }
             pub fn RestartProgramNoArgs() -> ! {
-                unsafe {
-                    RestartProgram("".as_ptr() as _, 0)
-                }
+                unsafe { RestartProgram("".as_ptr() as _, 0) }
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2oe28RequestToRelaunchApplicationEv"]
@@ -3263,11 +3260,14 @@ pub mod root {
                 pub modify: root::nn::time::PosixTime,
                 pub access: root::nn::time::PosixTime,
                 pub local_time: bool,
-                padding: [u8;7],
+                padding: [u8; 7],
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs24GetFileTimeStampForDebugEPNS0_13FileTimeStampEPKc"]
-                pub fn GetFileTimeStampForDebug(out_timestamp: *mut FileTimeStamp, filepath: *const libc::c_char) -> root::Result;
+                pub fn GetFileTimeStampForDebug(
+                    out_timestamp: *mut FileTimeStamp,
+                    filepath: *const libc::c_char,
+                ) -> root::Result;
             }
         }
         pub mod ro {
@@ -4007,7 +4007,7 @@ pub mod root {
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn2ro20UnregisterModuleInfoEPNS0_16RegistrationInfoE"]
                 pub fn UnregisterModuleInfo(
-                    arg1: *mut root::nn::ro::RegistrationInfo
+                    arg1: *mut root::nn::ro::RegistrationInfo,
                 ) -> root::Result;
             }
         }
@@ -4915,7 +4915,8 @@ pub mod root {
                     arg1: *mut root::nn::vi::Layer,
                 ) -> root::Result;
             }
-        }pub mod web {
+        }
+        pub mod web {
             #[allow(unused_imports)]
             use self::super::super::super::root;
 
@@ -4930,20 +4931,20 @@ pub mod root {
                 White,
                 Black,
                 Screenshot,
-                BlurredScreenshot
+                BlurredScreenshot,
             }
             #[repr(C)]
             #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum OfflineBackgroundKind {
                 Default,
                 Screenshot,
-                BlurredScreenshot
+                BlurredScreenshot,
             }
             #[repr(C)]
             #[derive(Copy, Clone, Debug, PartialEq)]
             pub enum WebSessionBootMode {
                 Default,
-                InitiallyHidden
+                InitiallyHidden,
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web19ShowOfflineHtmlPageEPNS0_26OfflineHtmlPageReturnValueERKNS0_22ShowOfflineHtmlPageArgE"]
@@ -4968,17 +4969,11 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArg16SetFooterEnabledEb"]
-                pub fn SetOfflineFooterEnabled(
-                    this: *mut ShowOfflineHtmlPageArg,
-                    enabled: bool,
-                );
+                pub fn SetOfflineFooterEnabled(this: *mut ShowOfflineHtmlPageArg, enabled: bool);
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArg17SetPointerEnabledEb"]
-                pub fn SetOfflinePointerEnabled(
-                    this: *mut ShowOfflineHtmlPageArg,
-                    enabled: bool,
-                );
+                pub fn SetOfflinePointerEnabled(this: *mut ShowOfflineHtmlPageArg, enabled: bool);
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArg25SetBootLoadingIconEnabledEb"]
@@ -4989,10 +4984,7 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArg18SetWebAudioEnabledEb"]
-                pub fn SetOfflineWebAudioEnabled(
-                    this: *mut ShowOfflineHtmlPageArg,
-                    enabled: bool,
-                );
+                pub fn SetOfflineWebAudioEnabled(this: *mut ShowOfflineHtmlPageArg, enabled: bool);
             }
             extern "C" {
                 /// On a scale of 0.0 to 4.0
@@ -5019,17 +5011,11 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArg18SetPageFadeEnabledEb"]
-                pub fn SetOfflinePageFadeEnabled(
-                    this: *mut ShowOfflineHtmlPageArg,
-                    enabled: bool,
-                );
+                pub fn SetOfflinePageFadeEnabled(this: *mut ShowOfflineHtmlPageArg, enabled: bool);
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArg19SetPageCacheEnabledEb"]
-                pub fn SetOfflinePageCacheEnabled(
-                    this: *mut ShowOfflineHtmlPageArg,
-                    enabled: bool,
-                );
+                pub fn SetOfflinePageCacheEnabled(this: *mut ShowOfflineHtmlPageArg, enabled: bool);
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArg18SetBootDisplayKindENS0_22OfflineBootDisplayKindE"]
@@ -5095,7 +5081,7 @@ pub mod root {
                 pub fn enable_web_audio(&mut self, enabled: bool) {
                     unsafe { SetOfflineWebAudioEnabled(self, enabled) }
                 }
-                
+
                 pub fn set_boot_mode(&mut self, mode: WebSessionBootMode) {
                     unsafe { SetBootMode(self, mode) }
                 }
@@ -5103,7 +5089,7 @@ pub mod root {
             #[repr(C)]
             pub struct OfflineHtmlPageReturnValue {
                 exit_reason: u64,
-                last_url: [u8;4096],
+                last_url: [u8; 4096],
                 last_url_size: u64,
             }
             #[repr(C)]
@@ -5122,7 +5108,9 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZNK2nn3web26OfflineHtmlPageReturnValue20GetOfflineExitReasonEv"]
-                pub fn GetOfflineExitReason(this: *const OfflineHtmlPageReturnValue) -> OfflineExitReason;
+                pub fn GetOfflineExitReason(
+                    this: *const OfflineHtmlPageReturnValue,
+                ) -> OfflineExitReason;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZNK2nn3web26OfflineHtmlPageReturnValue10GetLastUrlEv"]
@@ -5136,11 +5124,13 @@ pub mod root {
                 pub fn new() -> Self {
                     let mut instance = OfflineHtmlPageReturnValue {
                         exit_reason: 0,
-                        last_url: [0;4096],
+                        last_url: [0; 4096],
                         last_url_size: 0,
                     };
 
-                    unsafe { OfflineHtmlPageReturnValue(&mut instance); }
+                    unsafe {
+                        OfflineHtmlPageReturnValue(&mut instance);
+                    }
 
                     instance
                 }
@@ -5148,11 +5138,10 @@ pub mod root {
                 pub fn get_exit_reason(&self) -> OfflineExitReason {
                     unsafe { GetOfflineExitReason(self) }
                 }
-
             }
             pub mod offlinewebsession {
                 use self::super::super::super::root;
-                use self::super::{ShowOfflineHtmlPageArg, OfflineHtmlPageReturnValue};
+                use self::super::{OfflineHtmlPageReturnValue, ShowOfflineHtmlPageArg};
                 #[repr(C)]
                 #[derive(Debug)]
                 pub struct OfflineWebSession {
@@ -5161,11 +5150,10 @@ pub mod root {
                 impl OfflineWebSession {
                     pub fn new() -> Self {
                         let web_impl_size = unsafe { GetWorkBufferSize() };
-                        let inner_web_impl =  alloc::vec![0u8; web_impl_size].leak().as_ptr() as *const u8;
+                        let inner_web_impl =
+                            alloc::vec![0u8; web_impl_size].leak().as_ptr() as *const u8;
 
-                        let session = Self {
-                            inner_web_impl
-                        };
+                        let session = Self { inner_web_impl };
 
                         unsafe {
                             Initialize(&session, inner_web_impl);
@@ -5180,11 +5168,18 @@ pub mod root {
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession10InitializeEPvm"]
-                    pub fn Initialize(session: *const OfflineWebSession, offline_web_impl: *const u8);
+                    pub fn Initialize(
+                        session: *const OfflineWebSession,
+                        offline_web_impl: *const u8,
+                    );
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession5StartEPPNS_2os15SystemEventTypeERKNS0_22ShowOfflineHtmlPageArgE"]
-                    pub fn Start(session: &OfflineWebSession, system_evt: &&root::nn::os::SystemEventType, webpage_arg: &ShowOfflineHtmlPageArg);
+                    pub fn Start(
+                        session: &OfflineWebSession,
+                        system_evt: &&root::nn::os::SystemEventType,
+                        webpage_arg: &ShowOfflineHtmlPageArg,
+                    );
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession6AppearEv"]
@@ -5192,15 +5187,27 @@ pub mod root {
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession21TrySendContentMessageEPKcm"]
-                    pub fn TrySendContentMessage(session: &OfflineWebSession, buffer: *const u8, buf_len: usize) -> bool;
+                    pub fn TrySendContentMessage(
+                        session: &OfflineWebSession,
+                        buffer: *const u8,
+                        buf_len: usize,
+                    ) -> bool;
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession24TryReceiveContentMessageEPmPcm"]
-                    pub fn TryReceiveContentMessage(session: &OfflineWebSession, out_size: *mut usize, buffer: *const u8, buf_len: usize) -> bool;
+                    pub fn TryReceiveContentMessage(
+                        session: &OfflineWebSession,
+                        out_size: *mut usize,
+                        buffer: *const u8,
+                        buf_len: usize,
+                    ) -> bool;
                 }
                 extern "C" {
                     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession11WaitForExitEPNS0_26OfflineHtmlPageReturnValueE"]
-                    pub fn WaitForExit(session: &OfflineWebSession, return_val: &OfflineHtmlPageReturnValue) -> root::Result;
+                    pub fn WaitForExit(
+                        session: &OfflineWebSession,
+                        return_val: &OfflineHtmlPageReturnValue,
+                    ) -> root::Result;
                 }
             }
         }
@@ -5689,8 +5696,7 @@ pub mod root {
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn4diag12GetBacktraceEPmi"]
-                pub fn GetBacktrace(out_array: *mut *const u8, array_len: i32)
-                    -> usize;
+                pub fn GetBacktrace(out_array: *mut *const u8, array_len: i32) -> usize;
             }
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn4diag12GetBacktraceEPmimmm"]
@@ -5699,7 +5705,7 @@ pub mod root {
                     array_len: i32,
                     fp: *const u64,
                     sp: *const u64,
-                    pc: *const u64
+                    pc: *const u64,
                 ) -> usize;
             }
             extern "C" {
@@ -5988,7 +5994,7 @@ pub mod root {
             pub struct Vector3f {
                 pub x: f32,
                 pub y: f32,
-                pub z: f32
+                pub z: f32,
             }
 
             #[repr(simd)]
@@ -5996,9 +6002,9 @@ pub mod root {
                 pub x: f32,
                 pub y: f32,
                 pub z: f32,
-                pub w: f32
+                pub w: f32,
             }
-            
+
             #[allow(unused_imports)]
             use self::super::super::super::root;
             #[repr(C)]
@@ -6714,22 +6720,40 @@ pub mod root {
 
             extern "C" {
                 #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_17NpadHandheldStateERKj"]
-                pub fn GetNpadHandheldState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+                pub fn GetNpadHandheldState(
+                    arg1: *mut root::nn::hid::NpadHandheldState,
+                    arg2: *const u32,
+                );
 
                 #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_16NpadFullKeyStateERKj"]
-                pub fn GetNpadFullKeyState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+                pub fn GetNpadFullKeyState(
+                    arg1: *mut root::nn::hid::NpadHandheldState,
+                    arg2: *const u32,
+                );
 
                 #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_11NpadGcStateERKj"]
-                pub fn GetNpadGcState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+                pub fn GetNpadGcState(
+                    arg1: *mut root::nn::hid::NpadHandheldState,
+                    arg2: *const u32,
+                );
 
                 #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_16NpadJoyDualStateERKj"]
-                pub fn GetNpadJoyDualState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+                pub fn GetNpadJoyDualState(
+                    arg1: *mut root::nn::hid::NpadHandheldState,
+                    arg2: *const u32,
+                );
 
                 #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_16NpadJoyLeftStateERKj"]
-                pub fn GetNpadJoyLeftState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+                pub fn GetNpadJoyLeftState(
+                    arg1: *mut root::nn::hid::NpadHandheldState,
+                    arg2: *const u32,
+                );
 
                 #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_17NpadJoyRightStateERKj"]
-                pub fn GetNpadJoyRightState(arg1: *mut root::nn::hid::NpadHandheldState, arg2: *const u32);
+                pub fn GetNpadJoyRightState(
+                    arg1: *mut root::nn::hid::NpadHandheldState,
+                    arg2: *const u32,
+                );
             }
         }
         pub mod audio {
