@@ -6471,6 +6471,19 @@ pub mod root {
                 pub Flags: u32,
             }
             #[repr(C)]
+            #[derive(Debug, Copy, Clone, Default)]
+            pub struct NpadGcState {
+                pub updateCount: i64,
+                pub Buttons: u64,
+                pub LStickX: i32,
+                pub LStickY: i32,
+                pub RStickX: i32,
+                pub RStickY: i32,
+                pub Flags: u32,
+                pub LTrigger: u32,
+                pub RTrigger: u32,
+            }
+            #[repr(C)]
             #[derive(Debug, Copy, Clone)]
             pub struct NpadStyleTag {
                 _unused: [u8; 0],
@@ -6733,7 +6746,7 @@ pub mod root {
 
                 #[link_name = "\u{1}_ZN2nn3hid12GetNpadStateEPNS0_11NpadGcStateERKj"]
                 pub fn GetNpadGcState(
-                    arg1: *mut root::nn::hid::NpadHandheldState,
+                    arg1: *mut root::nn::hid::NpadGcState,
                     arg2: *const u32,
                 );
 
