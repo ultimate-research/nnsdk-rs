@@ -3273,7 +3273,7 @@ pub mod root {
                 #[link_name = "_ZN2nn2fs17MountCacheStorageEPKc"]
                 pub fn MountCacheStorage(mount_point: *const libc::c_char) -> root::Result;
             }
-            pub fn MountCache<S: AsRef<str>>(mount_point: S) -> root::Result {
+            pub fn mount_cache_storage<S: AsRef<str>>(mount_point: S) -> root::Result {
                 unsafe {
                     MountCacheStorage([mount_point.as_ref(), "\0"].concat().as_ptr())
                 }
