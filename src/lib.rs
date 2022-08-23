@@ -3238,6 +3238,10 @@ pub mod root {
                 pub fn MountSdCardForDebug(arg1: *const libc::c_char) -> root::Result;
             }
             extern "C" {
+                #[link_name = "_ZN2nn2fs7UnmountEPKc"]
+                pub fn Unmount(name: *const u8);
+            }
+            extern "C" {
                 #[link_name = "\u{1}_ZN2nn2fs16IsSdCardInsertedEv"]
                 pub fn IsSdCardInserted() -> bool;
             }
