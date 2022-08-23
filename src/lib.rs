@@ -3084,7 +3084,7 @@ pub mod root {
                 pub fn EnsureSaveData(arg1: *const root::nn::account::Uid) -> root::Result;
             }
             extern "C" {
-                #[link_name = "\u{1}_ZN2nn2fs13MountSaveDataEPKcm"]
+                #[link_name = "\u{1}_ZN2nn2fs13MountSaveDataEPKcRKNS_7account3UidE"]
                 pub fn MountSaveData(
                     arg1: *const libc::c_char,
                     arg2: root::nn::fs::UserId,
