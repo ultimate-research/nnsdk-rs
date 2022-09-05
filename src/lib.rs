@@ -22,7 +22,7 @@ pub mod root {
     use self::super::root;
 
     extern "C" {
-        pub fn main(argc: libc::c_int, argv: *mut *mut libc::c_char) -> libc::c_int;
+        pub fn main(argc: i32, argv: *mut *mut u8) -> i32;
     }
     extern "C" {
         pub fn nninitStartup();
@@ -67,50 +67,50 @@ pub mod root {
         pub fn nnosUnlockMutex(arg1: *mut root::nnosMutexType);
     }
     extern "C" {
-        pub fn llabs(n: libc::c_longlong) -> libc::c_longlong;
+        pub fn llabs(n: i64) -> i64;
     }
     extern "C" {
         pub fn __assert_fail(
-            __assertion: *const libc::c_char,
-            __file: *const libc::c_char,
-            __line: libc::c_uint,
-            __function: *const libc::c_char,
+            __assertion: *const u8,
+            __file: *const u8,
+            __line: u32,
+            __function: *const u8,
         );
     }
     extern "C" {
         pub fn __assert_perror_fail(
-            __errnum: libc::c_int,
-            __file: *const libc::c_char,
-            __line: libc::c_uint,
-            __function: *const libc::c_char,
+            __errnum: i32,
+            __file: *const u8,
+            __line: u32,
+            __function: *const u8,
         );
     }
     extern "C" {
         pub fn __assert(
-            __assertion: *const libc::c_char,
-            __file: *const libc::c_char,
-            __line: libc::c_int,
+            __assertion: *const u8,
+            __file: *const u8,
+            __line: i32,
         );
     }
 
     extern "C" {
         pub fn select(
-            __nfds: libc::c_int,
+            __nfds: i32,
             __readfds: *mut root::fd_set,
             __writefds: *mut root::fd_set,
             __exceptfds: *mut root::fd_set,
             __timeout: *mut root::timeval,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn pselect(
-            __nfds: libc::c_int,
+            __nfds: i32,
             __readfds: *mut root::fd_set,
             __writefds: *mut root::fd_set,
             __exceptfds: *mut root::fd_set,
             __timeout: *const root::timespec,
             __sigmask: *const root::__sigset_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn __cmsg_nxthdr(
@@ -121,159 +121,158 @@ pub mod root {
 
     extern "C" {
         pub fn socket(
-            __domain: libc::c_int,
-            __type: libc::c_int,
-            __protocol: libc::c_int,
-        ) -> libc::c_int;
+            __domain: i32,
+            __type: i32,
+            __protocol: i32,
+        ) -> i32;
     }
     extern "C" {
         pub fn socketpair(
-            __domain: libc::c_int,
-            __type: libc::c_int,
-            __protocol: libc::c_int,
-            __fds: *mut libc::c_int,
-        ) -> libc::c_int;
+            __domain: i32,
+            __type: i32,
+            __protocol: i32,
+            __fds: *mut i32,
+        ) -> i32;
     }
     extern "C" {
         pub fn bind(
-            __fd: libc::c_int,
+            __fd: i32,
             __addr: *const root::sockaddr,
             __len: root::socklen_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn getsockname(
-            __fd: libc::c_int,
+            __fd: i32,
             __addr: *mut root::sockaddr,
             __len: *mut root::socklen_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn connect(
-            __fd: libc::c_int,
+            __fd: i32,
             __addr: *const root::sockaddr,
             __len: root::socklen_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn getpeername(
-            __fd: libc::c_int,
+            __fd: i32,
             __addr: *mut root::sockaddr,
             __len: *mut root::socklen_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn send(
-            __fd: libc::c_int,
+            __fd: i32,
             __buf: *const libc::c_void,
             __n: root::size_t,
-            __flags: libc::c_int,
+            __flags: i32,
         ) -> root::ssize_t;
     }
     extern "C" {
         pub fn recv(
-            __fd: libc::c_int,
+            __fd: i32,
             __buf: *mut libc::c_void,
             __n: root::size_t,
-            __flags: libc::c_int,
+            __flags: i32,
         ) -> root::ssize_t;
     }
     extern "C" {
         pub fn sendto(
-            __fd: libc::c_int,
+            __fd: i32,
             __buf: *const libc::c_void,
             __n: root::size_t,
-            __flags: libc::c_int,
+            __flags: i32,
             __addr: *const root::sockaddr,
             __addr_len: root::socklen_t,
         ) -> root::ssize_t;
     }
     extern "C" {
         pub fn recvfrom(
-            __fd: libc::c_int,
+            __fd: i32,
             __buf: *mut libc::c_void,
             __n: root::size_t,
-            __flags: libc::c_int,
+            __flags: i32,
             __addr: *mut root::sockaddr,
             __addr_len: *mut root::socklen_t,
         ) -> root::ssize_t;
     }
     extern "C" {
         pub fn sendmsg(
-            __fd: libc::c_int,
+            __fd: i32,
             __message: *const root::msghdr,
-            __flags: libc::c_int,
+            __flags: i32,
         ) -> root::ssize_t;
     }
     extern "C" {
         pub fn sendmmsg(
-            __fd: libc::c_int,
+            __fd: i32,
             __vmessages: *mut root::mmsghdr,
-            __vlen: libc::c_uint,
-            __flags: libc::c_int,
-        ) -> libc::c_int;
+            __vlen: u32,
+            __flags: i32,
+        ) -> i32;
     }
     extern "C" {
         pub fn recvmsg(
-            __fd: libc::c_int,
+            __fd: i32,
             __message: *mut root::msghdr,
-            __flags: libc::c_int,
+            __flags: i32,
         ) -> root::ssize_t;
     }
     extern "C" {
         pub fn recvmmsg(
-            __fd: libc::c_int,
+            __fd: i32,
             __vmessages: *mut root::mmsghdr,
-            __vlen: libc::c_uint,
-            __flags: libc::c_int,
+            __vlen: u32,
+            __flags: i32,
             __tmo: *mut root::timespec,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn getsockopt(
-            __fd: libc::c_int,
-            __level: libc::c_int,
-            __optname: libc::c_int,
+            __fd: i32,
+            __level: i32,
+            __optname: i32,
             __optval: *mut libc::c_void,
             __optlen: *mut root::socklen_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn setsockopt(
-            __fd: libc::c_int,
-            __level: libc::c_int,
-            __optname: libc::c_int,
+            __fd: i32,
+            __level: i32,
+            __optname: i32,
             __optval: *const libc::c_void,
             __optlen: root::socklen_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
-        pub fn listen(__fd: libc::c_int, __n: libc::c_int) -> libc::c_int;
+        pub fn listen(__fd: i32, __n: i32) -> i32;
     }
     extern "C" {
         pub fn accept(
-            __fd: libc::c_int,
+            __fd: i32,
             __addr: *mut root::sockaddr,
             __addr_len: *mut root::socklen_t,
-        ) -> libc::c_int;
+        ) -> i32;
     }
     extern "C" {
         pub fn accept4(
-            __fd: libc::c_int,
+            __fd: i32,
             __addr: *mut root::sockaddr,
             __addr_len: *mut root::socklen_t,
-            __flags: libc::c_int,
-        ) -> libc::c_int;
+            __flags: i32,
+        ) -> i32;
     }
     extern "C" {
-        pub fn shutdown(__fd: libc::c_int, __how: libc::c_int) -> libc::c_int;
+        pub fn shutdown(__fd: i32, __how: i32) -> i32;
     }
     extern "C" {
-        pub fn sockatmark(__fd: libc::c_int) -> libc::c_int;
+        pub fn sockatmark(__fd: i32) -> i32;
     }
     extern "C" {
-        pub fn isfdtype(__fd: libc::c_int, __fdtype: libc::c_int) -> libc::c_int;
+        pub fn isfdtype(__fd: i32, __fdtype: i32) -> i32;
     }
-    pub type __int128_t = i128;
-    pub type __uint128_t = u128;
+
 }

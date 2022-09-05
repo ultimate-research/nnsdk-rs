@@ -5,7 +5,7 @@ pub type PerformanceMode = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DisplayVersion {
-    pub name: [libc::c_char; 16usize],
+    pub name: [u8; 16usize],
 }
 
 extern "C" {

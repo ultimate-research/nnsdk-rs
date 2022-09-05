@@ -15,7 +15,7 @@ pub struct ModuleObject {
     pub dt_fini: ::core::option::Option<unsafe extern "C" fn()>,
     pub hash_bucket: *mut u32,
     pub hash_chain: *mut u32,
-    pub dynstr: *mut libc::c_char,
+    pub dynstr: *mut u8,
     pub dynsym: *mut root::Elf64_Sym,
     pub dynstr_size: u64,
     pub got: *mut *mut libc::c_void,
@@ -58,7 +58,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN4rtld12ModuleObject15GetSymbolByNameEPKc"]
     pub fn ModuleObject_GetSymbolByName(
         this: *mut ModuleObject,
-        name: *const libc::c_char,
+        name: *const u8,
     ) -> *mut root::Elf64_Sym;
 }
 extern "C" {
@@ -88,7 +88,7 @@ impl ModuleObject {
     #[inline]
     pub unsafe fn GetSymbolByName(
         &mut self,
-        name: *const libc::c_char,
+        name: *const u8,
     ) -> *mut root::Elf64_Sym {
         ModuleObject_GetSymbolByName(self, name)
     }

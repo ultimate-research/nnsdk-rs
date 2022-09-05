@@ -8,7 +8,7 @@ pub struct Module {
     pub BssPtr: *mut libc::c_void,
     pub _x20: *mut libc::c_void,
     pub SourceBuffer: *mut libc::c_void,
-    pub Name: [libc::c_char; 256usize],
+    pub Name: [u8; 256usize],
     pub _x130: u8,
     pub _x131: u8,
     pub isLoaded: bool,
@@ -88,7 +88,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2ro12LookupSymbolEPmPKc"]
     pub fn LookupSymbol(
         pOutAddress: *mut usize,
-        name: *const libc::c_char,
+        name: *const u8,
     ) -> root::Result;
 }
 extern "C" {
@@ -96,7 +96,7 @@ extern "C" {
     pub fn LookupModuleSymbol(
         pOutAddress: *mut usize,
         pModule: *const root::nn::ro::Module,
-        name: *const libc::c_char,
+        name: *const u8,
     ) -> root::Result;
 }
 extern "C" {
@@ -106,7 +106,7 @@ extern "C" {
         pImage: *const libc::c_void,
         buffer: *mut libc::c_void,
         bufferSize: root::size_t,
-        flag: libc::c_int,
+        flag: i32,
     ) -> root::Result;
 }
 extern "C" {

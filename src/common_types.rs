@@ -1,4 +1,3 @@
-
 #[repr(C)]
 #[derive(Default)]
 pub struct __IncompleteArrayField<T>(::core::marker::PhantomData<T>, [T; 0]);
@@ -74,18 +73,18 @@ impl<T> ::core::cmp::PartialEq for __BindgenUnionField<T> {
 impl<T> ::core::cmp::Eq for __BindgenUnionField<T> {}
 #[allow(unused_imports)]
 use self::super::root;
-pub type __u_char = libc::c_uchar;
-pub type __u_short = libc::c_ushort;
-pub type __u_int = libc::c_uint;
-pub type __u_long = libc::c_ulong;
-pub type __int8_t = libc::c_schar;
-pub type __uint8_t = libc::c_uchar;
-pub type __int16_t = libc::c_short;
-pub type __uint16_t = libc::c_ushort;
-pub type __int32_t = libc::c_int;
-pub type __uint32_t = libc::c_uint;
-pub type __int64_t = libc::c_long;
-pub type __uint64_t = libc::c_ulong;
+pub type __u_char = u8;
+pub type __u_short = u16;
+pub type __u_int = u32;
+pub type __u_long = u64;
+pub type __int8_t = i8;
+pub type __uint8_t = u8;
+pub type __int16_t = i16;
+pub type __uint16_t = u16;
+pub type __int32_t = i32;
+pub type __uint32_t = u32;
+pub type __int64_t = i64;
+pub type __uint64_t = u64;
 pub type __int_least8_t = root::__int8_t;
 pub type __uint_least8_t = root::__uint8_t;
 pub type __int_least16_t = root::__int16_t;
@@ -94,53 +93,53 @@ pub type __int_least32_t = root::__int32_t;
 pub type __uint_least32_t = root::__uint32_t;
 pub type __int_least64_t = root::__int64_t;
 pub type __uint_least64_t = root::__uint64_t;
-pub type __quad_t = libc::c_long;
-pub type __u_quad_t = libc::c_ulong;
-pub type __intmax_t = libc::c_long;
-pub type __uintmax_t = libc::c_ulong;
-pub type __dev_t = libc::c_ulong;
-pub type __uid_t = libc::c_uint;
-pub type __gid_t = libc::c_uint;
-pub type __ino_t = libc::c_ulong;
-pub type __ino64_t = libc::c_ulong;
-pub type __mode_t = libc::c_uint;
-pub type __nlink_t = libc::c_ulong;
-pub type __off_t = libc::c_long;
-pub type __off64_t = libc::c_long;
-pub type __pid_t = libc::c_int;
+pub type __quad_t = i64;
+pub type __u_quad_t = u64;
+pub type __intmax_t = i64;
+pub type __uintmax_t = u64;
+pub type __dev_t = u64;
+pub type __uid_t = u32;
+pub type __gid_t = u32;
+pub type __ino_t = u64;
+pub type __ino64_t = u64;
+pub type __mode_t = u32;
+pub type __nlink_t = u64;
+pub type __off_t = i64;
+pub type __off64_t = i64;
+pub type __pid_t = i32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __fsid_t {
-    pub __val: [libc::c_int; 2usize],
+    pub __val: [i32; 2usize],
 }
 
-pub type __clock_t = libc::c_long;
-pub type __rlim_t = libc::c_ulong;
-pub type __rlim64_t = libc::c_ulong;
-pub type __id_t = libc::c_uint;
-pub type __time_t = libc::c_long;
-pub type __useconds_t = libc::c_uint;
-pub type __suseconds_t = libc::c_long;
-pub type __daddr_t = libc::c_int;
-pub type __key_t = libc::c_int;
-pub type __clockid_t = libc::c_int;
+pub type __clock_t = i64;
+pub type __rlim_t = u64;
+pub type __rlim64_t = u64;
+pub type __id_t = u32;
+pub type __time_t = i64;
+pub type __useconds_t = u32;
+pub type __suseconds_t = i64;
+pub type __daddr_t = i32;
+pub type __key_t = i32;
+pub type __clockid_t = i32;
 pub type __timer_t = *mut libc::c_void;
-pub type __blksize_t = libc::c_long;
-pub type __blkcnt_t = libc::c_long;
-pub type __blkcnt64_t = libc::c_long;
-pub type __fsblkcnt_t = libc::c_ulong;
-pub type __fsblkcnt64_t = libc::c_ulong;
-pub type __fsfilcnt_t = libc::c_ulong;
-pub type __fsfilcnt64_t = libc::c_ulong;
-pub type __fsword_t = libc::c_long;
-pub type __ssize_t = libc::c_long;
-pub type __syscall_slong_t = libc::c_long;
-pub type __syscall_ulong_t = libc::c_ulong;
+pub type __blksize_t = i64;
+pub type __blkcnt_t = i64;
+pub type __blkcnt64_t = i64;
+pub type __fsblkcnt_t = u64;
+pub type __fsblkcnt64_t = u64;
+pub type __fsfilcnt_t = u64;
+pub type __fsfilcnt64_t = u64;
+pub type __fsword_t = i64;
+pub type __ssize_t = i64;
+pub type __syscall_slong_t = i64;
+pub type __syscall_ulong_t = u64;
 pub type __loff_t = root::__off64_t;
-pub type __caddr_t = *mut libc::c_char;
-pub type __intptr_t = libc::c_long;
-pub type __socklen_t = libc::c_uint;
-pub type __sig_atomic_t = libc::c_int;
+pub type __caddr_t = *mut u8;
+pub type __intptr_t = i64;
+pub type __socklen_t = u32;
+pub type __sig_atomic_t = i32;
 pub type int_least8_t = root::__int_least8_t;
 pub type int_least16_t = root::__int_least16_t;
 pub type int_least32_t = root::__int_least32_t;
@@ -149,22 +148,22 @@ pub type uint_least8_t = root::__uint_least8_t;
 pub type uint_least16_t = root::__uint_least16_t;
 pub type uint_least32_t = root::__uint_least32_t;
 pub type uint_least64_t = root::__uint_least64_t;
-pub type int_fast8_t = libc::c_schar;
-pub type int_fast16_t = libc::c_long;
-pub type int_fast32_t = libc::c_long;
-pub type int_fast64_t = libc::c_long;
-pub type uint_fast8_t = libc::c_uchar;
-pub type uint_fast16_t = libc::c_ulong;
-pub type uint_fast32_t = libc::c_ulong;
-pub type uint_fast64_t = libc::c_ulong;
+pub type int_fast8_t = i8;
+pub type int_fast16_t = i64;
+pub type int_fast32_t = i64;
+pub type int_fast64_t = i64;
+pub type uint_fast8_t = u8;
+pub type uint_fast16_t = u64;
+pub type uint_fast32_t = u64;
+pub type uint_fast64_t = u64;
 pub type intmax_t = root::__intmax_t;
 pub type uintmax_t = root::__uintmax_t;
-pub type size_t = libc::c_ulong;
+pub type size_t = u64;
 #[repr(C)]
 #[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
 pub struct max_align_t {
-    pub __clang_max_align_nonce1: libc::c_longlong,
+    pub __clang_max_align_nonce1: i64,
     pub __bindgen_padding_0: u64,
     pub __clang_max_align_nonce2: u128,
 }
@@ -172,8 +171,8 @@ pub struct max_align_t {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct imaxdiv_t {
-    pub quot: libc::c_long,
-    pub rem: libc::c_long,
+    pub quot: i64,
+    pub rem: i64,
 }
 
 extern "C" {
@@ -184,30 +183,30 @@ extern "C" {
 }
 extern "C" {
     pub fn strtoimax(
-        __nptr: *const libc::c_char,
-        __endptr: *mut *mut libc::c_char,
-        __base: libc::c_int,
+        __nptr: *const u8,
+        __endptr: *mut *mut u8,
+        __base: i32,
     ) -> root::intmax_t;
 }
 extern "C" {
     pub fn strtoumax(
-        __nptr: *const libc::c_char,
-        __endptr: *mut *mut libc::c_char,
-        __base: libc::c_int,
+        __nptr: *const u8,
+        __endptr: *mut *mut u8,
+        __base: i32,
     ) -> root::uintmax_t;
 }
 extern "C" {
     pub fn wcstoimax(
         __nptr: *const u32,
         __endptr: *mut *mut u32,
-        __base: libc::c_int,
+        __base: i32,
     ) -> root::intmax_t;
 }
 extern "C" {
     pub fn wcstoumax(
         __nptr: *const u32,
         __endptr: *mut *mut u32,
-        __base: libc::c_int,
+        __base: i32,
     ) -> root::uintmax_t;
 }
 extern "C" {
@@ -224,8 +223,8 @@ pub type s16 = i16;
 pub type s32 = i32;
 pub type s64 = i64;
 pub type s128 = root::__int128_t;
-pub type uchar = libc::c_uchar;
-pub type ulong = libc::c_ulong;
+pub type uchar = u8;
+pub type ulong = u64;
 pub type uint = u32;
 pub type Result = u32;
 pub type Handle = u32;
@@ -414,7 +413,7 @@ pub type Elf64_Versym = root::Elf64_Half;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Elf32_Ehdr {
-    pub e_ident: [libc::c_uchar; 16usize],
+    pub e_ident: [u8; 16usize],
     pub e_type: root::Elf32_Half,
     pub e_machine: root::Elf32_Half,
     pub e_version: root::Elf32_Word,
@@ -432,7 +431,7 @@ pub struct Elf32_Ehdr {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Elf64_Ehdr {
-    pub e_ident: [libc::c_uchar; 16usize],
+    pub e_ident: [u8; 16usize],
     pub e_type: root::Elf64_Half,
     pub e_machine: root::Elf64_Half,
     pub e_version: root::Elf64_Word,
@@ -499,16 +498,16 @@ pub struct Elf32_Sym {
     pub st_name: root::Elf32_Word,
     pub st_value: root::Elf32_Addr,
     pub st_size: root::Elf32_Word,
-    pub st_info: libc::c_uchar,
-    pub st_other: libc::c_uchar,
+    pub st_info: u8,
+    pub st_other: u8,
     pub st_shndx: root::Elf32_Section,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Elf64_Sym {
     pub st_name: root::Elf64_Word,
-    pub st_info: libc::c_uchar,
-    pub st_other: libc::c_uchar,
+    pub st_info: u8,
+    pub st_other: u8,
     pub st_shndx: root::Elf64_Section,
     pub st_value: root::Elf64_Addr,
     pub st_size: root::Elf64_Xword,
@@ -769,8 +768,8 @@ pub struct Elf32_RegInfo {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Elf_Options {
-    pub kind: libc::c_uchar,
-    pub size: libc::c_uchar,
+    pub kind: u8,
+    pub size: u8,
     pub section: root::Elf32_Section,
     pub info: root::Elf32_Word,
 }
@@ -803,12 +802,12 @@ pub type Elf32_Conflict = root::Elf32_Addr;
 #[derive(Debug, Copy, Clone)]
 pub struct Elf_MIPS_ABIFlags_v0 {
     pub version: root::Elf32_Half,
-    pub isa_level: libc::c_uchar,
-    pub isa_rev: libc::c_uchar,
-    pub gpr_size: libc::c_uchar,
-    pub cpr1_size: libc::c_uchar,
-    pub cpr2_size: libc::c_uchar,
-    pub fp_abi: libc::c_uchar,
+    pub isa_level: u8,
+    pub isa_rev: u8,
+    pub gpr_size: u8,
+    pub cpr1_size: u8,
+    pub cpr2_size: u8,
+    pub fp_abi: u8,
     pub isa_ext: root::Elf32_Word,
     pub ases: root::Elf32_Word,
     pub flags1: root::Elf32_Word,
@@ -860,16 +859,16 @@ pub type time_t = root::__time_t;
 pub type timer_t = root::__timer_t;
 pub type useconds_t = root::__useconds_t;
 pub type suseconds_t = root::__suseconds_t;
-pub type ushort = libc::c_ushort;
+pub type ushort = u16;
 pub type u_int8_t = root::__uint8_t;
 pub type u_int16_t = root::__uint16_t;
 pub type u_int32_t = root::__uint32_t;
 pub type u_int64_t = root::__uint64_t;
-pub type register_t = libc::c_long;
+pub type register_t = i64;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __sigset_t {
-    pub __val: [libc::c_ulong; 16usize],
+    pub __val: [u64; 16usize],
 }
 pub type sigset_t = root::__sigset_t;
 #[repr(C)]
@@ -884,7 +883,7 @@ pub struct timespec {
     pub tv_sec: root::__time_t,
     pub tv_nsec: root::__syscall_slong_t,
 }
-pub type __fd_mask = libc::c_long;
+pub type __fd_mask = i64;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct fd_set {
@@ -901,18 +900,18 @@ pub type fsfilcnt64_t = root::__fsfilcnt64_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __pthread_rwlock_arch_t {
-    pub __readers: libc::c_uint,
-    pub __writers: libc::c_uint,
-    pub __wrphase_futex: libc::c_uint,
-    pub __writers_futex: libc::c_uint,
-    pub __pad3: libc::c_uint,
-    pub __pad4: libc::c_uint,
-    pub __cur_writer: libc::c_int,
-    pub __shared: libc::c_int,
-    pub __rwelision: libc::c_schar,
-    pub __pad1: [libc::c_uchar; 7usize],
-    pub __pad2: libc::c_ulong,
-    pub __flags: libc::c_uint,
+    pub __readers: u32,
+    pub __writers: u32,
+    pub __wrphase_futex: u32,
+    pub __writers_futex: u32,
+    pub __pad3: u32,
+    pub __pad4: u32,
+    pub __cur_writer: i32,
+    pub __shared: i32,
+    pub __rwelision: i8,
+    pub __pad1: [u8; 7usize],
+    pub __pad2: u64,
+    pub __flags: u32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -924,13 +923,13 @@ pub type __pthread_list_t = root::__pthread_internal_list;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __pthread_mutex_s {
-    pub __lock: libc::c_int,
-    pub __count: libc::c_uint,
-    pub __owner: libc::c_int,
-    pub __nusers: libc::c_uint,
-    pub __kind: libc::c_int,
-    pub __spins: libc::c_short,
-    pub __elision: libc::c_short,
+    pub __lock: i32,
+    pub __count: u32,
+    pub __owner: i32,
+    pub __nusers: u32,
+    pub __kind: i32,
+    pub __spins: i16,
+    pub __elision: i16,
     pub __list: root::__pthread_list_t,
 }
 #[repr(C)]
@@ -938,107 +937,107 @@ pub struct __pthread_mutex_s {
 pub struct __pthread_cond_s {
     pub __bindgen_anon_1: root::__pthread_cond_s__bindgen_ty_1,
     pub __bindgen_anon_2: root::__pthread_cond_s__bindgen_ty_2,
-    pub __g_refs: [libc::c_uint; 2usize],
-    pub __g_size: [libc::c_uint; 2usize],
-    pub __g1_orig_size: libc::c_uint,
-    pub __wrefs: libc::c_uint,
-    pub __g_signals: [libc::c_uint; 2usize],
+    pub __g_refs: [u32; 2usize],
+    pub __g_size: [u32; 2usize],
+    pub __g1_orig_size: u32,
+    pub __wrefs: u32,
+    pub __g_signals: [u32; 2usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union __pthread_cond_s__bindgen_ty_1 {
-    pub __wseq: libc::c_ulonglong,
+    pub __wseq: u64,
     pub __wseq32: root::__pthread_cond_s__bindgen_ty_1__bindgen_ty_1,
     _bindgen_union_align: u64,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __pthread_cond_s__bindgen_ty_1__bindgen_ty_1 {
-    pub __low: libc::c_uint,
-    pub __high: libc::c_uint,
+    pub __low: u32,
+    pub __high: u32,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union __pthread_cond_s__bindgen_ty_2 {
-    pub __g1_start: libc::c_ulonglong,
+    pub __g1_start: u64,
     pub __g1_start32: root::__pthread_cond_s__bindgen_ty_2__bindgen_ty_1,
     _bindgen_union_align: u64,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __pthread_cond_s__bindgen_ty_2__bindgen_ty_1 {
-    pub __low: libc::c_uint,
-    pub __high: libc::c_uint,
+    pub __low: u32,
+    pub __high: u32,
 }
-pub type pthread_t = libc::c_ulong;
+pub type pthread_t = u64;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_mutexattr_t {
-    pub __size: [libc::c_char; 4usize],
-    pub __align: libc::c_int,
+    pub __size: [u8; 4usize],
+    pub __align: i32,
     _bindgen_union_align: u32,
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_condattr_t {
-    pub __size: [libc::c_char; 4usize],
-    pub __align: libc::c_int,
+    pub __size: [u8; 4usize],
+    pub __align: i32,
     _bindgen_union_align: u32,
 }
-pub type pthread_key_t = libc::c_uint;
-pub type pthread_once_t = libc::c_int;
+pub type pthread_key_t = u32;
+pub type pthread_once_t = i32;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_attr_t {
-    pub __size: [libc::c_char; 56usize],
-    pub __align: libc::c_long,
+    pub __size: [u8; 56usize],
+    pub __align: i64,
     _bindgen_union_align: [u64; 7usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_mutex_t {
     pub __data: root::__pthread_mutex_s,
-    pub __size: [libc::c_char; 40usize],
-    pub __align: libc::c_long,
+    pub __size: [u8; 40usize],
+    pub __align: i64,
     _bindgen_union_align: [u64; 5usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_cond_t {
     pub __data: root::__pthread_cond_s,
-    pub __size: [libc::c_char; 48usize],
-    pub __align: libc::c_longlong,
+    pub __size: [u8; 48usize],
+    pub __align: i64,
     _bindgen_union_align: [u64; 6usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_rwlock_t {
     pub __data: root::__pthread_rwlock_arch_t,
-    pub __size: [libc::c_char; 56usize],
-    pub __align: libc::c_long,
+    pub __size: [u8; 56usize],
+    pub __align: i64,
     _bindgen_union_align: [u64; 7usize],
 }
 
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_rwlockattr_t {
-    pub __size: [libc::c_char; 8usize],
-    pub __align: libc::c_long,
+    pub __size: [u8; 8usize],
+    pub __align: i64,
     _bindgen_union_align: u64,
 }
-pub type pthread_spinlock_t = libc::c_int;
+pub type pthread_spinlock_t = i32;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_barrier_t {
-    pub __size: [libc::c_char; 32usize],
-    pub __align: libc::c_long,
+    pub __size: [u8; 32usize],
+    pub __align: i64,
     _bindgen_union_align: [u64; 4usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union pthread_barrierattr_t {
-    pub __size: [libc::c_char; 4usize],
-    pub __align: libc::c_int,
+    pub __size: [u8; 4usize],
+    pub __align: i32,
     _bindgen_union_align: u32,
 }
 pub type socklen_t = root::__socklen_t;
@@ -1052,19 +1051,19 @@ pub const __socket_type_SOCK_PACKET: root::__socket_type = 10;
 pub const __socket_type_SOCK_CLOEXEC: root::__socket_type = 524288;
 pub const __socket_type_SOCK_NONBLOCK: root::__socket_type = 2048;
 pub type __socket_type = u32;
-pub type sa_family_t = libc::c_ushort;
+pub type sa_family_t = u16;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct sockaddr {
     pub sa_family: root::sa_family_t,
-    pub sa_data: [libc::c_char; 14usize],
+    pub sa_data: [u8; 14usize],
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct sockaddr_storage {
     pub ss_family: root::sa_family_t,
-    pub __ss_padding: [libc::c_char; 118usize],
-    pub __ss_align: libc::c_ulong,
+    pub __ss_padding: [u8; 118usize],
+    pub __ss_align: u64,
 }
 pub const MSG_OOB: root::_bindgen_ty_7 = 1;
 pub const MSG_PEEK: root::_bindgen_ty_7 = 2;
@@ -1098,15 +1097,15 @@ pub struct msghdr {
     pub msg_iovlen: root::size_t,
     pub msg_control: *mut libc::c_void,
     pub msg_controllen: root::size_t,
-    pub msg_flags: libc::c_int,
+    pub msg_flags: i32,
 }
 #[repr(C)]
 #[derive(Debug)]
 pub struct cmsghdr {
     pub cmsg_len: root::size_t,
-    pub cmsg_level: libc::c_int,
-    pub cmsg_type: libc::c_int,
-    pub __cmsg_data: root::__IncompleteArrayField<libc::c_uchar>,
+    pub cmsg_level: i32,
+    pub cmsg_type: i32,
+    pub __cmsg_data: root::__IncompleteArrayField<u8>,
 }
 pub const SCM_RIGHTS: root::_bindgen_ty_8 = 1;
 pub const SCM_CREDENTIALS: root::_bindgen_ty_8 = 2;
@@ -1121,56 +1120,56 @@ pub struct ucred {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __kernel_fd_set {
-    pub fds_bits: [libc::c_ulong; 16usize],
+    pub fds_bits: [u64; 16usize],
 }
 pub type __kernel_sighandler_t =
-    ::core::option::Option<unsafe extern "C" fn(arg1: libc::c_int)>;
-pub type __kernel_key_t = libc::c_int;
-pub type __kernel_mqd_t = libc::c_int;
-pub type __kernel_old_uid_t = libc::c_ushort;
-pub type __kernel_old_gid_t = libc::c_ushort;
-pub type __kernel_old_dev_t = libc::c_ulong;
-pub type __kernel_long_t = libc::c_long;
-pub type __kernel_ulong_t = libc::c_ulong;
+    ::core::option::Option<unsafe extern "C" fn(arg1: i32)>;
+pub type __kernel_key_t = i32;
+pub type __kernel_mqd_t = i32;
+pub type __kernel_old_uid_t = u16;
+pub type __kernel_old_gid_t = u16;
+pub type __kernel_old_dev_t = u64;
+pub type __kernel_long_t = i64;
+pub type __kernel_ulong_t = u64;
 pub type __kernel_ino_t = root::__kernel_ulong_t;
-pub type __kernel_mode_t = libc::c_uint;
-pub type __kernel_pid_t = libc::c_int;
-pub type __kernel_ipc_pid_t = libc::c_int;
-pub type __kernel_uid_t = libc::c_uint;
-pub type __kernel_gid_t = libc::c_uint;
+pub type __kernel_mode_t = u32;
+pub type __kernel_pid_t = i32;
+pub type __kernel_ipc_pid_t = i32;
+pub type __kernel_uid_t = u32;
+pub type __kernel_gid_t = u32;
 pub type __kernel_suseconds_t = root::__kernel_long_t;
-pub type __kernel_daddr_t = libc::c_int;
-pub type __kernel_uid32_t = libc::c_uint;
-pub type __kernel_gid32_t = libc::c_uint;
+pub type __kernel_daddr_t = i32;
+pub type __kernel_uid32_t = u32;
+pub type __kernel_gid32_t = u32;
 pub type __kernel_size_t = root::__kernel_ulong_t;
 pub type __kernel_ssize_t = root::__kernel_long_t;
 pub type __kernel_ptrdiff_t = root::__kernel_long_t;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct __kernel_fsid_t {
-    pub val: [libc::c_int; 2usize],
+    pub val: [i32; 2usize],
 }
 pub type __kernel_off_t = root::__kernel_long_t;
-pub type __kernel_loff_t = libc::c_longlong;
+pub type __kernel_loff_t = i64;
 pub type __kernel_time_t = root::__kernel_long_t;
-pub type __kernel_time64_t = libc::c_longlong;
+pub type __kernel_time64_t = i64;
 pub type __kernel_clock_t = root::__kernel_long_t;
-pub type __kernel_timer_t = libc::c_int;
-pub type __kernel_clockid_t = libc::c_int;
-pub type __kernel_caddr_t = *mut libc::c_char;
-pub type __kernel_uid16_t = libc::c_ushort;
-pub type __kernel_gid16_t = libc::c_ushort;
+pub type __kernel_timer_t = i32;
+pub type __kernel_clockid_t = i32;
+pub type __kernel_caddr_t = *mut u8;
+pub type __kernel_uid16_t = u16;
+pub type __kernel_gid16_t = u16;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct linger {
-    pub l_onoff: libc::c_int,
-    pub l_linger: libc::c_int,
+    pub l_onoff: i32,
+    pub l_linger: i32,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct osockaddr {
-    pub sa_family: libc::c_ushort,
-    pub sa_data: [libc::c_uchar; 14usize],
+    pub sa_family: u16,
+    pub sa_data: [u8; 14usize],
 }
 pub const SHUT_RD: root::_bindgen_ty_9 = 0;
 pub const SHUT_WR: root::_bindgen_ty_9 = 1;
@@ -1180,7 +1179,7 @@ pub type _bindgen_ty_9 = u32;
 #[derive(Debug, Copy, Clone)]
 pub struct mmsghdr {
     pub msg_hdr: root::msghdr,
-    pub msg_len: libc::c_uint,
+    pub msg_len: u32,
 }
 pub type __int128_t = i128;
 pub type __uint128_t = u128;

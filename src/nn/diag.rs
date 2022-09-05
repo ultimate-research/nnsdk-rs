@@ -9,7 +9,7 @@ pub struct LogMetaData {
 }
 #[repr(C)]
 pub struct ModuleInfo {
-    pub mPath: *mut libc::c_char,
+    pub mPath: *mut u8,
     pub mBaseAddr: u64,
     pub mSize: u64,
 }
@@ -30,7 +30,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn4diag13GetSymbolNameEPcmm"]
-    pub fn GetSymbolName(name: *mut libc::c_char, nameSize: u64, addr: u64)
+    pub fn GetSymbolName(name: *mut u8, nameSize: u64, addr: u64)
         -> *mut u32;
 }
 extern "C" {

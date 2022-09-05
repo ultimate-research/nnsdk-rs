@@ -16,5 +16,5 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os6detail26g_CommandLineParameterArgvE"]
-    pub static mut g_CommandLineParameterArgv: *mut *mut libc::c_char;
+    pub static mut g_CommandLineParameterArgv: *mut *mut u8;
 }

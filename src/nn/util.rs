@@ -38,21 +38,21 @@ pub type CharacterEncodingResult = u32;
 extern "C" {
     #[link_name = "\u{1}_ZN2nn4util30PickOutCharacterFromUtf8StringEPcPPKc"]
     pub fn PickOutCharacterFromUtf8String(
-        arg1: *mut libc::c_char,
-        str: *mut *const libc::c_char,
+        arg1: *mut u8,
+        str: *mut *const u8,
     ) -> CharacterEncodingResult;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn4util27ConvertCharacterUtf8ToUtf32EPjPKc"]
     pub fn ConvertCharacterUtf8ToUtf32(
         dest: *mut u32,
-        src: *const libc::c_char,
+        src: *const u8,
     ) -> CharacterEncodingResult;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn4util30ConvertStringUtf16NativeToUtf8EPciPKti"]
     pub fn ConvertStringUtf16NativeToUtf8(
-        arg1: *mut libc::c_char,
+        arg1: *mut u8,
         arg2: root::s32,
         arg3: *const u16,
         arg4: root::s32,
@@ -63,7 +63,7 @@ extern "C" {
     pub fn ConvertStringUtf8ToUtf16Native(
         arg1: *mut u16,
         arg2: root::s32,
-        arg3: *const libc::c_char,
+        arg3: *const u8,
         arg4: root::s32,
     ) -> CharacterEncodingResult;
 }

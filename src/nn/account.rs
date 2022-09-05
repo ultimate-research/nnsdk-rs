@@ -1,9 +1,9 @@
 #[allow(unused_imports)]
 use self::super::root;
 
-//pub type Nickname = [libc::c_char; 33usize];
+//pub type Nickname = [u8; 33usize];
 #[repr(transparent)]
-pub struct Nickname(pub [libc::c_char; 33usize]);
+pub struct Nickname(pub [u8; 33usize]);
 
 impl Nickname {
     pub fn new() -> Self {
@@ -102,7 +102,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn7account37LoadNetworkServiceAccountIdTokenCacheEPmPcmRKNS0_10UserHandleE"]
     pub fn LoadNetworkServiceAccountIdTokenCache(
         arg1: *mut u64,
-        arg2: *mut libc::c_char,
+        arg2: *mut u8,
         arg3: u64,
         arg4: *const UserHandle,
     ) -> root::Result;

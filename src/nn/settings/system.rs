@@ -10,10 +10,10 @@ pub struct FirmwareVersion {
     pub revision_minor: u8,
     pub padding2: u8,
     pub padding3: u8,
-    pub platform: [libc::c_char; 32usize],
-    pub version_hash: [libc::c_char; 64usize],
-    pub display_version: [libc::c_char; 24usize],
-    pub display_title: [libc::c_char; 128usize],
+    pub platform: [u8; 32usize],
+    pub version_hash: [u8; 64usize],
+    pub display_version: [u8; 24usize],
+    pub display_title: [u8; 128usize],
 }
 
 extern "C" {

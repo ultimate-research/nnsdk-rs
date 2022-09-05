@@ -12,7 +12,7 @@ extern "C" {
         pool: *mut libc::c_void,
         poolSize: root::ulong,
         allocPoolSize: root::ulong,
-        concurLimit: libc::c_int,
+        concurLimit: i32,
     ) -> root::Result;
 }
 extern "C" {
@@ -53,7 +53,7 @@ extern "C" {
 extern "C" {
     #[link_name = "\u{1}_ZN2nn6socket8InetAtonEPKcPNS0_6InAddrE"]
     pub fn InetAton(
-        str: *const libc::c_char,
+        str: *const u8,
         arg1: *mut root::nn::socket::InAddr,
     ) -> u32;
 }
