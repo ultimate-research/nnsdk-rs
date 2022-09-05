@@ -54,7 +54,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2oe23EnableGamePlayRecordingEPvm"]
-    pub fn EnableGamePlayRecording(arg1: *mut libc::c_void, arg2: u64);
+    pub fn EnableGamePlayRecording(arg1: *mut u8, arg2: u64);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2oe37IsUserInactivityDetectionTimeExtendedEv"]
@@ -88,7 +88,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "_ZN2nn2oe14RestartProgramEPKvm"]
-    pub fn RestartProgram(argv: *const libc::c_void, argc: u32) -> !;
+    pub fn RestartProgram(argv: *const u8, argc: u32) -> !;
 }
 pub fn RestartProgramNoArgs() -> ! {
     unsafe { RestartProgram("".as_ptr() as _, 0) }

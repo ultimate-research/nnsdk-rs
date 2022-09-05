@@ -19,7 +19,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn6crypto6detail7Md5Impl6UpdateEPKvm"]
     pub fn Md5Impl_Update(
         this: *mut Md5Impl,
-        arg1: *const libc::c_void,
+        arg1: *const u8,
         dataSize: u64,
     );
 }
@@ -31,7 +31,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn6crypto6detail7Md5Impl7GetHashEPvm"]
     pub fn Md5Impl_GetHash(
         this: *mut Md5Impl,
-        arg1: *mut libc::c_void,
+        arg1: *mut u8,
         hashSize: u64,
     );
 }
@@ -45,7 +45,7 @@ impl Md5Impl {
         Md5Impl_Initialize(self)
     }
     #[inline]
-    pub unsafe fn Update(&mut self, arg1: *const libc::c_void, dataSize: u64) {
+    pub unsafe fn Update(&mut self, arg1: *const u8, dataSize: u64) {
         Md5Impl_Update(self, arg1, dataSize)
     }
     #[inline]
@@ -53,7 +53,7 @@ impl Md5Impl {
         Md5Impl_ProcessBlock(self)
     }
     #[inline]
-    pub unsafe fn GetHash(&mut self, arg1: *mut libc::c_void, hashSize: u64) {
+    pub unsafe fn GetHash(&mut self, arg1: *mut u8, hashSize: u64) {
         Md5Impl_GetHash(self, arg1, hashSize)
     }
     #[inline]
@@ -88,7 +88,7 @@ extern "C" {
     #[allow(improper_ctypes)]
     pub fn Sha1Impl_Update(
         this: *mut Sha1Impl,
-        arg1: *const libc::c_void,
+        arg1: *const u8,
         arg2: u64,
     );
 }
@@ -97,7 +97,7 @@ extern "C" {
     #[allow(improper_ctypes)]
     pub fn Sha1Impl_ProcessBlock(
         this: *mut Sha1Impl,
-        arg1: *const libc::c_void,
+        arg1: *const u8,
     );
 }
 extern "C" {
@@ -105,7 +105,7 @@ extern "C" {
     #[allow(improper_ctypes)]
     pub fn Sha1Impl_GetHash(
         this: *mut Sha1Impl,
-        destHash: *mut libc::c_void,
+        destHash: *mut u8,
         arg1: u64,
     );
 }
@@ -120,15 +120,15 @@ impl Sha1Impl {
         Sha1Impl_Initialize(self)
     }
     #[inline]
-    pub unsafe fn Update(&mut self, arg1: *const libc::c_void, arg2: u64) {
+    pub unsafe fn Update(&mut self, arg1: *const u8, arg2: u64) {
         Sha1Impl_Update(self, arg1, arg2)
     }
     #[inline]
-    pub unsafe fn ProcessBlock(&mut self, arg1: *const libc::c_void) {
+    pub unsafe fn ProcessBlock(&mut self, arg1: *const u8) {
         Sha1Impl_ProcessBlock(self, arg1)
     }
     #[inline]
-    pub unsafe fn GetHash(&mut self, destHash: *mut libc::c_void, arg1: u64) {
+    pub unsafe fn GetHash(&mut self, destHash: *mut u8, arg1: u64) {
         Sha1Impl_GetHash(self, destHash, arg1)
     }
     #[inline]
@@ -165,7 +165,7 @@ extern "C" {
     #[allow(improper_ctypes)]
     pub fn Sha256Impl_Update(
         this: *mut Sha256Impl,
-        arg1: *const libc::c_void,
+        arg1: *const u8,
         arg2: u64,
     );
 }
@@ -183,7 +183,7 @@ extern "C" {
     #[allow(improper_ctypes)]
     pub fn Sha256Impl_GetHash(
         this: *mut Sha256Impl,
-        destHash: *mut libc::c_void,
+        destHash: *mut u8,
         arg1: u64,
     );
 }
@@ -216,7 +216,7 @@ impl Sha256Impl {
         Sha256Impl_Initialize(self)
     }
     #[inline]
-    pub unsafe fn Update(&mut self, arg1: *const libc::c_void, arg2: u64) {
+    pub unsafe fn Update(&mut self, arg1: *const u8, arg2: u64) {
         Sha256Impl_Update(self, arg1, arg2)
     }
     #[inline]
@@ -224,7 +224,7 @@ impl Sha256Impl {
         Sha256Impl_ProcessBlocks(self, arg1, arg2)
     }
     #[inline]
-    pub unsafe fn GetHash(&mut self, destHash: *mut libc::c_void, arg1: u64) {
+    pub unsafe fn GetHash(&mut self, destHash: *mut u8, arg1: u64) {
         Sha256Impl_GetHash(self, destHash, arg1)
     }
     #[inline]

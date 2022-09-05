@@ -24,7 +24,7 @@ pub struct JpegDecoder__bindgen_vtable(libc::c_void);
 pub struct JpegDecoder {
     pub vtable_: *const JpegDecoder__bindgen_vtable,
     pub mProcessStage: ProcessStage,
-    pub mData: *mut libc::c_void,
+    pub mData: *mut u8,
     pub mSize: root::s64,
     pub _18: root::s32,
     pub mFormat: PixelFormat,
@@ -36,7 +36,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn5image11JpegDecoder12SetImageDataEPKvm"]
     pub fn JpegDecoder_SetImageData(
         this: *mut JpegDecoder,
-        source: *const libc::c_void,
+        source: *const u8,
         size: u64,
     );
 }
@@ -62,10 +62,10 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn5image11JpegDecoder6DecodeEPvliS2_l"]
     pub fn JpegDecoder_Decode(
         this: *mut JpegDecoder,
-        out: *mut libc::c_void,
+        out: *mut u8,
         arg1: root::s64,
         alignment: root::s32,
-        arg2: *mut libc::c_void,
+        arg2: *mut u8,
         arg3: root::s64,
     ) -> JpegStatus;
 }
@@ -75,7 +75,7 @@ extern "C" {
 }
 impl JpegDecoder {
     #[inline]
-    pub unsafe fn SetImageData(&mut self, source: *const libc::c_void, size: u64) {
+    pub unsafe fn SetImageData(&mut self, source: *const u8, size: u64) {
         JpegDecoder_SetImageData(self, source, size)
     }
     #[inline]
@@ -93,10 +93,10 @@ impl JpegDecoder {
     #[inline]
     pub unsafe fn Decode(
         &mut self,
-        out: *mut libc::c_void,
+        out: *mut u8,
         arg1: root::s64,
         alignment: root::s32,
-        arg2: *mut libc::c_void,
+        arg2: *mut u8,
         arg3: root::s64,
     ) -> JpegStatus {
         JpegDecoder_Decode(self, out, arg1, alignment, arg2, arg3)

@@ -50,7 +50,7 @@ extern "C" {
         arg1: *mut root::nn::audio::AudioRendererConfig,
         arg2: *mut root::nn::audio::DelayType,
         arg3: *mut root::nn::audio::FinalMixType,
-    ) -> *mut libc::c_void;
+    ) -> *mut u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn5audio11RemoveDelayEPNS0_19AudioRendererConfigEPNS0_9DelayTypeEPNS0_10SubMixTypeE"]
@@ -58,7 +58,7 @@ extern "C" {
         arg1: *mut root::nn::audio::AudioRendererConfig,
         arg2: *mut root::nn::audio::DelayType,
         arg3: *mut root::nn::audio::SubMixType,
-    ) -> *mut libc::c_void;
+    ) -> *mut u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn5audio17IsDelayRemoveableEPNS0_9DelayTypeE"]

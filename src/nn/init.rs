@@ -4,7 +4,7 @@ pub mod detail;
 
 extern "C" {
     #[link_name = "\u{1}_ZN2nn4init19InitializeAllocatorEPvm"]
-    pub fn InitializeAllocator(addr: *mut libc::c_void, size: u64);
+    pub fn InitializeAllocator(addr: *mut u8, size: u64);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn4init12GetAllocatorEv"]

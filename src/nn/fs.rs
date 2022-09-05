@@ -13,13 +13,13 @@ pub struct DirectoryEntry {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FileHandle {
-    pub handle: *mut libc::c_void,
+    pub handle: *mut u8,
 }
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DirectoryHandle {
-    pub handle: *mut libc::c_void,
+    pub handle: *mut u8,
 }
 
 pub const DirectoryEntryType_DirectoryEntryType_Directory:
@@ -70,7 +70,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs8MountRomEPKcPvm"]
     pub fn MountRom(
         name: *const u8,
-        buffer: *mut libc::c_void,
+        buffer: *mut u8,
         bufferSize: root::ulong,
     ) -> root::Result;
 }
@@ -94,7 +94,7 @@ extern "C" {
     pub fn MountRomOnFile(
         arg1: *const u8,
         arg2: root::nn::fs::FileHandle,
-        arg3: *mut libc::c_void,
+        arg3: *mut u8,
         arg4: u64,
     ) -> root::Result;
 }
@@ -175,7 +175,7 @@ extern "C" {
         outSize: *mut u64,
         handle: root::nn::fs::FileHandle,
         offset: root::s64,
-        buffer: *mut libc::c_void,
+        buffer: *mut u8,
         bufferSize: u64,
         arg1: *const root::s32,
     ) -> root::Result;
@@ -186,7 +186,7 @@ extern "C" {
         outSize: *mut u64,
         handle: root::nn::fs::FileHandle,
         offset: root::s64,
-        buffer: *mut libc::c_void,
+        buffer: *mut u8,
         bufferSize: u64,
     ) -> root::Result;
 }
@@ -195,7 +195,7 @@ extern "C" {
     pub fn ReadFile2(
         handle: root::nn::fs::FileHandle,
         offset: root::s64,
-        buffer: *mut libc::c_void,
+        buffer: *mut u8,
         bufferSize: u64,
     ) -> root::Result;
 }
@@ -204,7 +204,7 @@ extern "C" {
     pub fn WriteFile(
         handle: root::nn::fs::FileHandle,
         fileOffset: root::s64,
-        buff: *const libc::c_void,
+        buff: *const u8,
         size: u64,
         option: *const root::nn::fs::WriteOption,
     ) -> root::Result;

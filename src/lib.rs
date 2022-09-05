@@ -165,7 +165,7 @@ pub mod root {
     extern "C" {
         pub fn send(
             __fd: i32,
-            __buf: *const libc::c_void,
+            __buf: *const u8,
             __n: root::size_t,
             __flags: i32,
         ) -> root::ssize_t;
@@ -173,7 +173,7 @@ pub mod root {
     extern "C" {
         pub fn recv(
             __fd: i32,
-            __buf: *mut libc::c_void,
+            __buf: *mut u8,
             __n: root::size_t,
             __flags: i32,
         ) -> root::ssize_t;
@@ -181,7 +181,7 @@ pub mod root {
     extern "C" {
         pub fn sendto(
             __fd: i32,
-            __buf: *const libc::c_void,
+            __buf: *const u8,
             __n: root::size_t,
             __flags: i32,
             __addr: *const root::sockaddr,
@@ -191,7 +191,7 @@ pub mod root {
     extern "C" {
         pub fn recvfrom(
             __fd: i32,
-            __buf: *mut libc::c_void,
+            __buf: *mut u8,
             __n: root::size_t,
             __flags: i32,
             __addr: *mut root::sockaddr,
@@ -234,7 +234,7 @@ pub mod root {
             __fd: i32,
             __level: i32,
             __optname: i32,
-            __optval: *mut libc::c_void,
+            __optval: *mut u8,
             __optlen: *mut root::socklen_t,
         ) -> i32;
     }
@@ -243,7 +243,7 @@ pub mod root {
             __fd: i32,
             __level: i32,
             __optname: i32,
-            __optval: *const libc::c_void,
+            __optval: *const u8,
             __optlen: root::socklen_t,
         ) -> i32;
     }

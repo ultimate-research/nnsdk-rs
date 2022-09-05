@@ -12,7 +12,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn3mem17StandardAllocator10InitializeEPvm"]
     pub fn StandardAllocator_Initialize(
         this: *mut StandardAllocator,
-        address: *mut libc::c_void,
+        address: *mut u8,
         size: u64,
     );
 }
@@ -24,22 +24,22 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn3mem17StandardAllocator10ReallocateEPvm"]
     pub fn StandardAllocator_Reallocate(
         this: *mut StandardAllocator,
-        address: *mut libc::c_void,
+        address: *mut u8,
         newSize: u64,
-    ) -> *mut libc::c_void;
+    ) -> *mut u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn3mem17StandardAllocator8AllocateEm"]
     pub fn StandardAllocator_Allocate(
         this: *mut StandardAllocator,
         size: u64,
-    ) -> *mut libc::c_void;
+    ) -> *mut u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn3mem17StandardAllocator4FreeEPv"]
     pub fn StandardAllocator_Free(
         this: *mut StandardAllocator,
-        address: *mut libc::c_void,
+        address: *mut u8,
     );
 }
 extern "C" {
@@ -54,7 +54,7 @@ extern "C" {
 }
 impl StandardAllocator {
     #[inline]
-    pub unsafe fn Initialize(&mut self, address: *mut libc::c_void, size: u64) {
+    pub unsafe fn Initialize(&mut self, address: *mut u8, size: u64) {
         StandardAllocator_Initialize(self, address, size)
     }
     #[inline]
@@ -64,17 +64,17 @@ impl StandardAllocator {
     #[inline]
     pub unsafe fn Reallocate(
         &mut self,
-        address: *mut libc::c_void,
+        address: *mut u8,
         newSize: u64,
-    ) -> *mut libc::c_void {
+    ) -> *mut u8 {
         StandardAllocator_Reallocate(self, address, newSize)
     }
     #[inline]
-    pub unsafe fn Allocate(&mut self, size: u64) -> *mut libc::c_void {
+    pub unsafe fn Allocate(&mut self, size: u64) -> *mut u8 {
         StandardAllocator_Allocate(self, size)
     }
     #[inline]
-    pub unsafe fn Free(&mut self, address: *mut libc::c_void) {
+    pub unsafe fn Free(&mut self, address: *mut u8) {
         StandardAllocator_Free(self, address)
     }
     #[inline]

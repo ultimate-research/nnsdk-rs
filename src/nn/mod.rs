@@ -34,6 +34,6 @@ pub struct TimeSpan {
 
 extern "C" {
     #[link_name = "\u{1}_ZN2nn11ReferSymbolEPKv"]
-    pub fn ReferSymbol(arg1: *const libc::c_void);
+    pub fn ReferSymbol(arg1: *const u8);
 }
 

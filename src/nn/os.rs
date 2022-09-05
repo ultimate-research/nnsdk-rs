@@ -30,10 +30,10 @@ pub struct ThreadType {
     pub _45: bool,
     pub _46: u8,
     pub PriorityBase: u32,
-    pub StackBase: *mut libc::c_void,
-    pub Stack: *mut libc::c_void,
+    pub StackBase: *mut u8,
+    pub Stack: *mut u8,
     pub StackSize: root::size_t,
-    pub Arg: *mut libc::c_void,
+    pub Arg: *mut u8,
     pub ThreadFunc: u64,
     pub _88: [u8; 256usize],
     pub Name: [u8; 32usize],
@@ -48,7 +48,7 @@ pub struct MessageQueueType {
     pub _x8: u64,
     pub _x10: u64,
     pub _x18: u64,
-    pub Buffer: *mut libc::c_void,
+    pub Buffer: *mut u8,
     pub MaxCount: u32,
     pub Count: u32,
     pub Offset: u32,
@@ -302,9 +302,9 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mii"]
     pub fn CreateThread(
         arg1: *mut root::nn::os::ThreadType,
-        arg2: ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>,
-        arg: *mut libc::c_void,
-        srcStack: *mut libc::c_void,
+        arg2: ::core::option::Option<unsafe extern "C" fn(arg1: *mut u8)>,
+        arg: *mut u8,
+        srcStack: *mut u8,
         stackSize: u64,
         priority: root::s32,
         coreNum: root::s32,
@@ -314,9 +314,9 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mi"]
     pub fn CreateThread1(
         arg1: *mut root::nn::os::ThreadType,
-        arg2: unsafe extern "C" fn(arg1: *mut libc::c_void),
-        arg: *mut libc::c_void,
-        srcStack: *mut libc::c_void,
+        arg2: unsafe extern "C" fn(arg1: *mut u8),
+        arg: *mut u8,
+        srcStack: *mut u8,
         stackSize: u64,
         priority: root::s32,
     ) -> root::Result;
@@ -478,14 +478,14 @@ extern "C" {
         arg1: ::core::option::Option<
             unsafe extern "C" fn(arg1: *mut root::nn::os::UserExceptionInfo),
         >,
-        arg2: *mut libc::c_void,
+        arg2: *mut u8,
         arg3: root::ulong,
         arg4: *mut root::nn::os::UserExceptionInfo,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os19GenerateRandomBytesEPvm"]
-    pub fn GenerateRandomBytes(arg1: *mut libc::c_void, arg2: u64);
+    pub fn GenerateRandomBytes(arg1: *mut u8, arg2: u64);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os13GetSystemTickEv"]
