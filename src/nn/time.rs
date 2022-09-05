@@ -31,7 +31,7 @@ pub type DayOfTheWeek = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TimeZone {
-    pub standardTimeName: [libc::c_char; 8usize],
+    pub standardTimeName: [u8; 8usize],
     pub _9: bool,
     pub utcOffset: root::s32,
 }

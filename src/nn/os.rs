@@ -36,7 +36,7 @@ pub struct ThreadType {
     pub Arg: *mut libc::c_void,
     pub ThreadFunc: u64,
     pub _88: [u8; 256usize],
-    pub Name: [libc::c_char; 32usize],
+    pub Name: [u8; 32usize],
     pub Crit: root::nn::os::detail::InternalCriticalSection,
     pub Condvar: root::nn::os::detail::InternalConditionVariable,
     pub Handle: u32,
@@ -97,11 +97,11 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os11SetHostArgvEPPc"]
-    pub fn SetHostArgv(arg1: *mut *mut libc::c_char);
+    pub fn SetHostArgv(arg1: *mut *mut u8);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os11GetHostArgvEv"]
-    pub fn GetHostArgv() -> *mut *mut libc::c_char;
+    pub fn GetHostArgv() -> *mut *mut u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os30InitializeVirtualAddressMemoryEv"]
@@ -333,21 +333,21 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os13SetThreadNameEPNS0_10ThreadTypeEPKc"]
     pub fn SetThreadName(
         arg1: *mut root::nn::os::ThreadType,
-        threadName: *const libc::c_char,
+        threadName: *const u8,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os20SetThreadNamePointerEPNS0_10ThreadTypeEPKc"]
     pub fn SetThreadNamePointer(
         arg1: *mut root::nn::os::ThreadType,
-        arg2: *const libc::c_char,
+        arg2: *const u8,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os20GetThreadNamePointerEPKNS0_10ThreadTypeE"]
     pub fn GetThreadNamePointer(
         arg1: *const root::nn::os::ThreadType,
-    ) -> *mut libc::c_char;
+    ) -> *mut u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os16GetCurrentThreadEv"]

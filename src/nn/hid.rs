@@ -54,14 +54,14 @@ pub struct ControllerSupportArg {
     pub mUseColors: bool,
     pub mColors: [root::nn::util::Color4u8; 4usize],
     pub mUsingControllerNames: u8,
-    pub mControllerNames: [[libc::c_char; 129usize]; 4usize],
+    pub mControllerNames: [[u8; 129usize]; 4usize],
 }
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ControllerSupportResultInfo {
-    pub mPlayerCount: libc::c_int,
-    pub mSelectedId: libc::c_int,
+    pub mPlayerCount: i32,
+    pub mSelectedId: i32,
 }
 
 extern "C" {

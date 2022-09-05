@@ -26,7 +26,7 @@ extern "C" {
     pub fn Context_ImportServerPki(
         this: *mut Context,
         arg1: *mut u64,
-        certData: *const libc::c_char,
+        certData: *const u8,
         certSize: u32,
         certFormat: CertificateFormat,
     ) -> root::Result;
@@ -43,7 +43,7 @@ impl Context {
     pub unsafe fn ImportServerPki(
         &mut self,
         arg1: *mut u64,
-        certData: *const libc::c_char,
+        certData: *const u8,
         certSize: u32,
         certFormat: CertificateFormat,
     ) -> root::Result {

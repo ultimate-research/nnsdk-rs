@@ -22,7 +22,7 @@ pub type Language = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct LanguageCode {
-    pub code: [libc::c_char; 8usize],
+    pub code: [u8; 8usize],
 }
 
 extern "C" {

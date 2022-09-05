@@ -1,6 +1,6 @@
 #[allow(unused_imports)]
 use self::super::root;
-pub type Url = [libc::c_char; 160usize];
+pub type Url = [u8; 160usize];
 extern "C" {
     #[link_name = "\u{1}_ZN2nn7friends10InitializeEv"]
     pub fn Initialize();

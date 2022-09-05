@@ -39,7 +39,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn3web22ShowOfflineHtmlPageArgC2EPKc"]
     pub fn ShowOfflineHtmlPageArg(
         this: *mut ShowOfflineHtmlPageArg,
-        page_path: *const libc::c_char,
+        page_path: *const u8,
     );
 }
 extern "C" {
@@ -196,7 +196,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZNK2nn3web26OfflineHtmlPageReturnValue10GetLastUrlEv"]
-    pub fn GetLastUrl(this: *const OfflineHtmlPageReturnValue) -> *const libc::c_char;
+    pub fn GetLastUrl(this: *const OfflineHtmlPageReturnValue) -> *const u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZNK2nn3web26OfflineHtmlPageReturnValue14GetLastUrlSizeEv"]

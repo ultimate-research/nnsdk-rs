@@ -3,10 +3,10 @@ use self::super::root;
 pub type UserId = u64;
 #[repr(C)]
 pub struct DirectoryEntry {
-    pub name: [libc::c_char; 769usize],
-    pub _x302: [libc::c_char; 3usize],
+    pub name: [u8; 769usize],
+    pub _x302: [u8; 3usize],
     pub type_: u8,
-    pub _x304: libc::c_char,
+    pub _x304: u8,
     pub fileSize: root::s64,
 }
 
@@ -42,7 +42,7 @@ pub type WriteOptionFlag = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct WriteOption {
-    pub flags: libc::c_int,
+    pub flags: i32,
 }
 
 #[repr(C)]
@@ -69,7 +69,7 @@ extern "C" {
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs8MountRomEPKcPvm"]
     pub fn MountRom(
-        name: *const libc::c_char,
+        name: *const u8,
         buffer: *mut libc::c_void,
         bufferSize: root::ulong,
     ) -> root::Result;
@@ -92,7 +92,7 @@ extern "C" {
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs14MountRomOnFileEPKcNS0_10FileHandleEPvm"]
     pub fn MountRomOnFile(
-        arg1: *const libc::c_char,
+        arg1: *const u8,
         arg2: root::nn::fs::FileHandle,
         arg3: *mut libc::c_void,
         arg4: u64,
@@ -105,7 +105,7 @@ extern "C" {
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs13MountSaveDataEPKcRKNS_7account3UidE"]
     pub fn MountSaveData(
-        arg1: *const libc::c_char,
+        arg1: *const u8,
         arg2: root::nn::fs::UserId,
     ) -> root::Result;
 }
@@ -113,18 +113,18 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs12GetEntryTypeEPNS0_18DirectoryEntryTypeEPKc"]
     pub fn GetEntryType(
         type_: *mut root::nn::fs::DirectoryEntryType,
-        path: *const libc::c_char,
+        path: *const u8,
     ) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs10CreateFileEPKcl"]
-    pub fn CreateFile(filepath: *const libc::c_char, size: root::s64) -> root::Result;
+    pub fn CreateFile(filepath: *const u8, size: root::s64) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs8OpenFileEPNS0_10FileHandleEPKci"]
     pub fn OpenFile(
         arg1: *mut root::nn::fs::FileHandle,
-        path: *const libc::c_char,
+        path: *const u8,
         arg2: root::s32,
     ) -> root::Result;
 }
@@ -145,28 +145,28 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs10DeleteFileEPKc"]
-    pub fn DeleteFile(filepath: *const libc::c_char) -> root::Result;
+    pub fn DeleteFile(filepath: *const u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs15DeleteDirectoryEPKc"]
-    pub fn DeleteDirectory(path: *const libc::c_char) -> root::Result;
+    pub fn DeleteDirectory(path: *const u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs26DeleteDirectoryRecursivelyEPKc"]
-    pub fn DeleteDirectoryRecursively(path: *const libc::c_char) -> root::Result;
+    pub fn DeleteDirectoryRecursively(path: *const u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs10RenameFileEPKcS2_"]
     pub fn RenameFile(
-        old: *const libc::c_char,
-        new: *const libc::c_char,
+        old: *const u8,
+        new: *const u8,
     ) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs15RenameDirectoryEPKcS2_"]
     pub fn RenameDirectory(
-        old: *const libc::c_char,
-        new: *const libc::c_char,
+        old: *const u8,
+        new: *const u8,
     ) -> root::Result;
 }
 extern "C" {
@@ -220,7 +220,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs13OpenDirectoryEPNS0_15DirectoryHandleEPKci"]
     pub fn OpenDirectory(
         handle: *mut root::nn::fs::DirectoryHandle,
-        path: *const libc::c_char,
+        path: *const u8,
         openMode: root::s32,
     ) -> root::Result;
 }
@@ -239,7 +239,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs15CreateDirectoryEPKc"]
-    pub fn CreateDirectory(directorypath: *const libc::c_char) -> root::Result;
+    pub fn CreateDirectory(directorypath: *const u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs22GetDirectoryEntryCountEPlNS0_15DirectoryHandleE"]
@@ -250,11 +250,11 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs11MountSdCardEPKc"]
-    pub fn MountSdCard(arg1: *const libc::c_char) -> root::Result;
+    pub fn MountSdCard(arg1: *const u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs19MountSdCardForDebugEPKc"]
-    pub fn MountSdCardForDebug(arg1: *const libc::c_char) -> root::Result;
+    pub fn MountSdCardForDebug(arg1: *const u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "_ZN2nn2fs7UnmountEPKc"]
@@ -281,12 +281,12 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs24GetFileTimeStampForDebugEPNS0_13FileTimeStampEPKc"]
     pub fn GetFileTimeStampForDebug(
         out_timestamp: *mut FileTimeStamp,
-        filepath: *const libc::c_char,
+        filepath: *const u8,
     ) -> root::Result;
 }
 extern "C" {
     #[link_name = "_ZN2nn2fs17MountCacheStorageEPKc"]
-    pub fn MountCacheStorage(mount_point: *const libc::c_char) -> root::Result;
+    pub fn MountCacheStorage(mount_point: *const u8) -> root::Result;
 }
 pub fn mount_cache_storage<S: AsRef<str>>(mount_point: S) -> root::Result {
     unsafe {
