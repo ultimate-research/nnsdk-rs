@@ -3,7 +3,7 @@ use self::super::root;
 #[repr(C)]
 pub struct PlayReport {
     pub m_EventName: [u8; 32usize],
-    pub m_Buff: *mut libc::c_void,
+    pub m_Buff: *mut u8,
     pub m_BuffLength: root::size_t,
     pub m_End: u64,
 }

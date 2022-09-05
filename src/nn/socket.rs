@@ -9,7 +9,7 @@ pub struct InAddr {
 extern "C" {
     #[link_name = "\u{1}_ZN2nn6socket10InitializeEPvmmi"]
     pub fn Initialize(
-        pool: *mut libc::c_void,
+        pool: *mut u8,
         poolSize: root::ulong,
         allocPoolSize: root::ulong,
         concurLimit: i32,
@@ -17,7 +17,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn6socket10InitializeERKNS0_6ConfigE"]
-    pub fn Initialize_Config(config: *mut libc::c_void) -> root::Result;
+    pub fn Initialize_Config(config: *mut u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn6socket8FinalizeEv"]
@@ -29,7 +29,7 @@ extern "C" {
         socket: root::s32,
         socketLevel: root::s32,
         option: root::s32,
-        arg1: *const libc::c_void,
+        arg1: *const u8,
         len: u32,
     ) -> root::s32;
 }
@@ -37,7 +37,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn6socket4SendEiPKvmi"]
     pub fn Send(
         socket: root::s32,
-        buffer: *const libc::c_void,
+        buffer: *const u8,
         bufferLength: u64,
         flags: root::s32,
     ) -> u64;

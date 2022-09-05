@@ -41,7 +41,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn4diag16GetAllModuleInfoEPPNS0_10ModuleInfoEPvm"]
     pub fn GetAllModuleInfo(
         out: *mut *mut root::nn::diag::ModuleInfo,
-        buffer: *mut libc::c_void,
+        buffer: *mut u8,
         bufferSize: u64,
     ) -> root::s32;
 }

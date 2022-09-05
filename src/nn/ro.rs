@@ -4,10 +4,10 @@ use self::super::root;
 pub struct Module {
     pub ModuleObject: *mut root::rtld::ModuleObject,
     pub State: u32,
-    pub NroPtr: *mut libc::c_void,
-    pub BssPtr: *mut libc::c_void,
-    pub _x20: *mut libc::c_void,
-    pub SourceBuffer: *mut libc::c_void,
+    pub NroPtr: *mut u8,
+    pub BssPtr: *mut u8,
+    pub _x20: *mut u8,
+    pub SourceBuffer: *mut u8,
     pub Name: [u8; 256usize],
     pub _x130: u8,
     pub _x131: u8,
@@ -103,8 +103,8 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2ro10LoadModuleEPNS0_6ModuleEPKvPvmi"]
     pub fn LoadModule(
         pOutModule: *mut root::nn::ro::Module,
-        pImage: *const libc::c_void,
-        buffer: *mut libc::c_void,
+        pImage: *const u8,
+        buffer: *mut u8,
         bufferSize: root::size_t,
         flag: i32,
     ) -> root::Result;
@@ -117,21 +117,21 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2ro13GetBufferSizeEPmPKv"]
     pub fn GetBufferSize(
         arg1: *mut root::size_t,
-        arg2: *const libc::c_void,
+        arg2: *const u8,
     ) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2ro18RegisterModuleInfoEPNS0_16RegistrationInfoEPKv"]
     pub fn RegisterModuleInfo(
         arg1: *mut root::nn::ro::RegistrationInfo,
-        arg2: *const libc::c_void,
+        arg2: *const u8,
     ) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2ro18RegisterModuleInfoEPNS0_16RegistrationInfoEPKvj"]
     pub fn RegisterModuleInfo1(
         arg1: *mut root::nn::ro::RegistrationInfo,
-        arg2: *const libc::c_void,
+        arg2: *const u8,
         arg3: root::uint,
     ) -> root::Result;
 }

@@ -18,7 +18,7 @@ pub struct ModuleObject {
     pub dynstr: *mut u8,
     pub dynsym: *mut root::Elf64_Sym,
     pub dynstr_size: u64,
-    pub got: *mut *mut libc::c_void,
+    pub got: *mut *mut u8,
     pub rela_dyn_size: u64,
     pub rel_dyn_size: u64,
     pub rel_count: u64,
@@ -32,7 +32,7 @@ pub struct ModuleObject {
 pub union ModuleObject__bindgen_ty_1 {
     pub rel: *mut root::Elf64_Rel,
     pub rela: *mut root::Elf64_Rela,
-    pub raw: *mut libc::c_void,
+    pub raw: *mut u8,
     _bindgen_union_align: u64,
 }
 #[repr(C)]

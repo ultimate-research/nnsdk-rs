@@ -50,7 +50,7 @@ extern "C" {
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2vi15GetNativeWindowEPPvPNS0_5LayerE"]
     pub fn GetNativeWindow(
-        window: *mut *mut libc::c_void,
+        window: *mut *mut u8,
         arg1: *mut root::nn::vi::Layer,
     ) -> root::Result;
 }

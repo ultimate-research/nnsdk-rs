@@ -123,7 +123,7 @@ pub type __suseconds_t = i64;
 pub type __daddr_t = i32;
 pub type __key_t = i32;
 pub type __clockid_t = i32;
-pub type __timer_t = *mut libc::c_void;
+pub type __timer_t = *mut u8;
 pub type __blksize_t = i64;
 pub type __blkcnt_t = i64;
 pub type __blkcnt64_t = i64;
@@ -228,7 +228,7 @@ pub type ulong = u64;
 pub type uint = u32;
 pub type Result = u32;
 pub type Handle = u32;
-pub type ThreadFunc = ::core::option::Option<unsafe extern "C" fn(arg1: *mut libc::c_void)>;
+pub type ThreadFunc = ::core::option::Option<unsafe extern "C" fn(arg1: *mut u8)>;
 pub const Module_Kernel: root::_bindgen_ty_1 = 1;
 pub const Module_Libnx: root::_bindgen_ty_1 = 345;
 pub const Module_HomebrewAbi: root::_bindgen_ty_1 = 346;
@@ -827,7 +827,7 @@ pub type _bindgen_ty_6 = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct iovec {
-    pub iov_base: *mut libc::c_void,
+    pub iov_base: *mut u8,
     pub iov_len: root::size_t,
 }
 pub type u_char = root::__u_char;
@@ -1091,11 +1091,11 @@ pub type _bindgen_ty_7 = u32;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct msghdr {
-    pub msg_name: *mut libc::c_void,
+    pub msg_name: *mut u8,
     pub msg_namelen: root::socklen_t,
     pub msg_iov: *mut root::iovec,
     pub msg_iovlen: root::size_t,
-    pub msg_control: *mut libc::c_void,
+    pub msg_control: *mut u8,
     pub msg_controllen: root::size_t,
     pub msg_flags: i32,
 }
