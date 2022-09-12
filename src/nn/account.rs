@@ -82,6 +82,20 @@ pub fn try_open_preselected_user() -> Option<UserHandle> {
     }
 }
 
+pub fn get_user_id(user_handle: &UserHandle) -> Result<Uid, root::Result> {
+    let mut uid = Uid::new();
+
+    unsafe {
+        let result = GetUserId(&mut uid, user_handle);
+        
+        if result != 0 {
+            Err(result)
+        } else {
+            Ok(uid)
+        }
+    }
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn7account12ListAllUsersEPiPNS0_3UidEi"]
     pub fn ListAllUsers(
