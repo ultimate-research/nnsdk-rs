@@ -30,7 +30,7 @@ pub type NetworkServiceAccountId = u64;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct Uid {
-    pub id: [u64; 2usize],
+    id: [u64; 2usize],
 }
 
 impl Uid {
