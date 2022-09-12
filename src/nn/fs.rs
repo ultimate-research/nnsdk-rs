@@ -110,7 +110,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs13MountSaveDataEPKcRKNS_7account3UidE"]
     pub fn MountSaveData(
         mount_point: *const u8,
-        user_id: root::nn::fs::UserId,
+        user_id: *const root::nn::account::Uid,
     ) -> root::Result;
 }
 extern "C" {
