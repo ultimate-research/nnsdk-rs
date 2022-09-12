@@ -1,6 +1,6 @@
 #[allow(unused_imports)]
 use self::super::root;
-pub type UserId = u64;
+
 #[repr(C)]
 pub struct DirectoryEntry {
     pub name: [u8; 769usize],
