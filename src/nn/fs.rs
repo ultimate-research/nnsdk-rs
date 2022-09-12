@@ -104,7 +104,7 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs6CommitEPKc"]
-    pub fn SaveDataCommit(mount_point: *const u8) -> root::Result;
+    pub fn Commit(mount_point: *const u8) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs13MountSaveDataEPKcRKNS_7account3UidE"]
