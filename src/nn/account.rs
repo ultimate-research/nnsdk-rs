@@ -96,6 +96,10 @@ pub fn get_user_id(user_handle: &UserHandle) -> Result<Uid, root::Result> {
     }
 }
 
+pub fn close_user(user_handle: UserHandle) {
+    unsafe { CloseUser(&user_handle) }
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn7account12ListAllUsersEPiPNS0_3UidEi"]
     pub fn ListAllUsers(
