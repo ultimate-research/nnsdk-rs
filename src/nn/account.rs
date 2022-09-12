@@ -40,7 +40,7 @@ impl Uid {
 }
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Clone)]
 pub struct UserHandle {
     pub id: [u64; 3usize],
 }
@@ -48,6 +48,12 @@ pub struct UserHandle {
 impl UserHandle {
     pub fn new() -> Self {
         Self { id: [0u64; 3] }
+    }
+}
+
+impl Drop for UserHandle {
+    fn drop(&mut self) {
+        unsafe { CloseUser(self) }
     }
 }
 
