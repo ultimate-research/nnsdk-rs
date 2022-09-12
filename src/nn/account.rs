@@ -51,6 +51,12 @@ impl UserHandle {
     }
 }
 
+impl Drop for UserHandle {
+    fn drop(&mut self) {
+        unsafe { CloseUser(self) }
+    }
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn7account10InitializeEv"]
     pub fn Initialize();
