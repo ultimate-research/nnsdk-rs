@@ -103,10 +103,20 @@ extern "C" {
     pub fn EnsureSaveData(arg1: *const root::nn::account::Uid) -> root::Result;
 }
 extern "C" {
+    #[link_name = "\u{1}_ZN2nn2fs6CommitEPKc"]
+    pub fn SaveDataCommit(mount_point: *const u8) -> root::Result;
+}
+extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs13MountSaveDataEPKcRKNS_7account3UidE"]
     pub fn MountSaveData(
-        arg1: *const u8,
-        arg2: root::nn::fs::UserId,
+        mount_point: *const u8,
+        user_id: root::nn::fs::UserId,
+    ) -> root::Result;
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2fs21MountSaveDataForDebugEPKc"]
+    pub fn MountSaveDataForDebug(
+        mount_point: *const u8
     ) -> root::Result;
 }
 extern "C" {
