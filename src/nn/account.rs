@@ -74,6 +74,14 @@ pub mod detail {
     }
 }
 
+pub fn try_open_preselected_user() -> Option<UserHandle> {
+    let mut handle = UserHandle::new();
+
+    unsafe {
+        TryOpenPreselectedUser(&mut handle).then(|| handle)
+    }
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn7account12ListAllUsersEPiPNS0_3UidEi"]
     pub fn ListAllUsers(
