@@ -25,9 +25,12 @@ impl core::fmt::Display for Nickname {
     }
 }
 
+pub type NetworkServiceAccountId = u64;
+
 #[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct Uid {
-    pub id: [u64; 2usize],
+    id: [u64; 2usize],
 }
 
 impl Uid {
@@ -36,12 +39,18 @@ impl Uid {
     }
 }
 
-pub type NetworkServiceAccountId = u64;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct UserHandle {
-    _unused: [u8; 0],
+    id: [u64; 3usize],
 }
+
+impl UserHandle {
+    pub fn new() -> Self {
+        Self { id: [0u64; 3] }
+    }
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn7account10InitializeEv"]
     pub fn Initialize();
@@ -72,6 +81,19 @@ extern "C" {
     pub fn OpenUser(
         arg1: *mut UserHandle,
         arg2: *const Uid,
+    ) -> root::Result;
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn7account22TryOpenPreselectedUserEPNS0_10UserHandleE"]
+    pub fn OpenPreselectedUser(
+        userHandle: *mut UserHandle
+    ) -> bool;
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn7account9GetUserIdEPNS0_3UidERKNS0_10UserHandleE"]
+    pub fn GetUserId(
+        out_user_id: *mut Uid,
+        handle: *const UserHandle
     ) -> root::Result;
 }
 extern "C" {
