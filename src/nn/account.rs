@@ -84,8 +84,14 @@ extern "C" {
     ) -> root::Result;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN2nn7account22TryOpenPreselectedUserEPNS0_10UserHandleE"]
+    #[link_name = "\u{1}_ZN2nn7account19OpenPreselectedUserEPNS0_10UserHandleE"]
     pub fn OpenPreselectedUser(
+        userHandle: *mut UserHandle
+    ) -> root::Result;
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn7account22TryOpenPreselectedUserEPNS0_10UserHandleE"]
+    pub fn TryOpenPreselectedUser(
         userHandle: *mut UserHandle
     ) -> bool;
 }
