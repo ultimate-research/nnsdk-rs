@@ -52,7 +52,7 @@ pub struct FileTimeStamp {
     pub modify: root::nn::time::PosixTime,
     pub access: root::nn::time::PosixTime,
     pub local_time: bool,
-    padding: [u8; 7],
+    pub padding: [u8; 7],
 }
 
 extern "C" {
