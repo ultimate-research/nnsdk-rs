@@ -26,6 +26,7 @@ pub mod audio;
 pub mod svc;
 pub mod nifm;
 pub mod ldn;
+pub mod swkbd;
 
 #[repr(C)]
 pub struct TimeSpan {
