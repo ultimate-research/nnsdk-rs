@@ -22,26 +22,6 @@ pub type Event = root::nn::os::EventType;
 pub const EventClearMode_EventClearMode_ManualClear: root::nn::os::EventClearMode = 0;
 pub const EventClearMode_EventClearMode_AutoClear: root::nn::os::EventClearMode = 1;
 pub type EventClearMode = u32;
-#[repr(C)]
-pub struct ThreadType {
-    pub _0: [u8; 64usize],
-    pub State: u32,
-    pub _44: bool,
-    pub _45: bool,
-    pub _46: u8,
-    pub PriorityBase: u32,
-    pub StackBase: *mut u8,
-    pub Stack: *mut u8,
-    pub StackSize: root::size_t,
-    pub Arg: *mut u8,
-    pub ThreadFunc: u64,
-    pub _88: [u8; 256usize],
-    pub Name: [u8; 32usize],
-    pub Crit: root::nn::os::detail::InternalCriticalSection,
-    pub Condvar: root::nn::os::detail::InternalConditionVariable,
-    pub Handle: u32,
-    pub padding: [u8; 24usize],
-}
 
 pub struct MessageQueueType {
     pub _x0: u64,
@@ -298,71 +278,93 @@ extern "C" {
         arg3: root::nn::TimeSpan,
     ) -> u8;
 }
+
+// THREADS
+
+#[repr(C)]
+pub struct ThreadType {
+    inner: [u8; 0x1c0],
+}
+
+impl ThreadType {
+    pub fn new() -> Self {
+        Self {
+            inner: [0u8;0x1c0],
+        }
+    }
+}
+
+impl Default for ThreadType {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 extern "C" {
-    #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mii"]
+    #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mi"]
     pub fn CreateThread(
-        arg1: *mut root::nn::os::ThreadType,
-        arg2: ::core::option::Option<unsafe extern "C" fn(arg1: *mut u8)>,
-        arg: *mut u8,
-        srcStack: *mut u8,
-        stackSize: u64,
-        priority: root::s32,
-        coreNum: root::s32,
+        thread: *mut ThreadType,
+        function: unsafe extern "C" fn(arg: *mut u8),
+        argument: *mut u8,
+        stack: *mut u8,
+        stack_size: usize,
+        priority: i32,
     ) -> root::Result;
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mi"]
+    #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mii"]
     pub fn CreateThread1(
-        arg1: *mut root::nn::os::ThreadType,
-        arg2: unsafe extern "C" fn(arg1: *mut u8),
-        arg: *mut u8,
-        srcStack: *mut u8,
-        stackSize: u64,
-        priority: root::s32,
+        thread: *mut ThreadType,
+        function: unsafe extern "C" fn(arg: *mut u8),
+        argument: *mut u8,
+        stack: *mut u8,
+        stack_size: usize,
+        priority: i32,
+        ideal_core_id: i32,
     ) -> root::Result;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os13DestroyThreadEPNS0_10ThreadTypeE"]
-    pub fn DestroyThread(arg1: *mut root::nn::os::ThreadType);
+    pub fn DestroyThread(thread: *mut ThreadType);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os11StartThreadEPNS0_10ThreadTypeE"]
-    pub fn StartThread(arg1: *mut root::nn::os::ThreadType);
+    pub fn StartThread(thread: *mut ThreadType);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os13SetThreadNameEPNS0_10ThreadTypeEPKc"]
     pub fn SetThreadName(
-        arg1: *mut root::nn::os::ThreadType,
-        threadName: *const u8,
+        thread: *mut ThreadType,
+        thread_name: *const u8,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os20SetThreadNamePointerEPNS0_10ThreadTypeEPKc"]
     pub fn SetThreadNamePointer(
-        arg1: *mut root::nn::os::ThreadType,
-        arg2: *const u8,
+        thread: *mut ThreadType,
+        thread_name: *const u8,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os20GetThreadNamePointerEPKNS0_10ThreadTypeE"]
     pub fn GetThreadNamePointer(
-        arg1: *const root::nn::os::ThreadType,
+        thread: *const ThreadType,
     ) -> *mut u8;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os16GetCurrentThreadEv"]
-    pub fn GetCurrentThread() -> *mut root::nn::os::ThreadType;
+    pub fn GetCurrentThread() -> *mut ThreadType;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os20ChangeThreadPriorityEPNS0_10ThreadTypeEi"]
     pub fn ChangeThreadPriority(
-        thread: *mut root::nn::os::ThreadType,
-        priority: root::s32,
-    ) -> root::s32;
+        thread: *mut ThreadType,
+        priority: i32,
+    ) -> i32;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os17GetThreadPriorityEPKNS0_10ThreadTypeE"]
-    pub fn GetThreadPriority(thread: *const root::nn::os::ThreadType) -> root::s32;
+    pub fn GetThreadPriority(thread: *const ThreadType) -> i32;
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os11YieldThreadEv"]
@@ -370,20 +372,23 @@ extern "C" {
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os13SuspendThreadEPNS0_10ThreadTypeE"]
-    pub fn SuspendThread(arg1: *mut root::nn::os::ThreadType);
+    pub fn SuspendThread(thread: *mut ThreadType);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os12ResumeThreadEPNS0_10ThreadTypeE"]
-    pub fn ResumeThread(arg1: *mut root::nn::os::ThreadType);
+    pub fn ResumeThread(thread: *mut ThreadType);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os11SleepThreadENS_8TimeSpanE"]
-    pub fn SleepThread(arg1: root::nn::TimeSpan);
+    pub fn SleepThread(time: root::nn::TimeSpan);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os10WaitThreadEPNS0_10ThreadTypeE"]
-    pub fn WaitThread(arg1: *mut root::nn::os::ThreadType);
+    pub fn WaitThread(thread: *mut ThreadType);
 }
+
+// Events
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2os15InitializeEventEPNS0_9EventTypeEbNS0_14EventClearModeE"]
     pub fn InitializeEvent(
