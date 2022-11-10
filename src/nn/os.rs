@@ -304,7 +304,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mi"]
     pub fn CreateThread(
         thread: *mut ThreadType,
-        function: unsafe extern "C" fn(arg: *mut u8),
+        function: extern "C" fn(arg: *mut libc::c_void),
         argument: *mut u8,
         stack: *mut u8,
         stack_size: usize,
@@ -315,7 +315,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os12CreateThreadEPNS0_10ThreadTypeEPFvPvES3_S3_mii"]
     pub fn CreateThread1(
         thread: *mut ThreadType,
-        function: unsafe extern "C" fn(arg: *mut u8),
+        function: extern "C" fn(arg: *mut libc::c_void),
         argument: *mut u8,
         stack: *mut u8,
         stack_size: usize,
