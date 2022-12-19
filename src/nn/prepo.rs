@@ -13,11 +13,14 @@ pub struct Any64BitId {
     pub id: i64
 }
 
+const EventIdLengthMax: usize = 31;
+const KeyLengthMax: usize = 63;
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport10SetEventIdEPKc"]
     pub fn PlayReport_SetEventId(
         this: *mut PlayReport,
-        arg1: *const u8,
+        event_id: *const u8,
     ) -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport9SetBufferEv"]
@@ -25,28 +28,28 @@ extern "C" {
         -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcl"]
-    pub fn PlayReport_Add(
+    pub fn PlayReport_AddLong(
         this: *mut PlayReport,
         key: *const u8,
         value: i64,
     ) -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcd"]
-    pub fn PlayReport_Add1(
+    pub fn PlayReport_AddDouble(
         this: *mut PlayReport,
         key: *const u8,
         value: f64,
     ) -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcS3_"]
-    pub fn PlayReport_Add2(
+    pub fn PlayReport_AddString(
         this: *mut PlayReport,
         key: *const u8,
         value: *const u8,
     ) -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcRKNS0_10Any64BitIdE"]
-    pub fn PlayReport_Add3(
+    pub fn PlayReport_AddAny64BitID(
             this: *mut PlayReport,
             key: *const u8,
             value: Any64BitId,
@@ -56,7 +59,7 @@ extern "C" {
     pub fn PlayReport_Save(this: *mut PlayReport) -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport4SaveERKNS_7account3UidE"]
-    pub fn PlayReport_Save1(
+    pub fn PlayReport_SaveWithUserId(
         this: *mut PlayReport,
         uid: *const root::nn::account::Uid,
     ) -> root::Result;
@@ -66,8 +69,13 @@ extern "C" {
 }
 impl PlayReport {
     #[inline]
-    pub fn SetEventId(&mut self, arg1: *const u8) -> root::Result {
-        unsafe { PlayReport_SetEventId(self, arg1) }
+    pub fn SetEventId(&mut self, event_id: &str) -> root::Result {
+        event_id = (event_id.to_string() + "/0").as_str();
+        if event_id.len() > EventIdLengthMax {
+            panic!("Event ID is too long!");
+        }
+        let event_id = event_id.as_bytes().as_ptr();
+        unsafe { PlayReport_SetEventId(self, event_id) }
     }
     #[inline]
     pub fn SetBuffer(&mut self) -> root::Result {
@@ -76,45 +84,68 @@ impl PlayReport {
     #[inline]
     pub fn AddLong(
         &mut self,
-        key: *const u8,
+        key: &str,
         value: i64,
     ) -> root::Result {
-        unsafe { PlayReport_Add(self, key, value) }
+        key = (key.to_string() + "/0").as_str();
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+        unsafe { PlayReport_AddLong(self, key, value) }
     }
     #[inline]
     pub fn AddDouble(
         &mut self,
-        key: *const u8,
+        key: &str,
         value: f64,
     ) -> root::Result {
-        unsafe { PlayReport_Add1(self, key, value) }
+        key = (key.to_string() + "/0").as_str();
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+        unsafe { PlayReport_AddDouble(self, key, value) }
     }
     #[inline]
     pub fn AddString(
         &mut self,
-        key: *const u8,
-        value: *const u8,
+        key: &str,
+        value: &str,
     ) -> root::Result {
-        unsafe { PlayReport_Add2(self, key, value) }
+        key = (key.to_string() + "/0").as_str();
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+
+        value = (value.to_string() + "/0").as_str();
+        let value = value.as_bytes().as_ptr();
+        unsafe { PlayReport_AddString(self, key, value) }
     }
     #[inline]
     pub fn AddAny64BitID(
         &mut self,
-        key: *const u8,
+        key: &str,
         value: Any64BitId,
     ) -> root::Result {
-        unsafe { PlayReport_Add3(self, key, value) }
+        key = (key.to_string() + "/0").as_str();
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+        unsafe { PlayReport_AddAny64BitID(self, key, value) }
     }
     #[inline]
     pub fn Save(&mut self) -> root::Result {
         unsafe { PlayReport_Save(self) }
     }
     #[inline]
-    pub fn SaveWithAccount(
+    pub fn SaveWithUserId(
         &mut self,
         uid: *const root::nn::account::Uid,
     ) -> root::Result {
-        unsafe { PlayReport_Save1(self, uid) }
+        unsafe { PlayReport_SaveWithUserId(self, uid) }
     }
     #[inline]
     pub fn new() -> Self {
