@@ -2,10 +2,10 @@
 use self::super::root;
 #[repr(C)]
 pub struct PlayReport {
-    pub m_EventName: [u8; 32usize],
-    pub m_Buff: *const u8,
-    pub m_BuffLength: usize,
-    pub m_End: usize,
+    pub event_id: [u8;32],
+    pub buffer: *const u8,
+    pub size: usize,
+    pub position: usize
 }
 
 #[repr(C)]
