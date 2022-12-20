@@ -1,3 +1,6 @@
+use alloc::boxed::Box;
+use alloc::string::ToString;
+
 #[allow(unused_imports)]
 use self::super::root;
 #[repr(C)]
@@ -149,10 +152,19 @@ impl PlayReport {
     }
     #[inline]
     pub fn new() -> Self {
-        unsafe {
-            let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
-            PlayReport_PlayReport(__bindgen_tmp.as_mut_ptr());
-            __bindgen_tmp.assume_init()
-        }
+        let buf = Box::new([0u8; 0x4000]);
+        Box::leak(buf);
+        let prepo = PlayReport { event_id: [0;32], buffer: buf.as_ptr(), size: 0x4000, position: 0 };
+
+        prepo
+    }
+}
+
+impl Drop for PlayReport {
+    fn drop(&mut self) {
+        core::mem::drop(self.event_id);
+        core::mem::drop(self.buffer);
+        core::mem::drop(self.size);
+        core::mem::drop(self.position);
     }
 }
