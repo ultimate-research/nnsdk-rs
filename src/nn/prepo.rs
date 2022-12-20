@@ -1,9 +1,10 @@
 use alloc::boxed::Box;
-use alloc::string::ToString;
+use alloc::string::{ToString, String};
 
 #[allow(unused_imports)]
 use self::super::root;
 #[repr(C)]
+#[derive(Debug)]
 pub struct PlayReport {
     pub event_id: [u8;32],
     pub buffer: *const u8,
@@ -72,8 +73,8 @@ extern "C" {
 }
 impl PlayReport {
     #[inline]
-    pub fn SetEventId(&mut self, event_id: &str) -> root::Result {
-        event_id = (event_id.to_string() + "/0").as_str();
+    pub fn SetEventId(&mut self, mut event_id: String) -> root::Result {
+        event_id = event_id + "/0";
         if event_id.len() > EventIdLengthMax {
             panic!("Event ID is too long!");
         }
@@ -87,10 +88,10 @@ impl PlayReport {
     #[inline]
     pub fn AddLong(
         &mut self,
-        key: &str,
+        mut key: String,
         value: i64,
     ) -> root::Result {
-        key = (key.to_string() + "/0").as_str();
+        key = key + "/0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -100,10 +101,10 @@ impl PlayReport {
     #[inline]
     pub fn AddDouble(
         &mut self,
-        key: &str,
+        mut key: String,
         value: f64,
     ) -> root::Result {
-        key = (key.to_string() + "/0").as_str();
+        key = key + "/0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -113,26 +114,26 @@ impl PlayReport {
     #[inline]
     pub fn AddString(
         &mut self,
-        key: &str,
-        value: &str,
+        mut key: String,
+        mut value: String,
     ) -> root::Result {
-        key = (key.to_string() + "/0").as_str();
+        key = key + "/0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
         let key = key.as_bytes().as_ptr();
 
-        value = (value.to_string() + "/0").as_str();
+        value = value + "/0";
         let value = value.as_bytes().as_ptr();
         unsafe { PlayReport_AddString(self, key, value) }
     }
     #[inline]
     pub fn AddAny64BitID(
         &mut self,
-        key: &str,
+        mut key: String,
         value: Any64BitId,
     ) -> root::Result {
-        key = (key.to_string() + "/0").as_str();
+        key = key + "/0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -153,7 +154,7 @@ impl PlayReport {
     #[inline]
     pub fn new() -> Self {
         let buf = Box::new([0u8; 0x4000]);
-        Box::leak(buf);
+        let buf = Box::leak(buf);
         let prepo = PlayReport { event_id: [0;32], buffer: buf.as_ptr(), size: 0x4000, position: 0 };
 
         prepo
