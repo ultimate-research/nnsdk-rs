@@ -162,9 +162,6 @@ impl PlayReport {
 
 impl Drop for PlayReport {
     fn drop(&mut self) {
-        core::mem::drop(self.event_id);
-        core::mem::drop(self.buffer);
-        core::mem::drop(self.size);
-        core::mem::drop(self.position);
+        unsafe { libc::free(self.buffer as *mut libc::c_void); }
     }
 }
