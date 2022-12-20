@@ -59,11 +59,11 @@ extern "C" {
     ) -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport4SaveEv"]
-    pub fn PlayReport_Save(this: *mut PlayReport) -> root::Result;
+    pub fn PlayReport_Save(this: PlayReport) -> root::Result;
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport4SaveERKNS_7account3UidE"]
     pub fn PlayReport_SaveWithUserId(
-        this: *mut PlayReport,
+        this: PlayReport,
         uid: *const root::nn::account::Uid,
     ) -> root::Result;
 
@@ -140,12 +140,12 @@ impl PlayReport {
         unsafe { PlayReport_AddAny64BitID(self, key, value) }
     }
     #[inline]
-    pub fn Save(&mut self) -> root::Result {
+    pub fn Save(self) -> root::Result {
         unsafe { PlayReport_Save(self) }
     }
     #[inline]
     pub fn SaveWithUserId(
-        &mut self,
+        self,
         uid: *const root::nn::account::Uid,
     ) -> root::Result {
         unsafe { PlayReport_SaveWithUserId(self, uid) }
