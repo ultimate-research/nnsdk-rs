@@ -182,8 +182,8 @@ impl PlayReport {
         prepo
     }
     #[inline]
-    pub fn new_with_event_id(mut event_id: String) -> Self {
-        event_id = event_id + "\0";
+    pub fn new_with_event_id(event_id: &str) -> Self {
+        let event_id = event_id.to_string() + "\0";
         if event_id.len() > EventIdLengthMax {
             panic!("Event ID is too long!");
         }
