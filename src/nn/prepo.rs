@@ -78,12 +78,12 @@ extern "C" {
 }
 impl PlayReport {
     #[inline]
-    pub fn GetCount(&mut self) -> u64 {
+    pub fn get_count(&mut self) -> u64 {
         unsafe { PlayReport_GetCount(self) }
     }
     #[inline]
-    pub fn SetEventId(&mut self, mut event_id: String) -> root::Result {
-        event_id = event_id + "\0";
+    pub fn set_event_id(&mut self, event_id: &str) -> root::Result {
+        let event_id = event_id.to_string() + "\0";
         if event_id.len() > EventIdLengthMax {
             panic!("Event ID is too long!");
         }
@@ -91,16 +91,16 @@ impl PlayReport {
         unsafe { PlayReport_SetEventId(self, event_id) }
     }
     #[inline]
-    pub fn SetBuffer(&mut self, buf: *const u8, size: usize) {
+    fn set_buffer(&mut self, buf: *const u8, size: usize) {
         unsafe { PlayReport_SetBuffer(self, buf, size) }
     }
     #[inline]
-    pub fn AddLong(
+    pub fn add_long(
         &mut self,
-        mut key: String,
+        key: &str,
         value: i64,
     ) -> root::Result {
-        key = key + "\0";
+        let key = key.to_string() + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -108,12 +108,12 @@ impl PlayReport {
         unsafe { PlayReport_AddLong(self, key, value) }
     }
     #[inline]
-    pub fn AddDouble(
+    pub fn add_double(
         &mut self,
-        mut key: String,
+        key: &str,
         value: f64,
     ) -> root::Result {
-        key = key + "\0";
+        let key = key.to_string() + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -121,28 +121,28 @@ impl PlayReport {
         unsafe { PlayReport_AddDouble(self, key, value) }
     }
     #[inline]
-    pub fn AddString(
+    pub fn add_string(
         &mut self,
-        mut key: String,
-        mut value: String,
+        key: &str,
+        value: &str,
     ) -> root::Result {
-        key = key + "\0";
+        let key = key.to_string() + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
         let key = key.as_bytes().as_ptr();
 
-        value = value + "\0";
+        let value = value.to_string() + "\0";
         let value = value.as_bytes().as_ptr();
         unsafe { PlayReport_AddString(self, key, value) }
     }
     #[inline]
-    pub fn AddAny64BitID(
+    pub fn add_any64bitid(
         &mut self,
-        mut key: String,
+        key: &str,
         value: Any64BitId,
     ) -> root::Result {
-        key = key + "\0";
+        let key = key.to_string() + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -150,15 +150,24 @@ impl PlayReport {
         unsafe { PlayReport_AddAny64BitID(self, key, value) }
     }
     #[inline]
-    pub fn Save(self) -> root::Result {
+    pub fn save(self) -> root::Result {
         unsafe { PlayReport_Save(self) }
     }
     #[inline]
-    pub fn SaveWithUserId(
+    pub fn save_with_user_id(
         self,
         uid: *const root::nn::account::Uid,
     ) -> root::Result {
         unsafe { PlayReport_SaveWithUserId(self, uid) }
+    }
+    #[inline]
+    pub fn save_for_current_user(self) {
+        // This provides a UserHandle and sets the User in a Open state to be used.
+        let handle = root::nn::account::try_open_preselected_user().expect("OpenPreselectedUser should not return false");
+        // Obtain the UID for this user
+        let uid = root::nn::account::get_user_id(&handle).expect("GetUserId should return a valid Uid");
+        self.save_with_user_id(&uid);
+        root::nn::account::close_user(handle);
     }
     #[inline]
     pub fn new() -> Self {
@@ -169,11 +178,11 @@ impl PlayReport {
         let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
         unsafe { PlayReport_PlayReport(&mut prepo) };
 
-        prepo.SetBuffer(buf.as_ptr(), 0x4000);
+        prepo.set_buffer(buf.as_ptr(), 0x4000);
         prepo
     }
     #[inline]
-    pub fn newWithEventID(mut event_id: String) -> Self {
+    pub fn new_with_event_id(mut event_id: String) -> Self {
         event_id = event_id + "\0";
         if event_id.len() > EventIdLengthMax {
             panic!("Event ID is too long!");
@@ -185,7 +194,7 @@ impl PlayReport {
         let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
         unsafe { PlayReport_PlayReportWithEventID(&mut prepo, event_id) };
 
-        prepo.SetBuffer(buf.as_ptr(), 0x4000);
+        prepo.set_buffer(buf.as_ptr(), 0x4000);
         prepo
     }
 }
