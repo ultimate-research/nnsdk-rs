@@ -27,9 +27,8 @@ extern "C" {
         event_id: *const u8,
     ) -> root::Result;
 
-    #[link_name = "\u{1}_ZN2nn5prepo10PlayReport9SetBufferEv"]
-    pub fn PlayReport_SetBuffer(this: *mut PlayReport)
-        -> root::Result;
+    #[link_name = "\u{1}_ZN2nn5prepo10PlayReport9SetBufferEPvm"]
+    pub fn PlayReport_SetBuffer(this: *mut PlayReport, buf: *const u8, size: usize);
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcl"]
     pub fn PlayReport_AddLong(
@@ -70,8 +69,18 @@ extern "C" {
 
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReportC1Ev"]
     pub fn PlayReport_PlayReport(this: *mut PlayReport);
+
+    #[link_name = "_ZN2nn5prepo10PlayReportC1EPKc"]
+    pub fn PlayReport_PlayReportWithEventID(this: *mut PlayReport, event_id: *const u8);
+
+    #[link_name = "\u{1}_ZNK2nn5prepo10PlayReport8GetCountEv"]
+    pub fn PlayReport_GetCount(this: *mut PlayReport) -> u64;
 }
 impl PlayReport {
+    #[inline]
+    pub fn GetCount(&mut self) -> u64 {
+        unsafe { PlayReport_GetCount(self) }
+    }
     #[inline]
     pub fn SetEventId(&mut self, mut event_id: String) -> root::Result {
         event_id = event_id + "\0";
@@ -82,8 +91,8 @@ impl PlayReport {
         unsafe { PlayReport_SetEventId(self, event_id) }
     }
     #[inline]
-    pub fn SetBuffer(&mut self) -> root::Result {
-        unsafe { PlayReport_SetBuffer(self) }
+    pub fn SetBuffer(&mut self, buf: *const u8, size: usize) {
+        unsafe { PlayReport_SetBuffer(self, buf, size) }
     }
     #[inline]
     pub fn AddLong(
@@ -155,8 +164,28 @@ impl PlayReport {
     pub fn new() -> Self {
         let buf = Box::new([0u8; 0x4000]);
         let buf = Box::leak(buf);
-        let prepo = PlayReport { event_id: [0;32], buffer: buf.as_ptr(), size: 0x4000, position: 0 };
+        let buf = Box::new([0u8; 0x4000]);
+        let buf = Box::leak(buf);
+        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
+        unsafe { PlayReport_PlayReport(&mut prepo) };
 
+        prepo.SetBuffer(buf.as_ptr(), 0x4000);
+        prepo
+    }
+    #[inline]
+    pub fn newWithEventID(mut event_id: String) -> Self {
+        event_id = event_id + "\0";
+        if event_id.len() > EventIdLengthMax {
+            panic!("Event ID is too long!");
+        }
+        let event_id = event_id.as_bytes().as_ptr();
+
+        let buf = Box::new([0u8; 0x4000]);
+        let buf = Box::leak(buf);
+        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
+        unsafe { PlayReport_PlayReportWithEventID(&mut prepo, event_id) };
+
+        prepo.SetBuffer(buf.as_ptr(), 0x4000);
         prepo
     }
 }
