@@ -74,7 +74,7 @@ extern "C" {
 impl PlayReport {
     #[inline]
     pub fn SetEventId(&mut self, mut event_id: String) -> root::Result {
-        event_id = event_id + "/0";
+        event_id = event_id + "\0";
         if event_id.len() > EventIdLengthMax {
             panic!("Event ID is too long!");
         }
@@ -91,7 +91,7 @@ impl PlayReport {
         mut key: String,
         value: i64,
     ) -> root::Result {
-        key = key + "/0";
+        key = key + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -104,7 +104,7 @@ impl PlayReport {
         mut key: String,
         value: f64,
     ) -> root::Result {
-        key = key + "/0";
+        key = key + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
@@ -117,13 +117,13 @@ impl PlayReport {
         mut key: String,
         mut value: String,
     ) -> root::Result {
-        key = key + "/0";
+        key = key + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
         let key = key.as_bytes().as_ptr();
 
-        value = value + "/0";
+        value = value + "\0";
         let value = value.as_bytes().as_ptr();
         unsafe { PlayReport_AddString(self, key, value) }
     }
@@ -133,7 +133,7 @@ impl PlayReport {
         mut key: String,
         value: Any64BitId,
     ) -> root::Result {
-        key = key + "/0";
+        key = key + "\0";
         if key.len() > KeyLengthMax {
             panic!("Key is too long!");
         }
