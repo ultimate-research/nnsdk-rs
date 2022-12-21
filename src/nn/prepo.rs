@@ -1,112 +1,206 @@
+use alloc::boxed::Box;
+use alloc::string::{ToString, String};
+
 #[allow(unused_imports)]
 use self::super::root;
 #[repr(C)]
+#[derive(Debug)]
 pub struct PlayReport {
-    pub m_EventName: [u8; 32usize],
-    pub m_Buff: *mut u8,
-    pub m_BuffLength: root::size_t,
-    pub m_End: u64,
+    pub event_id: [u8;32],
+    pub buffer: *const u8,
+    pub size: usize,
+    pub position: usize
 }
+
+#[repr(C)]
+pub struct Any64BitId {
+    pub id: i64
+}
+
+const EventIdLengthMax: usize = 31;
+const KeyLengthMax: usize = 63;
 
 extern "C" {
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport10SetEventIdEPKc"]
     pub fn PlayReport_SetEventId(
         this: *mut PlayReport,
-        arg1: *const u8,
+        event_id: *const u8,
     ) -> root::Result;
-}
-extern "C" {
-    #[link_name = "\u{1}_ZN2nn5prepo10PlayReport9SetBufferEv"]
-    pub fn PlayReport_SetBuffer(this: *mut PlayReport)
-        -> root::Result;
-}
-extern "C" {
+
+    #[link_name = "\u{1}_ZN2nn5prepo10PlayReport9SetBufferEPvm"]
+    pub fn PlayReport_SetBuffer(this: *mut PlayReport, buf: *const u8, size: usize);
+
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcl"]
-    pub fn PlayReport_Add(
+    pub fn PlayReport_AddLong(
         this: *mut PlayReport,
-        arg1: *const u8,
-        arg2: i64,
+        key: *const u8,
+        value: i64,
     ) -> root::Result;
-}
-extern "C" {
+
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcd"]
-    pub fn PlayReport_Add1(
+    pub fn PlayReport_AddDouble(
         this: *mut PlayReport,
-        arg1: *const u8,
-        arg2: f64,
+        key: *const u8,
+        value: f64,
     ) -> root::Result;
-}
-extern "C" {
+
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcS3_"]
-    pub fn PlayReport_Add2(
+    pub fn PlayReport_AddString(
         this: *mut PlayReport,
-        arg1: *const u8,
-        arg2: *const u8,
+        key: *const u8,
+        value: *const u8,
     ) -> root::Result;
-}
-extern "C" {
+
+    #[link_name = "\u{1}_ZN2nn5prepo10PlayReport3AddEPKcRKNS0_10Any64BitIdE"]
+    pub fn PlayReport_AddAny64BitID(
+            this: *mut PlayReport,
+            key: *const u8,
+            value: Any64BitId,
+    ) -> root::Result;
+
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport4SaveEv"]
-    pub fn PlayReport_Save(this: *mut PlayReport) -> root::Result;
-}
-extern "C" {
+    pub fn PlayReport_Save(this: PlayReport) -> root::Result;
+
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReport4SaveERKNS_7account3UidE"]
-    pub fn PlayReport_Save1(
-        this: *mut PlayReport,
-        arg1: *const root::nn::account::Uid,
+    pub fn PlayReport_SaveWithUserId(
+        this: PlayReport,
+        uid: *const root::nn::account::Uid,
     ) -> root::Result;
-}
-extern "C" {
+
     #[link_name = "\u{1}_ZN2nn5prepo10PlayReportC1Ev"]
     pub fn PlayReport_PlayReport(this: *mut PlayReport);
+
+    #[link_name = "_ZN2nn5prepo10PlayReportC1EPKc"]
+    pub fn PlayReport_PlayReportWithEventID(this: *mut PlayReport, event_id: *const u8);
+
+    #[link_name = "\u{1}_ZNK2nn5prepo10PlayReport8GetCountEv"]
+    pub fn PlayReport_GetCount(this: *mut PlayReport) -> u64;
 }
 impl PlayReport {
     #[inline]
-    pub unsafe fn SetEventId(&mut self, arg1: *const u8) -> root::Result {
-        PlayReport_SetEventId(self, arg1)
+    pub fn get_count(&mut self) -> u64 {
+        unsafe { PlayReport_GetCount(self) }
     }
     #[inline]
-    pub unsafe fn SetBuffer(&mut self) -> root::Result {
-        PlayReport_SetBuffer(self)
+    pub fn set_event_id(&mut self, event_id: &str) -> root::Result {
+        let event_id = event_id.to_string() + "\0";
+        if event_id.len() > EventIdLengthMax {
+            panic!("Event ID is too long!");
+        }
+        let event_id = event_id.as_bytes().as_ptr();
+        unsafe { PlayReport_SetEventId(self, event_id) }
     }
     #[inline]
-    pub unsafe fn Add(
+    fn set_buffer(&mut self, buf: *const u8, size: usize) {
+        unsafe { PlayReport_SetBuffer(self, buf, size) }
+    }
+    #[inline]
+    pub fn add_long(
         &mut self,
-        arg1: *const u8,
-        arg2: i64,
+        key: &str,
+        value: i64,
     ) -> root::Result {
-        PlayReport_Add(self, arg1, arg2)
+        let key = key.to_string() + "\0";
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+        unsafe { PlayReport_AddLong(self, key, value) }
     }
     #[inline]
-    pub unsafe fn Add1(
+    pub fn add_double(
         &mut self,
-        arg1: *const u8,
-        arg2: f64,
+        key: &str,
+        value: f64,
     ) -> root::Result {
-        PlayReport_Add1(self, arg1, arg2)
+        let key = key.to_string() + "\0";
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+        unsafe { PlayReport_AddDouble(self, key, value) }
     }
     #[inline]
-    pub unsafe fn Add2(
+    pub fn add_string(
         &mut self,
-        arg1: *const u8,
-        arg2: *const u8,
+        key: &str,
+        value: &str,
     ) -> root::Result {
-        PlayReport_Add2(self, arg1, arg2)
+        let key = key.to_string() + "\0";
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+
+        let value = value.to_string() + "\0";
+        let value = value.as_bytes().as_ptr();
+        unsafe { PlayReport_AddString(self, key, value) }
     }
     #[inline]
-    pub unsafe fn Save(&mut self) -> root::Result {
-        PlayReport_Save(self)
-    }
-    #[inline]
-    pub unsafe fn Save1(
+    pub fn add_any64bitid(
         &mut self,
-        arg1: *const root::nn::account::Uid,
+        key: &str,
+        value: Any64BitId,
     ) -> root::Result {
-        PlayReport_Save1(self, arg1)
+        let key = key.to_string() + "\0";
+        if key.len() > KeyLengthMax {
+            panic!("Key is too long!");
+        }
+        let key = key.as_bytes().as_ptr();
+        unsafe { PlayReport_AddAny64BitID(self, key, value) }
     }
     #[inline]
-    pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
-        PlayReport_PlayReport(__bindgen_tmp.as_mut_ptr());
-        __bindgen_tmp.assume_init()
+    pub fn save(self) -> root::Result {
+        unsafe { PlayReport_Save(self) }
+    }
+    #[inline]
+    pub fn save_with_user_id(
+        self,
+        uid: *const root::nn::account::Uid,
+    ) -> root::Result {
+        unsafe { PlayReport_SaveWithUserId(self, uid) }
+    }
+    #[inline]
+    pub fn save_for_current_user(self) {
+        // This provides a UserHandle and sets the User in a Open state to be used.
+        let handle = root::nn::account::try_open_preselected_user().expect("OpenPreselectedUser should not return false");
+        // Obtain the UID for this user
+        let uid = root::nn::account::get_user_id(&handle).expect("GetUserId should return a valid Uid");
+        self.save_with_user_id(&uid);
+        root::nn::account::close_user(handle);
+    }
+    #[inline]
+    pub fn new() -> Self {
+        let buf = Box::new([0u8; 0x4000]);
+        let buf = Box::leak(buf);
+        let buf = Box::new([0u8; 0x4000]);
+        let buf = Box::leak(buf);
+        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
+        unsafe { PlayReport_PlayReport(&mut prepo) };
+
+        prepo.set_buffer(buf.as_ptr(), 0x4000);
+        prepo
+    }
+    #[inline]
+    pub fn new_with_event_id(event_id: &str) -> Self {
+        let event_id = event_id.to_string() + "\0";
+        if event_id.len() > EventIdLengthMax {
+            panic!("Event ID is too long!");
+        }
+        let event_id = event_id.as_bytes().as_ptr();
+
+        let buf = Box::new([0u8; 0x4000]);
+        let buf = Box::leak(buf);
+        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
+        unsafe { PlayReport_PlayReportWithEventID(&mut prepo, event_id) };
+
+        prepo.set_buffer(buf.as_ptr(), 0x4000);
+        prepo
+    }
+}
+
+impl Drop for PlayReport {
+    fn drop(&mut self) {
+        unsafe { libc::free(self.buffer as *mut libc::c_void); }
     }
 }
