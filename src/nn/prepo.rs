@@ -75,6 +75,9 @@ extern "C" {
 
     #[link_name = "\u{1}_ZNK2nn5prepo10PlayReport8GetCountEv"]
     pub fn PlayReport_GetCount(this: *mut PlayReport) -> u64;
+
+    #[link_name = "_ZN2nn5prepo28RequestImmediateTransmissionEv"]
+    pub fn RequestImmediateTransmission() -> root::Result;
 }
 impl PlayReport {
     #[inline]
