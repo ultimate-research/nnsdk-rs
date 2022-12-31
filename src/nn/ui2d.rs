@@ -4,7 +4,6 @@ use self::super::root;
 use core::ops::{Deref, DerefMut};
 
 use alloc::string::String;
-use bitfield_struct::bitfield;
 
 pub mod resources;
 pub use resources::*;
@@ -185,11 +184,11 @@ impl DerefMut for Picture {
     }
 }
 
-#[bitfield(u16)]
+// #[bitfield(u16)]
 pub struct TextBoxBits {
-    #[bits(2)]
+    // #[bits(2)]
     text_alignment: u8,
-    #[bits(1)]
+    // #[bits(1)]
     is_ptdirty: u8,
     shadow_enabled: bool,
     invisible_border_enabled: bool,
@@ -226,7 +225,7 @@ pub struct TextBox {
     m_text_buf_len: u16,
     pub m_text_len: u16,
 
-    m_bits: TextBoxBits,
+    m_bits: u16,
     m_text_position: u8,
 
     pub m_is_utf8: bool,
@@ -263,7 +262,7 @@ impl TextBox {
             });
 
         if dirty {
-            self.m_bits.set_is_ptdirty(1);
+            self.m_bits |= 1 << 3;
         }
     }
 
