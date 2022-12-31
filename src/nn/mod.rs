@@ -21,6 +21,7 @@ pub mod ssl;
 pub mod mem;
 pub mod init;
 pub mod util;
+pub mod ui2d;
 pub mod hid;
 pub mod audio;
 pub mod svc;

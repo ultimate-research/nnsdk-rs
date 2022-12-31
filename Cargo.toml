@@ -9,6 +9,7 @@ documentation = "https://docs.rs/nnsdk"
 
 [dependencies]
 libc-nnsdk = "0.2.0"
+bitfield-struct = "0.1.8"
 
 # rustc-dep-of-std
 core = { version = "1.0.0", optional = true, package = "rustc-std-workspace-core" }
