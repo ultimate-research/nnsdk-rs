@@ -264,7 +264,7 @@ impl TextBox {
             });
 
         if dirty {
-            self.m_bits |= 1 << TextBoxFlag.IsPTDirty as u8;
+            self.m_bits |= 1 << TextBoxFlag::IsPTDirty as u8;
         }
     }
 
