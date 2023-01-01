@@ -184,27 +184,6 @@ impl DerefMut for Picture {
     }
 }
 
-// #[bitfield(u16)]
-pub struct TextBoxBits {
-    // #[bits(2)]
-    text_alignment: u8,
-    // #[bits(1)]
-    is_ptdirty: u8,
-    shadow_enabled: bool,
-    invisible_border_enabled: bool,
-    double_drawn_border_enabled: bool,
-    width_limit_enabled: bool,
-    per_character_transform_enabled: bool,
-    center_ceiling_enabled: bool,
-    per_character_transform_split_by_char_width: bool,
-    per_character_transform_auto_shadow_alpha: bool,
-    draw_from_right_to_left: bool,
-    per_character_transform_origin_to_center: bool,
-    per_character_transform_fix_space: bool,
-    linefeed_by_character_height_enabled: bool,
-    per_character_transform_split_by_char_width_insert_space_enabled: bool,
-}
-
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub enum TextBoxFlag {
