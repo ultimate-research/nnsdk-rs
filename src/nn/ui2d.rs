@@ -207,6 +207,28 @@ pub struct TextBoxBits {
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
+pub enum TextBoxFlag {
+    // TODO: Check if Horizontal is first or Vertical is
+    TextAlignmentHorizontal,
+    TextAlignmentVertical,
+    IsPTDirty,
+    ShadowEnabled,
+    InvisibleBorderEnabled,
+    DoubleDrawnBorderEnabled,
+    WidthLimitEnabled,
+    PerCharacterTransformEnabled,
+    CenterCeilingEnabled,
+    PerCharacterTransformSplitByCharWidth,
+    PerCharacterTransformAutoShadowAlpha,
+    DrawFromRightToLeft,
+    PerCharacterTransformOriginToCenter,
+    PerCharacterTransformFixSpace,
+    LinefeedByCharacterHeightEnabled,
+    PerCharacterTransformSplitByCharWidthInsertSpaceEnabled
+}
+
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
 pub struct TextBox {
     pub pane: Pane,
     // Actually a union
@@ -225,6 +247,7 @@ pub struct TextBox {
     m_text_buf_len: u16,
     pub m_text_len: u16,
 
+    // Use TextBoxFlag
     m_bits: u16,
     m_text_position: u8,
 
@@ -262,7 +285,7 @@ impl TextBox {
             });
 
         if dirty {
-            self.m_bits |= 1 << 3;
+            self.m_bits |= 1 << TextBoxFlag.IsPTDirty as u8;
         }
     }
 
