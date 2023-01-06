@@ -260,7 +260,7 @@ impl DerefMut for ResPicture {
 #[derive(Debug, Copy, Clone)]
 pub struct ResPictureWithTex<const TEX_COORD_COUNT: usize> {
     pub picture: ResPicture,
-    tex_coords: [[ResVec2; TEX_COORD_COUNT]; 4],
+    pub tex_coords: [[ResVec2; TEX_COORD_COUNT]; 4],
 }
 
 impl<const TEX_COORD_COUNT: usize> Deref for ResPictureWithTex<TEX_COORD_COUNT> {
