@@ -316,7 +316,7 @@ struct ResPartsProperty {
 #[derive(Debug, Copy, Clone)]
 pub struct ResPartsWithProperty<const PROPERTY_COUNT: usize> {
     pub parts: ResParts,
-    pub property_table: [ResPartsProperty; PROPERTY_COUNT],
+    property_table: [ResPartsProperty; PROPERTY_COUNT],
 }
 
 #[repr(C)]
