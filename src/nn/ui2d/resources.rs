@@ -370,7 +370,7 @@ pub struct ResWindowFrame {
 #[derive(Debug, Copy, Clone)]
 pub struct ResWindow {
     pub pane: ResPane,
-    pub inflation: ResWindowInflation,
+    inflation: ResWindowInflation,
     pub frame_size: ResWindowFrameSize,
     pub frame_count: u8,
     pub window_flags: u8,
