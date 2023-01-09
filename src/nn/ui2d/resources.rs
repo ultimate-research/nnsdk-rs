@@ -58,18 +58,18 @@ pub struct ResColor {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ResPane {
-    block_header_kind: u32,
-    block_header_size: u32,
-    flag: u8,
-    base_position: u8,
-    alpha: u8,
-    flag_ex: u8,
+    pub block_header_kind: u32,
+    pub block_header_size: u32,
+    pub flag: u8,
+    pub base_position: u8,
+    pub alpha: u8,
+    pub flag_ex: u8,
     pub name: [libc::c_char; 24],
     pub user_data: [libc::c_char; 8],
     pub pos: ResVec3,
-    rot_x: f32,
-    rot_y: f32,
-    rot_z: f32,
+    pub rot_x: f32,
+    pub rot_y: f32,
+    pub rot_z: f32,
     pub scale_x: f32,
     pub scale_y: f32,
     pub size_x: f32,
@@ -173,26 +173,26 @@ pub enum TextAlignment {
 #[derive(Debug, Copy, Clone)]
 pub struct ResTextBox {
     pub pane: ResPane,
-    text_buf_bytes: u16,
-    text_str_bytes: u16,
-    material_idx: u16,
+    pub text_buf_bytes: u16,
+    pub text_str_bytes: u16,
+    pub material_idx: u16,
     pub font_idx: u16,
-    text_position: u8,
-    text_alignment: u8,
-    text_box_flag: u16,
-    italic_ratio: f32,
-    text_str_offset: u32,
-    text_cols: [ResColor; 2],
-    font_size: ResVec2,
-    char_space: f32,
-    line_space: f32,
-    text_id_offset: u32,
-    shadow_offset: ResVec2,
-    shadow_scale: ResVec2,
-    shadow_cols: [ResColor; 2],
-    shadow_italic_ratio: f32,
-    line_width_offset_offset: u32,
-    per_character_transform_offset: u32,
+    pub text_position: u8,
+    pub text_alignment: u8,
+    pub text_box_flag: u16,
+    pub italic_ratio: f32,
+    pub text_str_offset: u32,
+    pub text_cols: [ResColor; 2],
+    pub font_size: ResVec2,
+    pub char_space: f32,
+    pub line_space: f32,
+    pub text_id_offset: u32,
+    pub shadow_offset: ResVec2,
+    pub shadow_scale: ResVec2,
+    pub shadow_cols: [ResColor; 2],
+    pub shadow_italic_ratio: f32,
+    pub line_width_offset_offset: u32,
+    pub per_character_transform_offset: u32,
     /* Additional Info
         uint16_t           text[];                     // Text.
         char                textId[];                   // The text ID.
@@ -232,10 +232,10 @@ impl ResTextBox {
 #[derive(Debug, Copy, Clone)]
 pub struct ResPicture {
     pub pane: ResPane,
-    vtx_cols: [ResColor; 4],
-    material_idx: u16,
-    tex_coord_count: u8,
-    flags: u8,
+    pub vtx_cols: [ResColor; 4],
+    pub material_idx: u16,
+    pub tex_coord_count: u8,
+    pub flags: u8,
     /* Additional Info
         ResVec2 texCoords[texCoordCount][VERTEX_MAX];
         uint32_t shapeBinaryIndex;
@@ -260,7 +260,7 @@ impl DerefMut for ResPicture {
 #[derive(Debug, Copy, Clone)]
 pub struct ResPictureWithTex<const TEX_COORD_COUNT: usize> {
     pub picture: ResPicture,
-    tex_coords: [[ResVec2; TEX_COORD_COUNT]; 4],
+    pub tex_coords: [[ResVec2; TEX_COORD_COUNT]; 4],
 }
 
 impl<const TEX_COORD_COUNT: usize> Deref for ResPictureWithTex<TEX_COORD_COUNT> {
@@ -282,7 +282,7 @@ impl<const TEX_COORD_COUNT: usize> DerefMut for ResPictureWithTex<TEX_COORD_COUN
 pub struct ResParts {
     pub pane: ResPane,
     pub property_count: u32,
-    magnify: ResVec2,
+    pub magnify: ResVec2,
 }
 
 impl Deref for ResParts {
@@ -316,7 +316,7 @@ struct ResPartsProperty {
 #[derive(Debug, Copy, Clone)]
 pub struct ResPartsWithProperty<const PROPERTY_COUNT: usize> {
     pub parts: ResParts,
-    property_table: [ResPartsProperty; PROPERTY_COUNT],
+    pub property_table: [ResPartsProperty; PROPERTY_COUNT],
 }
 
 #[repr(C)]
@@ -355,7 +355,7 @@ pub struct ResWindowContentWithTexCoords<const TEX_COORD_COUNT: usize> {
     pub window_content: ResWindowContent,
     // This has to be wrong.
     // Should be [[ResVec2; TEX_COORD_COUNT]; 4]?
-    tex_coords: [[ResVec3; TEX_COORD_COUNT]; 1],
+    pub tex_coords: [[ResVec3; TEX_COORD_COUNT]; 1],
 }
 
 #[repr(C)]
@@ -370,14 +370,14 @@ pub struct ResWindowFrame {
 #[derive(Debug, Copy, Clone)]
 pub struct ResWindow {
     pub pane: ResPane,
-    inflation: ResWindowInflation,
-    frame_size: ResWindowFrameSize,
-    frame_count: u8,
-    window_flags: u8,
-    padding: [u8; 2],
-    content_offset: u32,
-    frame_offset_table_offset: u32,
-    content: ResWindowContent,
+    pub inflation: ResWindowInflation,
+    pub frame_size: ResWindowFrameSize,
+    pub frame_count: u8,
+    pub window_flags: u8,
+    pub padding: [u8; 2],
+    pub content_offset: u32,
+    pub frame_offset_table_offset: u32,
+    pub content: ResWindowContent,
     /* Additional Info
 
         ResWindowContent content;
@@ -406,9 +406,9 @@ impl DerefMut for ResWindow {
 #[derive(Debug, Copy, Clone)]
 pub struct ResWindowWithTexCoordsAndFrames<const TEX_COORD_COUNT: usize, const FRAME_COUNT: usize> {
     pub window: ResWindow,
-    content: ResWindowContentWithTexCoords<TEX_COORD_COUNT>,
-    frame_offset_table: [u32; FRAME_COUNT],
-    frames: [ResWindowFrame; FRAME_COUNT],
+    pub content: ResWindowContentWithTexCoords<TEX_COORD_COUNT>,
+    pub frame_offset_table: [u32; FRAME_COUNT],
+    pub frames: [ResWindowFrame; FRAME_COUNT],
 }
 
 impl<const TEX_COORD_COUNT: usize, const FRAME_COUNT: usize> Deref
