@@ -143,7 +143,7 @@ impl Pane {
 pub struct Parts {
     pub pane: Pane,
     // Some IntrusiveList
-    link: PaneNode,
+    pub link: PaneNode,
     pub layout: *mut Layout,
 }
 
@@ -167,7 +167,7 @@ pub struct Picture {
     pub pane: Pane,
     pub material: *mut Material,
     pub vertex_colors: [[u8; 4]; 4],
-    shared_memory: *mut u8,
+    pub shared_memory: *mut u8,
 }
 
 impl Deref for Picture {
@@ -212,42 +212,42 @@ pub struct TextBox {
     pub pane: Pane,
     // Actually a union
     pub m_text_buf: *mut libc::c_char,
-    m_p_text_id: *const libc::c_char,
-    m_text_colors: [[u8; 4]; 2],
-    m_p_font: *const libc::c_void,
-    m_font_size_x: f32,
-    m_font_size_y: f32,
-    m_line_space: f32,
-    m_char_space: f32,
+    pub m_p_text_id: *const libc::c_char,
+    pub m_text_colors: [[u8; 4]; 2],
+    pub m_p_font: *const libc::c_void,
+    pub m_font_size_x: f32,
+    pub m_font_size_y: f32,
+    pub m_line_space: f32,
+    pub m_char_space: f32,
 
     // Actually a union
-    m_p_tag_processor: *const libc::c_char,
+    pub m_p_tag_processor: *const libc::c_char,
 
-    m_text_buf_len: u16,
+    pub m_text_buf_len: u16,
     pub m_text_len: u16,
 
     // Use TextBoxFlag
-    m_bits: u16,
-    m_text_position: u8,
+    pub m_bits: u16,
+    pub m_text_position: u8,
 
     pub m_is_utf8: bool,
 
-    m_italic_ratio: f32,
+    pub m_italic_ratio: f32,
 
-    m_shadow_offset_x: f32,
-    m_shadow_offset_y: f32,
-    m_shadow_scale_x: f32,
-    m_shadow_scale_y: f32,
-    m_shadow_top_color: [u8; 4],
-    m_shadow_bottom_color: [u8; 4],
-    m_shadow_italic_ratio: f32,
+    pub m_shadow_offset_x: f32,
+    pub m_shadow_offset_y: f32,
+    pub m_shadow_scale_x: f32,
+    pub m_shadow_scale_y: f32,
+    pub m_shadow_top_color: [u8; 4],
+    pub m_shadow_bottom_color: [u8; 4],
+    pub m_shadow_italic_ratio: f32,
 
-    m_p_line_width_offset: *const libc::c_void,
+    pub m_p_line_width_offset: *const libc::c_void,
 
     pub m_p_material: *mut Material,
-    m_p_disp_string_buf: *const libc::c_void,
+    pub m_p_disp_string_buf: *const libc::c_void,
 
-    m_p_per_character_transform: *const libc::c_void,
+    pub m_p_per_character_transform: *const libc::c_void,
 }
 
 impl TextBox {
@@ -298,8 +298,8 @@ impl DerefMut for TextBox {
 
 #[repr(C)]
 pub union MaterialColor {
-    byte_color: [[u8; 4]; 2],
-    p_float_color: *mut *mut f32,
+    pub byte_color: [[u8; 4]; 2],
+    pub p_float_color: *mut *mut f32,
 }
 
 use core::fmt;
@@ -335,22 +335,22 @@ pub enum MaterialFlags {
 #[repr(C)]
 #[derive(Debug)]
 pub struct Material {
-    vtable: u64,
+    pub vtable: u64,
     pub m_colors: MaterialColor,
     // Actually a struct
     m_mem_cap: u32,
     // Actually a struct
     m_mem_count: u32,
-    m_p_mem: *mut libc::c_void,
-    m_p_shader_info: *const libc::c_void,
+    pub m_p_mem: *mut libc::c_void,
+    pub m_p_shader_info: *const libc::c_void,
     pub m_p_name: *const libc::c_char,
-    m_vertex_shader_constant_buffer_offset: u32,
-    m_pixel_shader_constant_buffer_offset: u32,
-    m_p_user_shader_constant_buffer_information: *const libc::c_void,
-    m_p_blend_state: *const libc::c_void,
-    m_packed_values: u8,
-    m_flag: u8,
-    m_shader_variation: u16,
+    pub m_vertex_shader_constant_buffer_offset: u32,
+    pub m_pixel_shader_constant_buffer_offset: u32,
+    pub m_p_user_shader_constant_buffer_information: *const libc::c_void,
+    pub m_p_blend_state: *const libc::c_void,
+    pub m_packed_values: u8,
+    pub m_flag: u8,
+    pub m_shader_variation: u16,
 }
 
 impl Material {
@@ -390,6 +390,14 @@ impl Material {
     pub fn set_black_color(&mut self, r: f32, g: f32, b: f32, a: f32) {
         self.set_color(MaterialColorType::BlackColor, r, g, b, a);
     }
+
+    pub fn set_white_res_color(&mut self, white: ResColor) {
+        self.set_white_color(white.r as f32, white.g as f32, white.b as f32, white.a as f32);
+    }
+
+    pub fn set_black_res_color(&mut self, black: ResColor) {
+        self.set_black_color(black.r as f32, black.g as f32, black.b as f32, black.a as f32);
+    }
 }
 
 #[repr(C)]
@@ -421,8 +429,8 @@ pub struct PaneNode {
 
 #[repr(C)]
 pub struct Group {
-    pane_list: PaneNode,
-    name: *const libc::c_char,
+    pub pane_list: PaneNode,
+    pub name: *const libc::c_char,
 }
 
 #[repr(C)]
@@ -431,10 +439,10 @@ pub struct GroupContainer {}
 #[repr(C)]
 #[derive(Debug)]
 pub struct Layout {
-    vtable: u64,
+    pub vtable: u64,
     pub anim_trans_list: AnimTransformNode,
     pub root_pane: *mut Pane,
-    group_container: u64,
-    layout_size: f64,
+    pub group_container: u64,
+    pub layout_size: f64,
     pub layout_name: *const libc::c_char,
 }
