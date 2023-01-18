@@ -5,12 +5,11 @@ use self::super::root;
 
 use core::ops::{Deref, DerefMut};
 
-// Maybe needs a vtable.
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ResVec2 {
-    x: f32,
-    y: f32,
+    pub x: f32,
+    pub y: f32,
 }
 
 impl ResVec2 {
