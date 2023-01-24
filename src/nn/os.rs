@@ -500,3 +500,32 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os26GetThreadAvailableCoreMaskEv"]
     pub fn GetThreadAvailableCoreMask() -> u64;
 }
+
+
+pub type FiberFunction = extern "C" fn(*const u8) -> *const FiberType;
+
+#[repr(C)]
+pub struct FiberType {
+    pub status: u8,
+    pub is_aligned: bool,
+    pub function: FiberFunction,
+    pub args: *mut libc::c_void,
+    pub unk1: *mut libc::c_void,
+    pub stack: *mut libc::c_void,
+    pub stack_size: usize,
+    pub context: [u8; 208],
+}
+
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2os15InitializeFiberEPNS0_9FiberTypeEPFS2_PvES3_S3_mi"]
+    pub fn InitializeFiber(fiber: *mut FiberType, fiber_function: FiberFunction, arguments: *mut libc::c_void, stack: *mut libc::c_void, stack_size: usize, flag: i32);
+
+    #[link_name = "_ZN2nn2os13SwitchToFiberEPNS0_9FiberTypeE"]
+    pub fn SwitchToFiber(fiber: *mut FiberType);
+
+    #[link_name = "_ZN2nn2os15GetCurrentFiberEv"]
+    pub fn GetCurrentFiber() -> *mut FiberType;
+
+    #[link_name = "_ZN2nn2os13FinalizeFiberEPNS0_9FiberTypeE"]
+    pub fn FinalizeFiber(fiber: *mut FiberType);
+}
