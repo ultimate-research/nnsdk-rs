@@ -290,15 +290,15 @@ impl TextBox {
         self.set_material_black_color(0.0, 0.0, 0.0, 255.0);
     }
 
-    pub unsafe fn text_outline_enable(&mut self, value: bool) {
-        match value {
+    pub unsafe fn text_outline_enable(&mut self, enabled: bool) {
+        match enabled {
             true => self.bits &= !(1 << TextBoxFlag::InvisibleBorderEnabled as u8),
             false => self.bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8,
         }
     }
 
     pub unsafe fn text_shadow_enable(&mut self, enabled: bool) {
-        match value {
+        match enabled {
             true => self.bits |= 1 << TextBoxFlag::ShadowEnabled as u8,
             false => self.bits &= !(1 << TextBoxFlag::ShadowEnabled as u8),
         }
