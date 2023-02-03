@@ -215,8 +215,8 @@ pub enum HorizontalPosition {
 
 pub enum VerticalPosition {
     Center,
-    Left,
-    Right,
+    Top,
+    Bottom,
     MaxVerticalPosition,
 }
 
