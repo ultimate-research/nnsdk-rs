@@ -211,57 +211,52 @@ pub enum TextBoxFlag {
 pub struct TextBox {
     pub pane: Pane,
     // Actually a union
-    pub m_text_buf: *mut libc::c_char,
-    pub m_p_text_id: *const libc::c_char,
-    pub m_text_colors: [[u8; 4]; 2],
-    pub m_p_font: *const libc::c_void,
-    pub m_font_size_x: f32,
-    pub m_font_size_y: f32,
-    pub m_line_space: f32,
-    pub m_char_space: f32,
+    pub text_buf: *mut libc::c_char,
+    pub p_text_id: *const libc::c_char,
+    pub text_colors: [[u8; 4]; 2],
+    pub p_font: *const libc::c_void,
+    pub font_size_x: f32,
+    pub font_size_y: f32,
+    pub line_space: f32,
+    pub char_space: f32,
 
     // Actually a union
-    pub m_p_tag_processor: *const libc::c_char,
+    pub p_tag_processor: *const libc::c_char,
 
-    pub m_text_buf_len: u16,
-    pub m_text_len: u16,
+    pub text_buf_len: u16,
+    pub text_len: u16,
 
     // Use TextBoxFlag
-    pub m_bits: u16,
-    pub m_text_position: u8,
+    pub bits: u16,
+    pub text_position: u8,
 
-    pub m_is_utf8: bool,
+    pub is_utf8: bool,
 
-    pub m_italic_ratio: f32,
+    pub italic_ratio: f32,
 
-    pub m_shadow_offset_x: f32,
-    pub m_shadow_offset_y: f32,
-    pub m_shadow_scale_x: f32,
-    pub m_shadow_scale_y: f32,
-    pub m_shadow_top_color: [u8; 4],
-    pub m_shadow_bottom_color: [u8; 4],
-    pub m_shadow_italic_ratio: f32,
+    pub shadow_offset: ResVec2,
+    pub shadow_scale: ResVec2,
+    pub shadow_color: [ResColor; 2],
+    pub shadow_italic_ratio: f32,
 
-    pub m_p_line_width_offset: *const libc::c_void,
+    pub p_line_width_offset: *const libc::c_void,
 
-    pub m_p_material: *mut Material,
-    pub m_p_disp_string_buf: *const libc::c_void,
+    pub p_material: *mut Material,
+    pub p_disp_string_buf: *const libc::c_void,
 
-    pub m_p_per_character_transform: *const libc::c_void,
+    pub p_per_character_transform: *const libc::c_void,
 }
 
 impl TextBox {
     pub fn set_color(&mut self, r: u8, g: u8, b: u8, a: u8) {
         let input_color = [r, g, b, a];
         let mut dirty: bool = false;
-        self.m_text_colors
-            .iter_mut()
-            .for_each(|top_or_bottom_color| {
-                if *top_or_bottom_color != input_color {
-                    dirty = true;
-                }
-                *top_or_bottom_color = input_color;
-            });
+        self.text_colors.iter_mut().for_each(|top_or_bottom_color| {
+            if *top_or_bottom_color != input_color {
+                dirty = true;
+            }
+            *top_or_bottom_color = input_color;
+        });
 
         if dirty {
             self.m_bits |= 1 << TextBoxFlag::IsPTDirty as u8;
@@ -281,23 +276,17 @@ impl TextBox {
         self.set_material_black_color(0.0, 0.0, 0.0, 255.0);
     }
 
-    pub unsafe fn set_text_outline_enabled(&mut self, value: bool) {
+    pub unsafe fn text_outline_enable(&mut self, value: bool) {
         match value {
-            true => self.m_bits = self.m_bits & !(1 << TextBoxFlag::InvisibleBorderEnabled as u8),
-
-            false => self.m_bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8,
-
-            _ => {}
+            true => self.bits &= !(1 << TextBoxFlag::InvisibleBorderEnabled as u8),
+            false => self.bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8,
         }
     }
 
-    pub unsafe fn set_text_shadow_enabled(&mut self, value: bool) {
+    pub unsafe fn text_shadow_enable(&mut self, enabled: bool) {
         match value {
-            true => self.m_bits |= 1 << TextBoxFlag::ShadowEnabled as u8,
-
-            false => self.m_bits = self.m_bits & !(1 << TextBoxFlag::ShadowEnabled as u8),
-
-            _ => {}
+            true => self.bits |= 1 << TextBoxFlag::ShadowEnabled as u8,
+            false => self.bits &= !(1 << TextBoxFlag::ShadowEnabled as u8),
         }
     }
 
@@ -305,16 +294,13 @@ impl TextBox {
         &mut self,
         offset: ResVec2,
         scale: ResVec2,
-        colors: [[u8; 4]; 2],
+        colors: [ResColor; 2],
         italic_ratio: f32,
     ) {
-        self.m_shadow_offset_x = offset.x;
-        self.m_shadow_offset_y = offset.y;
-        self.m_shadow_scale_x = scale.x;
-        self.m_shadow_scale_y = scale.y;
-        self.m_shadow_top_color = colors[0];
-        self.m_shadow_bottom_color = colors[1];
-        self.m_shadow_italic_ratio = italic_ratio;
+        self.shadow_offset = offset;
+        self.shadow_scale = scale;
+        self.shadow_color = colors;
+        self.shadow_italic_ratio = italic_ratio;
     }
 }
 
