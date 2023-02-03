@@ -283,10 +283,7 @@ impl TextBox {
 
     pub unsafe fn set_text_outline_enabled(&mut self, value: bool) {
         match value {
-            true => {
-                self.m_bits |= 1 << text_pane.m_bits =
-                    text_pane.m_bits & !(1 << TextBoxFlag::InvisibleBorderEnabled as u8)
-            }
+            true => self.m_bits = self.m_bits & !(1 << TextBoxFlag::InvisibleBorderEnabled as u8),
 
             false => self.m_bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8,
 
@@ -298,10 +295,7 @@ impl TextBox {
         match value {
             true => self.m_bits |= 1 << TextBoxFlag::ShadowEnabled as u8,
 
-            false => {
-                self.m_bits |= 1 << text_pane.m_bits =
-                    text_pane.m_bits & !(1 << TextBoxFlag::ShadowEnabled as u8)
-            }
+            false => self.m_bits = self.m_bits & !(1 << TextBoxFlag::ShadowEnabled as u8),
 
             _ => {}
         }
@@ -311,7 +305,7 @@ impl TextBox {
         &mut self,
         offset: ResVec2,
         scale: ResVec2,
-        colors: [ResColor; 2],
+        colors: [[u8; 4]; 2],
         italic_ratio: f32,
     ) {
         self.m_shadow_offset_x = offset.x;
