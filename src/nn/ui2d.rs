@@ -294,6 +294,19 @@ impl TextBox {
         }
     }
 
+    pub unsafe fn set_text_shadow_enabled(&mut self, value: bool) {
+        match value {
+            true => self.m_bits |= 1 << TextBoxFlag::ShadowEnabled as u8,
+
+            false => {
+                self.m_bits |= 1 << text_pane.m_bits =
+                    text_pane.m_bits & !(1 << TextBoxFlag::ShadowEnabled as u8)
+            }
+
+            _ => {}
+        }
+    }
+
     pub unsafe fn set_text_shadow(
         &mut self,
         offset: ResVec2,
