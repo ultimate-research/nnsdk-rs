@@ -285,12 +285,29 @@ impl TextBox {
         match value {
             true => {
                 self.m_bits |= 1 << text_pane.m_bits =
-                    text_pane.m_bits & !(1 << TextBoxFlag::InvisibleBorderEnabled as u8);
+                    text_pane.m_bits & !(1 << TextBoxFlag::InvisibleBorderEnabled as u8)
             }
-            false => {
-                self.m_bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8;
-            }
+
+            false => self.m_bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8,
+
+            _ => {}
         }
+    }
+
+    pub unsafe fn set_text_shadow(
+        &mut self,
+        offset: ResVec2,
+        scale: ResVec2,
+        colors: [ResColor; 2],
+        italic_ratio: f32,
+    ) {
+        self.m_shadow_offset_x = offset.x;
+        self.m_shadow_offset_y = offset.y;
+        self.m_shadow_scale_x = scale.x;
+        self.m_shadow_scale_y = scale.y;
+        self.m_shadow_top_color = colors[0];
+        self.m_shadow_bottom_color = colors[1];
+        self.m_shadow_italic_ratio = italic_ratio;
     }
 }
 
