@@ -290,21 +290,21 @@ impl TextBox {
         self.set_material_black_color(0.0, 0.0, 0.0, 255.0);
     }
 
-    pub unsafe fn text_outline_enable(&mut self, enabled: bool) {
+    pub fn text_outline_enable(&mut self, enabled: bool) {
         match enabled {
             true => self.bits &= !(1 << TextBoxFlag::InvisibleBorderEnabled as u8),
             false => self.bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8,
         }
     }
 
-    pub unsafe fn text_shadow_enable(&mut self, enabled: bool) {
+    pub fn text_shadow_enable(&mut self, enabled: bool) {
         match enabled {
             true => self.bits |= 1 << TextBoxFlag::ShadowEnabled as u8,
             false => self.bits &= !(1 << TextBoxFlag::ShadowEnabled as u8),
         }
     }
 
-    pub unsafe fn set_text_shadow(
+    pub fn set_text_shadow(
         &mut self,
         offset: ResVec2,
         scale: ResVec2,
@@ -317,7 +317,7 @@ impl TextBox {
         self.shadow_italic_ratio = italic_ratio;
     }
 
-    pub unsafe fn set_text_alignment(
+    pub fn set_text_alignment(
         &mut self,
         horizontal: HorizontalPosition,
         vertical: VerticalPosition,
