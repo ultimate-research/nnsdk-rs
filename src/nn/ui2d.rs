@@ -203,7 +203,7 @@ pub enum TextBoxFlag {
     PerCharacterTransformOriginToCenter,
     PerCharacterTransformFixSpace,
     LinefeedByCharacterHeightEnabled,
-    PerCharacterTransformSplitByCharWidthInsertSpaceEnabled
+    PerCharacterTransformSplitByCharWidthInsertSpaceEnabled,
 }
 
 #[repr(C)]
@@ -279,6 +279,18 @@ impl TextBox {
     pub unsafe fn set_default_material_colors(&mut self) {
         self.set_material_white_color(255.0, 255.0, 255.0, 255.0);
         self.set_material_black_color(0.0, 0.0, 0.0, 255.0);
+    }
+
+    pub unsafe fn set_text_outline_enabled(&mut self, value: bool) {
+        match value {
+            true => {
+                self.m_bits |= 1 << text_pane.m_bits =
+                    text_pane.m_bits & !(1 << TextBoxFlag::InvisibleBorderEnabled as u8);
+            }
+            false => {
+                self.m_bits |= 1 << TextBoxFlag::InvisibleBorderEnabled as u8;
+            }
+        }
     }
 }
 
@@ -392,11 +404,21 @@ impl Material {
     }
 
     pub fn set_white_res_color(&mut self, white: ResColor) {
-        self.set_white_color(white.r as f32, white.g as f32, white.b as f32, white.a as f32);
+        self.set_white_color(
+            white.r as f32,
+            white.g as f32,
+            white.b as f32,
+            white.a as f32,
+        );
     }
 
     pub fn set_black_res_color(&mut self, black: ResColor) {
-        self.set_black_color(black.r as f32, black.g as f32, black.b as f32, black.a as f32);
+        self.set_black_color(
+            black.r as f32,
+            black.g as f32,
+            black.b as f32,
+            black.a as f32,
+        );
     }
 }
 
