@@ -317,13 +317,13 @@ impl TextBox {
         self.shadow_italic_ratio = italic_ratio;
     }
 
-    pub unsafe fn set_text_alingment(
+    pub unsafe fn set_text_alignment(
         &mut self,
         horizontal: HorizontalPosition,
         vertical: VerticalPosition,
     ) {
         self.text_position =
-            horizontal * HorizontalPosition::MaxHorizontalPosition + VerticalPosition;
+            horizontal as u8 * HorizontalPosition::MaxHorizontalPosition as u8 + vertical as u8;
     }
 }
 
