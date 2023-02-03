@@ -259,16 +259,16 @@ impl TextBox {
         });
 
         if dirty {
-            self.m_bits |= 1 << TextBoxFlag::IsPTDirty as u8;
+            self.bits |= 1 << TextBoxFlag::IsPTDirty as u8;
         }
     }
 
     pub unsafe fn set_material_white_color(&mut self, r: f32, g: f32, b: f32, a: f32) {
-        (*self.m_p_material).set_white_color(r, g, b, a);
+        (*self.p_material).set_white_color(r, g, b, a);
     }
 
     pub unsafe fn set_material_black_color(&mut self, r: f32, g: f32, b: f32, a: f32) {
-        (*self.m_p_material).set_black_color(r, g, b, a);
+        (*self.p_material).set_black_color(r, g, b, a);
     }
 
     pub unsafe fn set_default_material_colors(&mut self) {
