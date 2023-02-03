@@ -206,6 +206,20 @@ pub enum TextBoxFlag {
     PerCharacterTransformSplitByCharWidthInsertSpaceEnabled,
 }
 
+pub enum HorizontalPosition {
+    Center,
+    Left,
+    Right,
+    MaxHorizontalPosition,
+}
+
+pub enum VerticalPosition {
+    Center,
+    Left,
+    Right,
+    MaxVerticalPosition,
+}
+
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct TextBox {
@@ -301,6 +315,15 @@ impl TextBox {
         self.shadow_scale = scale;
         self.shadow_color = colors;
         self.shadow_italic_ratio = italic_ratio;
+    }
+
+    pub unsafe fn set_text_alingment(
+        &mut self,
+        horizontal: HorizontalPosition,
+        vertical: VerticalPosition,
+    ) {
+        self.text_position =
+            horizontal * HorizontalPosition::MaxHorizontalPosition + VerticalPosition;
     }
 }
 
