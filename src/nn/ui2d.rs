@@ -120,12 +120,9 @@ impl Pane {
     }
 
     pub unsafe fn set_visible(&mut self, visible: bool) {
-        if visible {
-            self.alpha = 255;
-            self.global_alpha = 255;
-        } else {
-            self.alpha = 0;
-            self.global_alpha = 0;
+        match visible {
+            true => self.flags |= 1 << PaneFlag::Visible as u8,
+            false => self.flags &= !(1 << PaneFlag::Visible as u8),
         }
     }
 
