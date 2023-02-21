@@ -17,7 +17,7 @@ pub fn count_add_on_content() -> usize{
 
 pub fn list_add_on_content(offset: i32) -> Vec<i32> {
     let count = count_add_on_content();
-    let out = vec![0; count];
+    let mut out = vec![0; count];
     unsafe {
         ListAddOnContent(out.as_mut_ptr(), offset, count)
     }
