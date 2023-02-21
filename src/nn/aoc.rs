@@ -3,10 +3,10 @@ use alloc::{vec, vec::Vec};
 
 extern "C" {
     #[link_name = "\u{1}_ZN2nn3aoc17CountAddOnContentEv"]
-    pub fn CountAddOnContent() -> usize;
+    fn CountAddOnContent() -> usize;
 
     #[link_name = "\u{1}_ZN2nn3aoc16ListAddOnContentEPiii"]
-    pub fn ListAddOnContent(out_indices: *mut i32, offset: i32, count: usize);
+    fn ListAddOnContent(out_indices: *mut i32, offset: i32, count: usize);
 }
 
 pub fn count_add_on_content() -> usize{
