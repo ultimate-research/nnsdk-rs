@@ -1,6 +1,5 @@
-use alloc::{vec, vec::Vec, borrow::ToOwned};
 #[allow(unused_imports)]
-use self::super::root;
+use alloc::{vec, vec::Vec};
 
 extern "C" {
     #[link_name = "\u{1}_ZN2nn3aoc17CountAddOnContentEv"]
