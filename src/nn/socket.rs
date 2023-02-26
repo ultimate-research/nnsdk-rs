@@ -6,6 +6,15 @@ pub struct InAddr {
     pub addr: u32,
 }
 
+#[repr(C)]
+pub struct SockAddrIn {
+    pub sin_len: u8,
+    pub sin_family: u8,
+    pub sin_port: u16,
+    pub sin_addr: [u8;4],
+    pub padding: u64,
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn6socket10InitializeEPvmmi"]
     pub fn Initialize(
@@ -57,11 +66,17 @@ extern "C" {
         arg1: *mut root::nn::socket::InAddr,
     ) -> u32;
 }
+
 extern "C" {
-    #[link_name = "\u{1}_ZN2nn6socket7ConnectEiPK8sockaddrj"]
-    pub fn Connect(socket: root::s32, addr: *const root::sockaddr, addrLen: u32)
-        -> u32;
+    #[link_name = "\u{1}_ZN2nn6socket7ConnectEiPKNS0_8SockAddrEj"]
+    pub fn Connect(socket: i32, sockaddrin: *const SockAddrIn, sockaddr_len: u32) -> i32;
 }
+
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn6socket12GetLastErrorEv"]
+    pub fn GetLastError() -> u32;
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn6socket4BindEiPK8sockaddrj"]
     pub fn Bind(socket: root::s32, addr: *const root::sockaddr, addrLen: u32) -> u32;
@@ -78,3 +93,4 @@ extern "C" {
         addrLenOut: *mut u32,
     ) -> u32;
 }
+
