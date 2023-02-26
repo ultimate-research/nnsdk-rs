@@ -47,7 +47,7 @@ pub struct ConditionVariableType {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct SystemEvent {
-    _unused: [u8; 0x28],
+    pub _unused: [u8; 0x28],
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
