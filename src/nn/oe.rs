@@ -76,6 +76,14 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2oe17GetDisplayVersionEPNS0_14DisplayVersionE"]
     pub fn GetDisplayVersion(arg1: *mut root::nn::oe::DisplayVersion);
 }
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2oe21IsCpuOverclockEnabledEv"]
+    pub fn IsCpuOverclockEnabled() -> bool;
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2oe22SetCpuOverclockEnabledEb"]
+    pub fn SetCpuOverclockEnabled(enabled: bool);
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub enum CpuBoostMode {
