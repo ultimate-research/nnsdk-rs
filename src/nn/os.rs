@@ -1,9 +1,21 @@
 #[allow(unused_imports)]
 use self::super::root;
+use self::detail::*;
 pub mod detail;
 
 pub type Tick = u64;
 pub type LightEventType = u64;
+
+#[repr(C)]
+pub struct SemaphoreType {
+    _multiWaitObjectList: MultiWaitObjectList,
+    _state: u8,
+    _count: i32,
+    _maxCount: i32,
+    _csSemaphore: InternalCriticalSection,
+    _cvNotZero: InternalConditionVariable,
+}
+
 #[repr(C)]
 pub struct EventType {
     pub _x0: *mut root::nn::os::EventType,
@@ -424,6 +436,28 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os10ClearEventEPNS0_9EventTypeE"]
     pub fn ClearEvent(arg1: *mut root::nn::os::EventType);
 }
+
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2os16AcquireSemaphoreEPNS0_13SemaphoreTypeE"]
+    pub fn AcquireSemaphore(
+        arg1: *mut root::nn::os::SemaphoreType,
+    );
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2os16ReleaseSemaphoreEPNS0_13SemaphoreTypeE"]
+    pub fn ReleaseSemaphore(
+        arg1: *mut root::nn::os::SemaphoreType,
+    );
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2os17FinalizeSemaphoreEPNS0_13SemaphoreTypeE"]
+    pub fn FinalizeSemaphore(arg1: *mut root::nn::os::SemaphoreType);
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2os19InitializeSemaphoreEPNS0_13SemaphoreTypeEii"]
+    pub fn InitializeSemaphore(arg1: *mut root::nn::os::SemaphoreType, initial_count: i32, max_count: i32);
+}
+
 #[repr(C)]
 pub struct CpuRegister {
     #[doc = "< 64-bit AArch64 register view."]

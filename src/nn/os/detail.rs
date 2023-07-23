@@ -1,5 +1,11 @@
 #[allow(unused_imports)]
 use self::super::root;
+
+#[repr(C)]
+pub struct MultiWaitObjectList {
+    inner: [*mut (); 2],
+}
+
 #[repr(C)]
 pub struct InternalCriticalSection {
     pub Image: u32,
