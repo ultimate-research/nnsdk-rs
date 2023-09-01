@@ -41,11 +41,13 @@ pub struct NroHeader {
 }
 
 #[repr(C)]
+#[derive(Debug, Default, Clone, Copy)]
 pub struct ProgramId {
     pub value: u64,
 }
 
 #[repr(C)]
+#[derive(Debug, Clone, Copy)]
 pub struct NrrHeader {
     pub magic: u32,
     pub _x4: [u8; 12usize],
