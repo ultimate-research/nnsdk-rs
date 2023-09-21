@@ -69,6 +69,10 @@ extern "C" {
     pub fn FinishStartupLogo();
 }
 extern "C" {
+    #[link_name = "\u{1}_ZN2nn2oe18ReportUserIsActiveEv"]
+    pub fn ReportUserIsActive();
+}
+extern "C" {
     #[link_name = "\u{1}_ZN2nn2oe18GetDesiredLanguageEv"]
     pub fn GetDesiredLanguage() -> root::nn::settings::LanguageCode;
 }
