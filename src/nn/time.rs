@@ -29,7 +29,7 @@ pub const DayOfTheWeek_Saturday: root::nn::time::DayOfTheWeek = 6;
 pub type DayOfTheWeek = u32;
 
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, Default)]
 pub struct TimeZone {
     pub standardTimeName: [u8; 8usize],
     pub _9: bool,
@@ -64,8 +64,8 @@ extern "C" {
 }
 impl StandardUserSystemClock {
     #[inline]
-    pub unsafe fn GetCurrentTime(arg1: *mut root::nn::time::PosixTime) -> root::Result {
-        StandardUserSystemClock_GetCurrentTime(arg1)
+    pub fn GetCurrentTime(arg1: *mut root::nn::time::PosixTime) -> root::Result {
+        unsafe { StandardUserSystemClock_GetCurrentTime(arg1) }
     }
 }
 
@@ -75,12 +75,24 @@ pub struct TimeZoneRule {
     _unused: [u8; 0],
 }
 extern "C" {
-    #[link_name = "\u{1}_ZN2nn4time14ToCalendarTimeEPNS0_12CalendarTimeEPNS0_22CalendarAdditionalInfoERKNS0_9PosixTimeERKNS0_12TimeZoneRuleE"]
+    #[link_name = "\u{1}_ZN2nn4time14ToCalendarTimeEPNS0_12CalendarTimeEPNS0_22CalendarAdditionalInfoERKNS0_9PosixTimeE"]
     pub fn ToCalendarTime(
         arg1: *mut root::nn::time::CalendarTime,
         arg2: *mut root::nn::time::CalendarAdditionalInfo,
         arg3: *const root::nn::time::PosixTime,
-        arg4: *const root::nn::time::TimeZoneRule,
     ) -> root::Result;
+}
+
+pub fn get_calendar_time() -> CalendarTime {
+    let mut calendar = CalendarTime { year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0 };
+
+    let mut calendar_info = CalendarAdditionalInfo { dayOfTheWeek: 0, dayofYear: 0, timeZone: TimeZone::default()};
+
+    let mut posix_time = PosixTime { time: 0 };
+    unsafe { StandardUserSystemClock_GetCurrentTime(&mut posix_time)};
+
+    unsafe { ToCalendarTime(&mut calendar, &mut calendar_info, &posix_time)};
+
+    return calendar;
 }
 
