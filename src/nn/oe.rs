@@ -1,3 +1,5 @@
+use core::ffi::CStr;
+
 use alloc::string::{String, ToString};
 
 #[allow(unused_imports)]
@@ -66,7 +68,7 @@ extern "C" {
 pub fn is_user_inactivity_detection_time_extended() -> bool {
     let result = unsafe { IsUserInactivityDetectionTimeExtended() };
 
-    return result;
+    result
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2oe38SetUserInactivityDetectionTimeExtendedEb"]
@@ -123,9 +125,9 @@ pub fn get_display_version() -> String {
     unsafe {
         GetDisplayVersion(&mut ver);
     }
-    let string = core::str::from_utf8(&ver.name).unwrap();
+    let string = CStr::from_bytes_until_nul(&ver.name).unwrap();
 
-    return string.to_string();
+    return string.to_str().unwrap().to_string();
 }
 
 #[repr(C)]
@@ -149,6 +151,12 @@ extern "C" {
     #[link_name = "_ZN2nn2oe14RestartProgramEPKvm"]
     pub fn RestartProgram(argv: *const u8, argc: u32) -> !;
 }
+
+#[deprecated = "This will be removed in the next major release, please switch to restart_program_no_args()"]
+pub fn RestartProgramNoArgs() -> ! {
+    unsafe { RestartProgram("".as_ptr() as _, 0) }
+}
+
 pub fn restart_program_no_args() -> ! {
     unsafe { RestartProgram("".as_ptr() as _, 0) }
 }
