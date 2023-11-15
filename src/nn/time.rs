@@ -84,7 +84,7 @@ extern "C" {
 }
 
 pub fn get_calendar_time() -> CalendarTime {
-    let do_init = false;
+    let mut do_init = false;
     unsafe {
         if !IsInitialized() {
             do_init = true;
@@ -101,7 +101,7 @@ pub fn get_calendar_time() -> CalendarTime {
     unsafe { ToCalendarTime(&mut calendar, &mut calendar_info, &posix_time)};
 
     if do_init {
-        unsafe { Finalize() }
+        unsafe { Finalize(); }
     }
 
     return calendar;
