@@ -42,13 +42,6 @@ extern "C" {
     );
 }
 
-pub fn decrypt_aes_128_cbc(key: Vec<u8>, iv: Vec<u8>, data: Vec<u8>) -> Vec<u8> {
-    let mut decrypted_data = vec![0; data.len()];
-    unsafe {
-        DecryptAes128Cbc(decrypted_data.as_mut_ptr(), decrypted_data.len() as u64, key.as_ptr(), key.len() as u64, iv.as_ptr(), iv.len() as u64, data.as_ptr(), data.len() as u64)
-    }
-    return decrypted_data;
-}
 
 extern "C" {
     #[link_name = "\u{1}_ZN2nn6crypto16EncryptAes128CbcEPvmPKvmS3_mS3_m"]
@@ -62,14 +55,6 @@ extern "C" {
         decrypted_data: *const u8,
         decrypted_data_len: u64,
     );
-}
-
-pub fn encrypt_aes_128_cbc(key: Vec<u8>, iv: Vec<u8>, data: Vec<u8>) -> Vec<u8> {
-    let mut encrypted_data = vec![0; data.len()];
-    unsafe {
-        EncryptAes128Cbc(encrypted_data.as_mut_ptr(), encrypted_data.len() as u64, key.as_ptr(), key.len() as u64, iv.as_ptr(), iv.len() as u64, data.as_ptr(), data.len() as u64)
-    }
-    return encrypted_data;
 }
 
 

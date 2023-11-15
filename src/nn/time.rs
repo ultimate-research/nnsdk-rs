@@ -3,8 +3,8 @@ use self::super::root;
 extern "C" {
     #[link_name = "\u{1}_ZN2nn4time10InitializeEv"]
     pub fn Initialize() -> root::Result;
-}
-extern "C" {
+    #[link_name = "\u{1}_ZN2nn4time8FinalizeEv"]
+    pub fn Finalize() -> root::Result;
     #[link_name = "\u{1}_ZN2nn4time13IsInitializedEv"]
     pub fn IsInitialized() -> bool;
 }
@@ -84,6 +84,13 @@ extern "C" {
 }
 
 pub fn get_calendar_time() -> CalendarTime {
+    let do_init = false;
+    unsafe {
+        if !IsInitialized() {
+            do_init = true;
+            Initialize();
+        }
+    }
     let mut calendar = CalendarTime { year: 0, month: 0, day: 0, hour: 0, minute: 0, second: 0 };
 
     let mut calendar_info = CalendarAdditionalInfo { dayOfTheWeek: 0, dayofYear: 0, timeZone: TimeZone::default()};
@@ -93,6 +100,9 @@ pub fn get_calendar_time() -> CalendarTime {
 
     unsafe { ToCalendarTime(&mut calendar, &mut calendar_info, &posix_time)};
 
+    if do_init {
+        unsafe { Finalize() }
+    }
+
     return calendar;
 }
-
