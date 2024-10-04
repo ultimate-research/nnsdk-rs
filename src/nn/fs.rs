@@ -13,13 +13,13 @@ pub struct DirectoryEntry {
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct FileHandle {
-    pub handle: *mut u8,
+    pub handle: u64,
 }
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct DirectoryHandle {
-    pub handle: *mut u8,
+    pub handle: u64,
 }
 
 pub const DirectoryEntryType_DirectoryEntryType_Directory:
