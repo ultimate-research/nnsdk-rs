@@ -55,6 +55,12 @@ pub struct FileTimeStamp {
     pub padding: [u8; 7],
 }
 
+impl FileTimeStamp {
+    pub fn new() -> Self {
+        Self::default()
+    }
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn2fs22QueryMountRomCacheSizeEPm"]
     pub fn QueryMountRomCacheSize(size: *mut u64) -> root::Result;
