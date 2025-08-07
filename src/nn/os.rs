@@ -471,15 +471,52 @@ pub struct CpuRegister {
 
 #[doc = " Armv8 NEON register."]
 #[repr(C)]
-#[repr(align(16))]
-pub struct FpuRegister {
-    #[doc = "< 128-bit vector view."]
-    pub v: root::__BindgenUnionField<u128>,
-    #[doc = "< 64-bit double-precision view."]
-    pub d: root::__BindgenUnionField<f64>,
-    #[doc = "< 32-bit single-precision view."]
-    pub s: root::__BindgenUnionField<f32>,
-    pub bindgen_union_field: u128,
+#[derive(Clone, Copy, Debug)]
+pub struct FpuRegister(u128);
+
+impl FpuRegister {
+    pub fn q(self) -> u128 {
+        self.0
+    }
+
+    pub fn d(self) -> f64 {
+        unsafe {
+            *(&self.0 as *const u128 as *const f64)
+        }
+    }
+
+    pub fn s(self) -> f32 {
+        unsafe {
+            *(&self.0 as *const u128 as *const f32)
+        }
+    }
+
+    pub fn set_q(&mut self, q: u128) {
+        self.0 = q;
+    }
+
+    pub fn set_d(&mut self, d: f64) {
+        self.set_d_index(0, d);
+    }
+
+    pub fn set_d_index(&mut self, index: usize, d: f64) {
+        self.set_q(0);
+        unsafe {
+            core::slice::from_raw_parts_mut(self as *mut Self as *mut f64, 2)[index] = d;
+        }
+    }
+
+    pub fn set_s(&mut self, s: f32) {
+        self.set_s_index(0, s);
+
+    }
+
+    pub fn set_s_index(&mut self, index: usize, s: f32) {
+        self.set_q(0);
+        unsafe {
+            core::slice::from_raw_parts_mut(self as *mut Self as *mut f32, 4)[index] = s;
+        }
+    }
 }
 
 #[repr(C)]
