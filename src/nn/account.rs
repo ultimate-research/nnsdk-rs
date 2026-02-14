@@ -14,7 +14,6 @@ impl Nickname {
     }
 }
 
-#[cfg(not(feature = "rustc-dep-of-std"))]
 impl core::fmt::Display for Nickname {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         let mut i = 0;
