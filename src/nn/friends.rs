@@ -72,7 +72,7 @@ impl Profile {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
+        let mut __bindgen_tmp = ::std::mem::MaybeUninit::uninit();
         Profile_Profile(__bindgen_tmp.as_mut_ptr());
         __bindgen_tmp.assume_init()
     }
@@ -120,7 +120,7 @@ impl AsyncContext {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut __bindgen_tmp = ::core::mem::MaybeUninit::uninit();
+        let mut __bindgen_tmp = ::std::mem::MaybeUninit::uninit();
         AsyncContext_AsyncContext(__bindgen_tmp.as_mut_ptr());
         __bindgen_tmp.assume_init()
     }
