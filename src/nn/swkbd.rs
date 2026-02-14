@@ -106,13 +106,13 @@ impl ShowKeyboardArg {
     }
 
     pub fn header_text(&mut self, s: &str) -> &mut Self {
-        let x: Vec<u16> = s.encode_utf16().chain(core::iter::once(0)).collect();
+        let x: Vec<u16> = s.encode_utf16().chain(std::iter::once(0)).collect();
 
         unsafe {
             set_header_text(&self.keyboard_config, x.as_ptr() as _);
         }
 
-        core::mem::drop(x);
+        std::mem::drop(x);
 
         self
     }
