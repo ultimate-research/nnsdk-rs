@@ -62,7 +62,7 @@ impl ApplicationErrorArg {
     }
     #[inline]
     pub unsafe fn new() -> Self {
-        let mut temp = ::core::mem::MaybeUninit::uninit();
+        let mut temp = ::std::mem::MaybeUninit::uninit();
         ApplicationErrorArg_ApplicationErrorArg(temp.as_mut_ptr());
         temp.assume_init()
     }
