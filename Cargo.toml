@@ -10,11 +10,7 @@ documentation = "https://docs.rs/nnsdk"
 [dependencies]
 libc-nnsdk = "0.4.0"
 
-# rustc-dep-of-std
-core = { version = "1.0.0", optional = true, package = "rustc-std-workspace-core" }
-
 [features]
 rustc-dep-of-std = [
     "libc-nnsdk/rustc-dep-of-std",
-    "core",
 ]
