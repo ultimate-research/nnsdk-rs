@@ -3,7 +3,7 @@ use alloc::string::String;
 #[allow(unused_imports)]
 use self::super::root;
 
-use core::ops::{Deref, DerefMut};
+use std::ops::{Deref, DerefMut};
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -111,7 +111,7 @@ impl ResPane {
             "Name of pane must be at most 24 characters"
         );
         unsafe {
-            core::ptr::copy_nonoverlapping(name.as_ptr(), self.name.as_mut_ptr(), name.len());
+            std::ptr::copy_nonoverlapping(name.as_ptr(), self.name.as_mut_ptr(), name.len());
         }
     }
 
