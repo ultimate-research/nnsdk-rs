@@ -1,4 +1,4 @@
-use core::ffi::CStr;
+use std::ffi::CStr;
 
 use alloc::string::{String, ToString};
 
@@ -101,7 +101,7 @@ pub fn get_desired_language() -> String {
 
     let lang_code = unsafe { GetDesiredLanguage() };
 
-    result = core::str::from_utf8(&lang_code.code).unwrap();
+    result = std::str::from_utf8(&lang_code.code).unwrap();
 
     return result.to_string();
 }
