@@ -502,7 +502,7 @@ impl FpuRegister {
     pub fn set_d_index(&mut self, index: usize, d: f64) {
         self.set_q(0);
         unsafe {
-            core::slice::from_raw_parts_mut(self as *mut Self as *mut f64, 2)[index] = d;
+            std::slice::from_raw_parts_mut(self as *mut Self as *mut f64, 2)[index] = d;
         }
     }
 
@@ -514,7 +514,7 @@ impl FpuRegister {
     pub fn set_s_index(&mut self, index: usize, s: f32) {
         self.set_q(0);
         unsafe {
-            core::slice::from_raw_parts_mut(self as *mut Self as *mut f32, 4)[index] = s;
+            std::slice::from_raw_parts_mut(self as *mut Self as *mut f32, 4)[index] = s;
         }
     }
 }
@@ -551,7 +551,7 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os23SetUserExceptionHandlerEPFvPNS0_17UserExceptionInfoEEPvmS2_"]
     #[allow(improper_ctypes)]
     pub fn SetUserExceptionHandler(
-        arg1: ::core::option::Option<
+        arg1: ::std::option::Option<
             unsafe extern "C" fn(arg1: *mut root::nn::os::UserExceptionInfo),
         >,
         arg2: *mut u8,
