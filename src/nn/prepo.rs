@@ -178,7 +178,7 @@ impl PlayReport {
         let buf = Box::leak(buf);
         let buf = Box::new([0u8; 0x4000]);
         let buf = Box::leak(buf);
-        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
+        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: std::ptr::null(), size: 0, position: 0 };
         unsafe { PlayReport_PlayReport(&mut prepo) };
 
         prepo.set_buffer(buf.as_ptr(), 0x4000);
@@ -194,7 +194,7 @@ impl PlayReport {
 
         let buf = Box::new([0u8; 0x4000]);
         let buf = Box::leak(buf);
-        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: core::ptr::null(), size: 0, position: 0 };
+        let mut prepo: PlayReport = PlayReport { event_id: [0;32], buffer: std::ptr::null(), size: 0, position: 0 };
         unsafe { PlayReport_PlayReportWithEventID(&mut prepo, event_id) };
 
         prepo.set_buffer(buf.as_ptr(), 0x4000);
