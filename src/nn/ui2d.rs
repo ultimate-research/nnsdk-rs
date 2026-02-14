@@ -1,7 +1,7 @@
 #[allow(unused_imports)]
 use self::super::root;
 
-use core::ops::{Deref, DerefMut};
+use std::ops::{Deref, DerefMut};
 
 use alloc::string::String;
 
@@ -344,7 +344,7 @@ pub union MaterialColor {
     pub p_float_color: *mut *mut f32,
 }
 
-use core::fmt;
+use std::fmt;
 impl fmt::Debug for MaterialColor {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         unsafe {
