@@ -3,9 +3,6 @@
 #![feature(new_uninit)]
 #![feature(new_zeroed_alloc)]
 
-#[cfg(not(feature = "rustc-dep-of-std"))]
-extern crate alloc;
-
 pub mod extensions;
 pub mod common_types;
 pub mod nn;
