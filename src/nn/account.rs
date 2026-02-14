@@ -14,8 +14,8 @@ impl Nickname {
     }
 }
 
-impl core::fmt::Display for Nickname {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+impl std::fmt::Display for Nickname {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         let mut i = 0;
         while self.0[i] != 0 {
             i += 1;
