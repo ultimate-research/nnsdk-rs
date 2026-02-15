@@ -19,5 +19,4 @@ rustc-dep-of-std = [
     "libc-nnsdk/rustc-dep-of-std",
     "core",
     "alloc",
-    "compiler_builtins"
 ]
