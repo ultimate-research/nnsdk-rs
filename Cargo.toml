@@ -8,8 +8,7 @@ description = "Cleanroom reverse-engineered bindings for nnsdk (Nintendo Switch 
 documentation = "https://docs.rs/nnsdk"
 
 [dependencies]
-libc-nnsdk = "0.4.0"
-
+libc-nnsdk = { git = "https://github.com/Raytwo/libc-nnsdk", branch="core" }
 # rustc-dep-of-std
 core = { version = "1.0.0", optional = true, package = "rustc-std-workspace-core" }
 alloc = { version = "1.0.0", optional = true, package = "rustc-std-workspace-alloc" }
