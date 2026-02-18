@@ -1,6 +1,6 @@
 [package]
 name = "nnsdk"
-version = "0.5.0"
+version = "0.6.0"
 authors = ["jam1garner <jam@jam1.re>"]
 edition = "2018"
 license = "MIT"
@@ -8,17 +8,15 @@ description = "Cleanroom reverse-engineered bindings for nnsdk (Nintendo Switch 
 documentation = "https://docs.rs/nnsdk"
 
 [dependencies]
-libc-nnsdk = "0.4.0"
-
+libc-nnsdk = "0.5.0"
 # rustc-dep-of-std
 core = { version = "1.0.0", optional = true, package = "rustc-std-workspace-core" }
 alloc = { version = "1.0.0", optional = true, package = "rustc-std-workspace-alloc" }
-compiler_builtins = { version = "0.1", optional = true }
+compiler_builtins = { version = "0.1.160", optional = true }
 
 [features]
 rustc-dep-of-std = [
     "libc-nnsdk/rustc-dep-of-std",
     "core",
     "alloc",
-    "compiler_builtins"
 ]
