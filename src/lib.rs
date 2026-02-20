@@ -2,6 +2,7 @@
 #![feature(repr_simd)]
 #![feature(new_uninit)]
 #![feature(new_zeroed_alloc)]
+#![feature(core_intrinsics)]
 
 #[cfg(not(feature = "rustc-dep-of-std"))]
 extern crate alloc;

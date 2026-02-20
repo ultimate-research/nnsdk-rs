@@ -1,11 +1,54 @@
+#[derive(Clone, Copy)]
 #[repr(simd)]
 pub struct Vector3f {
     pub value: [f32;3]
 }
 
+impl Vector3f {
+    pub fn x(self) -> f32 {
+        unsafe {
+            core::intrinsics::simd::simd_extract(self, 0)
+        }
+    }
+    pub fn y(self) -> f32 {
+        unsafe {
+            core::intrinsics::simd::simd_extract(self, 1)
+        }
+    }
+    pub fn z(self) -> f32 {
+        unsafe {
+            core::intrinsics::simd::simd_extract(self, 2)
+        }
+    }
+}
+
+#[derive(Clone, Copy)]
 #[repr(simd)]
 pub struct Vector4f {
     pub value: [f32;4]
+}
+
+impl Vector4f {
+    pub fn x(self) -> f32 {
+        unsafe {
+            core::intrinsics::simd::simd_extract(self, 0)
+        }
+    }
+    pub fn y(self) -> f32 {
+        unsafe {
+            core::intrinsics::simd::simd_extract(self, 1)
+        }
+    }
+    pub fn z(self) -> f32 {
+        unsafe {
+            core::intrinsics::simd::simd_extract(self, 2)
+        }
+    }
+    pub fn w(self) -> f32 {
+        unsafe {
+            core::intrinsics::simd::simd_extract(self, 3)
+        }
+    }
 }
 
 #[allow(unused_imports)]
