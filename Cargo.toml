@@ -1,6 +1,6 @@
 [package]
 name = "nnsdk"
-version = "0.6.0"
+version = "0.6.1"
 authors = ["jam1garner <jam@jam1.re>"]
 edition = "2018"
 license = "MIT"
