@@ -135,6 +135,10 @@ extern "C" {
     #[link_name = "\u{1}_ZN2nn2os18TryWaitSystemEventEPNS0_15SystemEventTypeE"]
     pub fn TryWaitSystemEvent(arg1: *const SystemEventType) -> bool;
 }
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn2os18DestroySystemEventEPNS0_15SystemEventTypeE"]
+    pub fn DestroySystemEvent(arg1: *const SystemEventType);
+}
 #[repr(C)]
 pub struct MutexType {
     pub impl_: root::nnosMutexType,

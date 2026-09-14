@@ -14,12 +14,28 @@ impl OfflineWebSession {
         let session = Self { inner_web_impl };
 
         unsafe {
-            Initialize(&session, inner_web_impl);
+            Initialize(&session, inner_web_impl, web_impl_size);
         }
 
         session
     }
 }
+
+impl Drop for OfflineWebSession {
+    fn drop(&mut self) {
+        unsafe {
+            Finalize(self);
+            let web_impl_size = GetWorkBufferSize();
+            if web_impl_size != 0 {
+                alloc::alloc::dealloc(
+                    self.inner_web_impl as *mut u8,
+                    alloc::alloc::Layout::from_size_align_unchecked(web_impl_size, 1),
+                );
+            }
+        }
+    }
+}
+
 extern "C" {
     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession17GetWorkBufferSizeEv"]
     pub fn GetWorkBufferSize() -> usize;
@@ -29,7 +45,12 @@ extern "C" {
     pub fn Initialize(
         session: *const OfflineWebSession,
         offline_web_impl: *const u8,
+        offline_web_impl_size: usize,
     );
+}
+extern "C" {
+    #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession8FinalizeEv"]
+    pub fn Finalize(session: *const OfflineWebSession);
 }
 extern "C" {
     #[link_name = "\u{1}_ZN2nn3web17OfflineWebSession5StartEPPNS_2os15SystemEventTypeERKNS0_22ShowOfflineHtmlPageArgE"]
